@@ -2,9 +2,9 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div>
+    <header>
       <h1>HSE Checklists</h1>
-    </div>
+    </header>
   );
 };
 
