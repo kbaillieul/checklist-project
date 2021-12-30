@@ -17,6 +17,7 @@ body {
   border: 2px solid;
   padding: 25px;
   border-radius: 10px;
+  font-size: 10px;
 }
 
 .button {
@@ -28,4 +29,8 @@ body {
   border-radius: 5px;
   font-size: 12px;
   font-family: inherit;
+}
+
+label {
+  font-size: 14px;
 }

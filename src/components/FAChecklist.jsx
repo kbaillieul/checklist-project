@@ -23,7 +23,6 @@ const FAChecklist = () => {
             cuts, burns, and chemical damage.
           </label>
           <div></div>
-          OK{" "}
           <input
             onChange={(e) => setWeb(e.target.value)}
             type="radio"
@@ -31,8 +30,7 @@ const FAChecklist = () => {
             name="OK"
             checked={web === "OK"}
           ></input>
-          <div></div>
-          Issue{" "}
+          OK <div></div>
           <input
             onChange={(e) => setWeb(e.target.value)}
             type="radio"
@@ -40,8 +38,7 @@ const FAChecklist = () => {
             name="Issue"
             checked={web === "Issue"}
           ></input>
-          <div></div>
-          N/A{" "}
+          Issue <div></div>
           <input
             onChange={(e) => setWeb(e.target.value)}
             type="radio"
@@ -49,6 +46,7 @@ const FAChecklist = () => {
             name="NA"
             checked={web === "NA"}
           ></input>
+          N/A
         </div>
         <div className="form-control">
           <label>
@@ -57,16 +55,15 @@ const FAChecklist = () => {
             “D” ring back pads should also be inspected for damage.{" "}
           </label>
           <div></div>
-          OK{" "}
           <input
             onChange={(e) => setDRing(e.target.value)}
             type="radio"
             value="OK"
             name="OK"
             checked={dRing === "OK"}
-          ></input>
+          ></input>{" "}
+          OK
           <div></div>
-          Issue{" "}
           <input
             onChange={(e) => setDRing(e.target.value)}
             type="radio"
@@ -74,15 +71,16 @@ const FAChecklist = () => {
             name="Issue"
             checked={dRing === "Issue"}
           ></input>
+          Issue
           <div></div>
-          N/A{" "}
           <input
             onChange={(e) => setDRing(e.target.value)}
             type="radio"
             value="NA"
             name="NA"
             checked={dRing === "NA"}
-          ></input>
+          ></input>{" "}
+          N/A
           <div></div>
         </div>
         <div className="form-control">
@@ -91,7 +89,6 @@ const FAChecklist = () => {
             fiber, or distortion of the buckles
           </label>
           <div></div>
-          OK{" "}
           <input
             onChange={(e) => setBuckles(e.target.value)}
             type="radio"
@@ -99,8 +96,8 @@ const FAChecklist = () => {
             name="OK"
             checked={buckles === "OK"}
           ></input>
+          OK
           <div></div>
-          Issue{" "}
           <input
             onChange={(e) => setBuckles(e.target.value)}
             type="radio"
@@ -108,8 +105,8 @@ const FAChecklist = () => {
             name="Issue"
             checked={buckles === "Issue"}
           ></input>
+          Issue
           <div></div>
-          N/A{" "}
           <input
             onChange={(e) => setBuckles(e.target.value)}
             type="radio"
@@ -117,6 +114,7 @@ const FAChecklist = () => {
             name="NA"
             checked={buckles === "NA"}
           ></input>
+          N/A
         </div>
       </form>
     </div>
