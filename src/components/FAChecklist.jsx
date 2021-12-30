@@ -1,18 +1,43 @@
 import React from "react";
+import { useState } from "react";
 
 const FAChecklist = () => {
+  const [hNum, setHNum] = useState("");
+  const [web, setWeb] = useState("");
   return (
     <div>
       <form className="form">
         <div className="form-control">
           <label>Harness ID Number</label>
-          <input type="text"></input>
+          <input
+            type="text"
+            value={hNum}
+            onChange={(e) => setHNum(e.target.value)}
+          ></input>
         </div>
         <div className="form-control">
-          <label>Webbing</label>
-          <input type="radio" value="OK" name="OK"></input>
-          <input type="radio" value="Issue" name="Issue"></input>
-          <input type="radio" value="NA" name="NA"></input>
+          <label>Webbing </label>
+          OK{" "}
+          <input
+            onChange={(e) => setWeb(e.target.value)}
+            type="radio"
+            value="OK"
+            name="OK"
+          ></input>
+          Issue{" "}
+          <input
+            onChange={(e) => setWeb(e.target.value)}
+            type="radio"
+            value="Issue"
+            name="Issue"
+          ></input>
+          N/A{" "}
+          <input
+            onChange={(e) => setWeb(e.target.value)}
+            type="radio"
+            value="NA"
+            name="NA"
+          ></input>
         </div>
       </form>
     </div>

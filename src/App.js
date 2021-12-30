@@ -2,15 +2,14 @@ import logo from "./logo.svg";
 import "./App.css";
 import FAChecklist from "./components/FAChecklist";
 import Header from "./components/Header";
-import Button from "./components/Button";
+import { useState } from "react";
 
 function App() {
+  const [showFA, setShowFA] = useState(false);
   return (
     <div className="container">
-      <Header />
-      <Button text="Fall Arrest Checklist" />
-      <Button text="Light Vehicle Checklist" />
-      <Button text="Heavy Equipment Checklist" />
+      <Header addFA={() => setShowFA(!showFA)} showFA={showFA} />
+
       <FAChecklist />
     </div>
   );

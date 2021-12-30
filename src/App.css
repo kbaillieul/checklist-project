@@ -20,7 +20,6 @@ body {
 }
 
 .button {
-  display: inline-block;
   background: #00357b;
   color: #fff;
   border: none;
