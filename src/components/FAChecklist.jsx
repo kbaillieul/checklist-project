@@ -23,6 +23,7 @@ const FAChecklist = () => {
             type="radio"
             value="OK"
             name="OK"
+            checked={web === "OK"}
           ></input>
           Issue{" "}
           <input
@@ -30,6 +31,7 @@ const FAChecklist = () => {
             type="radio"
             value="Issue"
             name="Issue"
+            checked={web === "Issue"}
           ></input>
           N/A{" "}
           <input
@@ -37,6 +39,7 @@ const FAChecklist = () => {
             type="radio"
             value="NA"
             name="NA"
+            checked={web === "NA"}
           ></input>
         </div>
       </form>
