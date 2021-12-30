@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 
-const Header = ({ addFA, showFA }) => {
+const Header = ({ addFA }) => {
   return (
     <header>
       <h1>HSE Checklists</h1>

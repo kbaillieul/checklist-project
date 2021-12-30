@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import FAChecklist from "./components/FAChecklist";
 import Header from "./components/Header";
@@ -8,9 +7,9 @@ function App() {
   const [showFA, setShowFA] = useState(false);
   return (
     <div className="container">
-      <Header addFA={() => setShowFA(!showFA)} showFA={showFA} />
+      <Header addFA={() => setShowFA(!showFA)} />
 
-      <FAChecklist />
+      {showFA && <FAChecklist />}
     </div>
   );
 }
