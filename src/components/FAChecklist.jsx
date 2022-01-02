@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 const FAChecklist = () => {
+  // States to hold value of each checklist question
   const [hNum, setHNum] = useState("");
   const [web, setWeb] = useState("");
   const [dRing, setDRing] = useState("");
@@ -14,6 +15,7 @@ const FAChecklist = () => {
           <input
             type="text"
             value={hNum}
+            //when value typed in, hNum state updated to value typed
             onChange={(e) => setHNum(e.target.value)}
           ></input>
         </div>
@@ -28,6 +30,7 @@ const FAChecklist = () => {
             type="radio"
             value="OK"
             name="OK"
+            //control to keep from multiple radio buttons in the same question being checked
             checked={web === "OK"}
           ></input>
           OK <div></div>
