@@ -3,6 +3,9 @@ import { useState } from "react";
 
 const FAChecklist = () => {
   // States to hold value of each checklist question
+  const [name, setName] = useState("");
+  const [location, setLocation] = useState("");
+  const [task, setTask] = useState("");
   const [plan, setPlan] = useState(false);
   const [alone, setAlone] = useState(false);
   const [hNum, setHNum] = useState("");
@@ -13,19 +16,48 @@ const FAChecklist = () => {
     <div>
       <form className="form">
         <div className="form-control">
+          <label>1. Employee Name{"  "}</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          ></input>
+        </div>
+        <div className="form-control">
+          <label>2. Location{"  "}</label>
+          <input
+            type="text"
+            value={location}
+            //when value typed in, hNum state updated to value typed
+            onChange={(e) => setLocation(e.target.value)}
+          ></input>
+          <div className="form-control">
+            <label>3. Task Description{"  "}</label>
+            <input
+              type="text"
+              value={task}
+              //when value typed in, hNum state updated to value typed
+              onChange={(e) => setTask(e.target.value)}
+            ></input>
+          </div>
+        </div>
+        <div className="form-control">
+          <label>
+            4. There is an applicable and realistic rescue plan in place for
+            this work{"  "}
+          </label>
           <input
             type="checkbox"
             value={plan}
             checked={plan}
-            //when value typed in, hNum state updated to value typed
             onChange={(e) => setPlan(e.target.checked)}
           ></input>
-          <label>
-            There is an applicable and realistic rescue plan in place for this
-            work{"  "}
-          </label>
         </div>
         <div className="form-control">
+          <label>
+            5. I am not working alone. Working alone is never permitted in a
+            scenario requiring fall arrest.
+          </label>
           <input
             type="checkbox"
             value={alone}
@@ -33,13 +65,9 @@ const FAChecklist = () => {
             //when value typed in, hNum state updated to value typed
             onChange={(e) => setAlone(e.target.checked)}
           ></input>
-          <label>
-            I am not working alone. Working alone is never permitted in a
-            scenario requiring fall arrest.
-          </label>
         </div>
         <div className="form-control">
-          <label>1. Harness ID Number{"  "}</label>
+          <label>6. Harness ID Number{"  "}</label>
           <input
             type="text"
             value={hNum}
@@ -49,7 +77,7 @@ const FAChecklist = () => {
         </div>
         <div className="form-control">
           <label>
-            2. Webbing - Check for frayed edges, broken fibers, pulled stitches,
+            7. Webbing - Check for frayed edges, broken fibers, pulled stitches,
             cuts, burns, and chemical damage.
           </label>
           <div></div>
@@ -81,7 +109,7 @@ const FAChecklist = () => {
         </div>
         <div className="form-control">
           <label>
-            3. "D" Ring/Back Pads - Check “D” rings for distortion, cracks,
+            8. "D" Ring/Back Pads - Check “D” rings for distortion, cracks,
             breaks, and rough or sharp edges. The “D” ring should pivot freely.
             “D” ring back pads should also be inspected for damage.{" "}
           </label>
@@ -116,7 +144,7 @@ const FAChecklist = () => {
         </div>
         <div className="form-control">
           <label>
-            4. Attachment of Buckles - Note any unusual wear, frayed or cut
+            9. Attachment of Buckles - Note any unusual wear, frayed or cut
             fiber, or distortion of the buckles
           </label>
           <div></div>
