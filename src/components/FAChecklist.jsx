@@ -3,6 +3,8 @@ import { useState } from "react";
 
 const FAChecklist = () => {
   // States to hold value of each checklist question
+  const [plan, setPlan] = useState(false);
+  const [alone, setAlone] = useState(false);
   const [hNum, setHNum] = useState("");
   const [web, setWeb] = useState("");
   const [dRing, setDRing] = useState("");
@@ -10,6 +12,32 @@ const FAChecklist = () => {
   return (
     <div>
       <form className="form">
+        <div className="form-control">
+          <input
+            type="checkbox"
+            value={plan}
+            checked={plan}
+            //when value typed in, hNum state updated to value typed
+            onChange={(e) => setPlan(e.target.checked)}
+          ></input>
+          <label>
+            There is an applicable and realistic rescue plan in place for this
+            work{"  "}
+          </label>
+        </div>
+        <div className="form-control">
+          <input
+            type="checkbox"
+            value={alone}
+            checked={alone}
+            //when value typed in, hNum state updated to value typed
+            onChange={(e) => setAlone(e.target.checked)}
+          ></input>
+          <label>
+            I am not working alone. Working alone is never permitted in a
+            scenario requiring fall arrest.
+          </label>
+        </div>
         <div className="form-control">
           <label>1. Harness ID Number{"  "}</label>
           <input
