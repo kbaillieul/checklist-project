@@ -20,6 +20,7 @@ const FAChecklist = () => {
           <input
             type="text"
             value={name}
+            //when value typed in, name state updated to value typed
             onChange={(e) => setName(e.target.value)}
           ></input>
         </div>
@@ -28,7 +29,6 @@ const FAChecklist = () => {
           <input
             type="text"
             value={location}
-            //when value typed in, hNum state updated to value typed
             onChange={(e) => setLocation(e.target.value)}
           ></input>
           <div className="form-control">
@@ -36,7 +36,6 @@ const FAChecklist = () => {
             <input
               type="text"
               value={task}
-              //when value typed in, hNum state updated to value typed
               onChange={(e) => setTask(e.target.value)}
             ></input>
           </div>
@@ -62,7 +61,6 @@ const FAChecklist = () => {
             type="checkbox"
             value={alone}
             checked={alone}
-            //when value typed in, hNum state updated to value typed
             onChange={(e) => setAlone(e.target.checked)}
           ></input>
         </div>
@@ -71,7 +69,6 @@ const FAChecklist = () => {
           <input
             type="text"
             value={hNum}
-            //when value typed in, hNum state updated to value typed
             onChange={(e) => setHNum(e.target.value)}
           ></input>
         </div>
