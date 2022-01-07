@@ -2,19 +2,68 @@ import React from "react";
 import { useState } from "react";
 
 const FAChecklist = () => {
+  const [fallArrest, setFallArrest] = useState({
+    employeeName: "",
+    location: "",
+    task: "",
+    plan: false,
+    alone: false,
+    idNumber: "",
+    webbing: "",
+    dRing: "",
+  });
   // States to hold value of each checklist question
-  const [name, setName] = useState("");
-  const [location, setLocation] = useState("");
-  const [task, setTask] = useState("");
-  const [plan, setPlan] = useState(false);
-  const [alone, setAlone] = useState(false);
-  const [hNum, setHNum] = useState("");
-  const [web, setWeb] = useState("");
-  const [dRing, setDRing] = useState("");
-  const [buckles, setBuckles] = useState("");
+  // const [name, setName] = useState("");
+  // const [location, setLocation] = useState("");
+  // const [task, setTask] = useState("");
+  // const [plan, setPlan] = useState(false);
+  // const [alone, setAlone] = useState(false);
+  // const [hNum, setHNum] = useState("");
+  // const [web, setWeb] = useState("");
+  // const [dRing, setDRing] = useState("");
+  // const [buckles, setBuckles] = useState("");
   return (
     <div>
-      <form className="form">
+      <label>1. Employee Name</label>
+      <input
+        type="text"
+        value={fallArrest.employeeName}
+        onChange={(e) =>
+          setFallArrest({ ...fallArrest, employeeName: e.target.value })
+        }
+      />
+      <div></div>
+      <label>2. Location</label>
+      <input
+        type="text"
+        value={fallArrest.location}
+        onChange={(e) =>
+          setFallArrest({ ...fallArrest, location: e.target.value })
+        }
+      />
+      <div></div>
+      <label>3. Task Description</label>
+      <input
+        type="text"
+        value={fallArrest.task}
+        onChange={(e) => setFallArrest({ ...fallArrest, task: e.target.value })}
+      />
+      <div></div>
+      <label>
+        4. There is an applicable and realistic rescue plan in place for this
+        work{" "}
+      </label>
+      <input
+        type="checkbox"
+        value={fallArrest.plan}
+        checked={fallArrest.plan}
+        onChange={(e) =>
+          setFallArrest({ ...fallArrest, plan: e.target.checked })
+        }
+      />
+      <div></div>
+
+      {/* <form className="form">
         <div className="form-control">
           <label>1. Employee Name{"  "}</label>
           <input
@@ -172,7 +221,7 @@ const FAChecklist = () => {
           ></input>
           N/A
         </div>
-      </form>
+      </form> */}
     </div>
   );
 };
