@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-
-const FAChecklist = () => {
+import { sendToLocal } from "./local.js";
+const FAChecklist = ({ onSubmit }) => {
   const [fallArrest, setFallArrest] = useState({
     employeeName: "",
     location: "",
@@ -12,11 +12,25 @@ const FAChecklist = () => {
     webbing: "",
     dRing: "",
   });
-
-  const addChecklist = (e) => {
-    const newChecklist = { id: "Fall Arrest", data: { fallArrest } };
-    console.log(newChecklist);
+  const submitChecklist = (e) => {
+    const newChecklist = JSON.stringify({ fallArrest });
+    onSubmit(newChecklist);
+    setFallArrest({
+      employeeName: "",
+      location: "",
+      task: "",
+      plan: false,
+      alone: false,
+      idNumber: "",
+      webbing: "",
+      dRing: "",
+    });
   };
+  // const addChecklist = (e) => {
+  //   const newChecklist = { id: "Fall Arrest", data: { fallArrest } };
+  //   console.log(newChecklist);
+  //   // sendToLocal(newChecklist);
+  // };
   return (
     <div>
       <label>1. Employee Name</label>
@@ -154,7 +168,7 @@ const FAChecklist = () => {
       ></input>
       N/A
       <div>
-        <button className="submit" onClick={addChecklist}>
+        <button className="submit" onClick={submitChecklist}>
           Submit
         </button>
       </div>

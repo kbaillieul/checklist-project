@@ -35,7 +35,9 @@ const LVChecklist = () => {
           setLightVehicle({ ...lightVehicle, type: e.target.value })
         }
       />
-      <div></div>
+      <div>
+        <button className="submit">Submit</button>
+      </div>
     </div>
   );
 };

@@ -33,7 +33,9 @@ const HEChecklist = () => {
         value={heavyEquip.task}
         onChange={(e) => setHeavyEquip({ ...heavyEquip, task: e.target.value })}
       />
-      <div></div>
+      <div>
+        <button className="submit"> Submit</button>
+      </div>
     </div>
   );
 };
