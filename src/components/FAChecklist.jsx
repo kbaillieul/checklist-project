@@ -12,16 +12,7 @@ const FAChecklist = () => {
     webbing: "",
     dRing: "",
   });
-  // States to hold value of each checklist question
-  // const [name, setName] = useState("");
-  // const [location, setLocation] = useState("");
-  // const [task, setTask] = useState("");
-  // const [plan, setPlan] = useState(false);
-  // const [alone, setAlone] = useState(false);
-  // const [hNum, setHNum] = useState("");
-  // const [web, setWeb] = useState("");
-  // const [dRing, setDRing] = useState("");
-  // const [buckles, setBuckles] = useState("");
+
   return (
     <div>
       <label>1. Employee Name</label>
@@ -158,6 +149,9 @@ const FAChecklist = () => {
         checked={fallArrest.dRing === "NA"}
       ></input>
       N/A
+      <div>
+        <button className="submit">Submit</button>
+      </div>
     </div>
   );
 };

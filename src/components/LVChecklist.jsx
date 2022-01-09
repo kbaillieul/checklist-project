@@ -4,8 +4,8 @@ import { useState } from "react";
 const LVChecklist = () => {
   const [lightVehicle, setLightVehicle] = useState({
     employeeName: "",
-    location: "",
-    task: "",
+    idNum: "",
+    type: "",
   });
   return (
     <div>
@@ -18,21 +18,21 @@ const LVChecklist = () => {
         }
       />
       <div></div>
-      <label>2. Location</label>
+      <label>2. Light Vehicle ID Number</label>
       <input
         type="text"
-        value={lightVehicle.location}
+        value={lightVehicle.idNum}
         onChange={(e) =>
-          setLightVehicle({ ...lightVehicle, location: e.target.value })
+          setLightVehicle({ ...lightVehicle, idNum: e.target.value })
         }
       />
       <div></div>
-      <label>3. Task Description</label>
+      <label>3. Inspection Type</label>
       <input
         type="text"
-        value={lightVehicle.task}
+        value={lightVehicle.type}
         onChange={(e) =>
-          setLightVehicle({ ...lightVehicle, task: e.target.value })
+          setLightVehicle({ ...lightVehicle, type: e.target.value })
         }
       />
       <div></div>

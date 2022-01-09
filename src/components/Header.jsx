@@ -4,7 +4,7 @@ import Button from "./Button";
 const Header = ({ addFA, addLV, addHE }) => {
   return (
     <header>
-      <h1>HSE Checklists</h1>
+      <h1>Fall Arrest & Fleet Checklists</h1>
       <div>
         {/* Button text and addFA function passed in as props  */}
         <Button text="Fall Arrest Checklist" onClick={addFA} />
