@@ -13,6 +13,10 @@ const FAChecklist = () => {
     dRing: "",
   });
 
+  const addChecklist = (e) => {
+    const newChecklist = { id: "Fall Arrest", data: { fallArrest } };
+    console.log(newChecklist);
+  };
   return (
     <div>
       <label>1. Employee Name</label>
@@ -150,7 +154,9 @@ const FAChecklist = () => {
       ></input>
       N/A
       <div>
-        <button className="submit">Submit</button>
+        <button className="submit" onClick={addChecklist}>
+          Submit
+        </button>
       </div>
     </div>
   );
