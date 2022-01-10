@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import { sendToLocal } from "./local.js";
+// import { sendToLocal } from "./local.js";
 const FAChecklist = ({ onSubmit }) => {
+  //state that holds checklist responses in an object
   const [fallArrest, setFallArrest] = useState({
     employeeName: "",
     location: "",
@@ -12,6 +13,7 @@ const FAChecklist = ({ onSubmit }) => {
     webbing: "",
     dRing: "",
   });
+  //function called on submit button click that sends object of checklist responses to app.js function addChecklist
   const submitChecklist = (e) => {
     const newChecklist = JSON.stringify({ fallArrest });
     onSubmit(newChecklist);

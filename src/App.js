@@ -7,21 +7,22 @@ import Header from "./components/Header";
 import { useState } from "react";
 
 function App() {
-  //state for whether Fall Arrest Checklist form is visibile or not
+  //state that determined which checklist is visible; 0 for no checklist, 1 for Fall Arrest, 2 for Light Vehicle, 3 for Heavy Equipment
   const [showChecklist, setShowChecklist] = useState(0);
+  //state to hold completed checklists
   const [completedChecklists, setCompletedChecklists] = useState([]);
   const addChecklist = (checklist) => {
     setCompletedChecklists(...completedChecklists, checklist);
   };
   return (
     <div className="container">
-      {/* addFA prop equal to function that changes showFA state to opposite of current state  */}
+      {/* Props pass to header, pass to buttons. Depending on button clicked, setShowChecklist value changes to show checklist selected from buttons */}
       <Header
         addFA={() => setShowChecklist(1)}
         addLV={() => setShowChecklist(2)}
         addHE={() => setShowChecklist(3)}
       />
-      {/* If showFA is true Fall Arrest Checklist visible */}
+      {/* onSubmit prop passed to each checklist. When Submit button clicked, addChecklist function adds completed checklist to list of completed checklists */}
       {showChecklist === 1 && <FAChecklist onSubmit={addChecklist} />}
       {showChecklist === 2 && <LVChecklist onSubmit={addChecklist} />}
       {showChecklist === 3 && <HEChecklist onSubmit={addChecklist} />}
