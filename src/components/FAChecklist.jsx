@@ -4,6 +4,7 @@ import { useState } from "react";
 const FAChecklist = ({ onSubmit }) => {
   //state that holds checklist responses in an object
   const [fallArrest, setFallArrest] = useState({
+    date: "",
     employeeName: "",
     location: "",
     task: "",
@@ -15,9 +16,10 @@ const FAChecklist = ({ onSubmit }) => {
   });
   //function called on submit button click that sends object of checklist responses to app.js function addChecklist
   const submitChecklist = (e) => {
-    const newChecklist = JSON.stringify({ fallArrest });
+    const newChecklist = JSON.stringify(fallArrest);
     onSubmit(newChecklist);
     setFallArrest({
+      date: "",
       employeeName: "",
       location: "",
       task: "",
@@ -35,7 +37,14 @@ const FAChecklist = ({ onSubmit }) => {
   // };
   return (
     <div>
-      <label>1. Employee Name</label>
+      <label>1. Date of Inspection (dd/mm/yyyy)</label>
+      <input
+        type="text"
+        value={fallArrest.date}
+        onChange={(e) => setFallArrest({ ...fallArrest, date: e.target.value })}
+      />
+      <div></div>
+      <label>2. Employee Name</label>
       <input
         type="text"
         value={fallArrest.employeeName}
@@ -44,7 +53,7 @@ const FAChecklist = ({ onSubmit }) => {
         }
       />
       <div></div>
-      <label>2. Location</label>
+      <label>3. Location</label>
       <input
         type="text"
         value={fallArrest.location}
@@ -53,7 +62,7 @@ const FAChecklist = ({ onSubmit }) => {
         }
       />
       <div></div>
-      <label>3. Task Description</label>
+      <label>4. Task Description</label>
       <input
         type="text"
         value={fallArrest.task}
@@ -61,7 +70,7 @@ const FAChecklist = ({ onSubmit }) => {
       />
       <div></div>
       <label>
-        4. There is an applicable and realistic rescue plan in place for this
+        5. There is an applicable and realistic rescue plan in place for this
         work{" "}
       </label>
       <input
@@ -74,7 +83,7 @@ const FAChecklist = ({ onSubmit }) => {
       />
       <div></div>
       <label>
-        5. I am not working alone. Working alone is never permitted in a
+        6. I am not working alone. Working alone is never permitted in a
         scenario requiring fall arrest.{" "}
       </label>
       <input
@@ -86,7 +95,7 @@ const FAChecklist = ({ onSubmit }) => {
         }
       />
       <div></div>
-      <label>6. Harness ID Number</label>
+      <label>7. Harness ID Number</label>
       <input
         type="text"
         value={fallArrest.idNumber}
@@ -96,7 +105,7 @@ const FAChecklist = ({ onSubmit }) => {
       />
       <div></div>
       <label>
-        7. Webbing - Check for frayed edges, broken fibers, pulled stitches,
+        8. Webbing - Check for frayed edges, broken fibers, pulled stitches,
         cuts, burns, and chemical damage.
       </label>
       <div></div>
@@ -133,7 +142,7 @@ const FAChecklist = ({ onSubmit }) => {
       N/A
       <div></div>
       <label>
-        8. "D" Ring/Back Pads - Check “D” rings for distortion, cracks, breaks,
+        9. "D" Ring/Back Pads - Check “D” rings for distortion, cracks, breaks,
         and rough or sharp edges. The “D” ring should pivot freely. “D” ring
         back pads should also be inspected for damage.
       </label>

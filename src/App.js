@@ -12,7 +12,10 @@ function App() {
   //state to hold completed checklists
   const [completedChecklists, setCompletedChecklists] = useState([]);
   const addChecklist = (checklist) => {
+    console.log(checklist);
+    console.log(completedChecklists);
     setCompletedChecklists(...completedChecklists, checklist);
+    console.log(completedChecklists);
   };
   return (
     <div className="container">
