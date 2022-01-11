@@ -1,21 +1,28 @@
 import React from "react";
 import { useState } from "react";
 
-const HEChecklist = () => {
+const HEChecklist = ({ onSubmit }) => {
   const [heavyEquip, setHeavyEquip] = useState({
-    employeeName: "",
+    date: "",
     location: "",
     task: "",
   });
+  const submitChecklist = (e) => {
+    const newChecklist = JSON.stringify(heavyEquip);
+    onSubmit(newChecklist);
+    setHeavyEquip({
+      date: "",
+      location: "",
+      task: "",
+    });
+  };
   return (
     <div>
-      <label>1. Employee Name</label>
+      <label>1. Date</label>
       <input
         type="text"
-        value={heavyEquip.employeeName}
-        onChange={(e) =>
-          setHeavyEquip({ ...heavyEquip, employeeName: e.target.value })
-        }
+        value={heavyEquip.date}
+        onChange={(e) => setHeavyEquip({ ...heavyEquip, date: e.target.value })}
       />
       <div></div>
       <label>2. Location</label>
@@ -34,7 +41,10 @@ const HEChecklist = () => {
         onChange={(e) => setHeavyEquip({ ...heavyEquip, task: e.target.value })}
       />
       <div>
-        <button className="submit"> Submit</button>
+        <button className="submit" onClick={submitChecklist}>
+          {" "}
+          Submit
+        </button>
       </div>
     </div>
   );
