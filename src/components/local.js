@@ -1,3 +1,3 @@
-function sendToLocal(checklist) {
-  localStorage.setItem("fallArrest", JSON.stringify(checklist));
-}
+export const sendToLocal = (type, checklist) => {
+  localStorage.setItem(type, checklist);
+};
