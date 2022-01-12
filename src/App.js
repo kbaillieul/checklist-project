@@ -13,7 +13,6 @@ function App() {
   const [completedChecklists, setCompletedChecklists] = useState([]);
   const addChecklist = (checklist) => {
     setCompletedChecklists([...completedChecklists, checklist]);
-    // localStorage.setItem("fallArrest", completedChecklists);
   };
   return (
     <div className="container">

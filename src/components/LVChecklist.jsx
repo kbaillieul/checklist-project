@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { sendToLocal } from "./local";
 
 const LVChecklist = ({ onSubmit }) => {
   const [lightVehicle, setLightVehicle] = useState({
@@ -7,9 +8,12 @@ const LVChecklist = ({ onSubmit }) => {
     idNum: "",
     type: "",
   });
+  const [submittedLV, setSubmittedLV] = useState([]);
   const submitChecklist = (e) => {
     const newChecklist = JSON.stringify(lightVehicle);
     onSubmit(newChecklist);
+    setSubmittedLV([...submittedLV, newChecklist]);
+    sendToLocal("light vehicle", submittedLV);
     setLightVehicle({
       date: "",
       idNum: "",

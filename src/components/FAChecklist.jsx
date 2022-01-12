@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { sendToLocal } from "./local";
-// import { sendToLocal } from "./local";
 const FAChecklist = ({ onSubmit }) => {
   //state that holds checklist responses in an object
   const [fallArrest, setFallArrest] = useState({
@@ -15,12 +14,14 @@ const FAChecklist = ({ onSubmit }) => {
     webbing: "",
     dRing: "",
   });
+  const [submittedFA, setSubmittedFA] = useState([]);
 
   //function called on submit button click that sends object of checklist responses to app.js function addChecklist
   const submitChecklist = (e) => {
     const newChecklist = JSON.stringify(fallArrest);
     onSubmit(newChecklist);
-    sendToLocal("fall arrest", newChecklist);
+    setSubmittedFA([...submittedFA, newChecklist]);
+    sendToLocal("fall arrest", submittedFA);
     setFallArrest({
       date: "",
       employeeName: "",
@@ -33,11 +34,7 @@ const FAChecklist = ({ onSubmit }) => {
       dRing: "",
     });
   };
-  // const addChecklist = (e) => {
-  //   const newChecklist = { id: "Fall Arrest", data: { fallArrest } };
-  //   console.log(newChecklist);
-  //   // sendToLocal(newChecklist);
-  // };
+
   return (
     <div>
       <label>1. Date of Inspection (dd/mm/yyyy)</label>

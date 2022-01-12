@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { sendToLocal } from "./local";
 
 const HEChecklist = ({ onSubmit }) => {
   const [heavyEquip, setHeavyEquip] = useState({
@@ -7,9 +8,12 @@ const HEChecklist = ({ onSubmit }) => {
     location: "",
     task: "",
   });
+  const [submittedHE, setSubmittedHE] = useState([]);
   const submitChecklist = (e) => {
     const newChecklist = JSON.stringify(heavyEquip);
     onSubmit(newChecklist);
+    setSubmittedHE([...submittedHE, newChecklist]);
+    sendToLocal("heavy equipment", submittedHE);
     setHeavyEquip({
       date: "",
       location: "",
