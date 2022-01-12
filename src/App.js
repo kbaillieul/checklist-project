@@ -11,6 +11,7 @@ function App() {
   const [showChecklist, setShowChecklist] = useState(0);
   //state to hold completed checklists
   const [completedChecklists, setCompletedChecklists] = useState([]);
+  //completed checklists are added to array that holds all submitted checklist data and is sent to Completed.jsx to be displayed
   const addChecklist = (checklist) => {
     setCompletedChecklists([...completedChecklists, checklist]);
   };
