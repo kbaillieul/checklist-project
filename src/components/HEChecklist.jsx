@@ -12,8 +12,9 @@ const HEChecklist = ({ onSubmit }) => {
   const submitChecklist = (e) => {
     const newChecklist = JSON.stringify(heavyEquip);
     onSubmit(newChecklist);
-    setSubmittedHE([...submittedHE, newChecklist]);
-    sendToLocal("heavy equipment", submittedHE);
+    const submitted = [...submittedHE, newChecklist];
+    setSubmittedHE(submitted);
+    sendToLocal("heavy equipment", submitted);
     setHeavyEquip({
       date: "",
       location: "",

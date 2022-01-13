@@ -23,9 +23,10 @@ const FAChecklist = ({ onSubmit }) => {
     //send checklist results to onSubmit function in app.js to be added to completed checklists
     onSubmit(newChecklist);
     //update state to include new checklist results
-    setSubmittedFA([...submittedFA, newChecklist]);
+    const submitted = [...submittedFA, newChecklist];
+    setSubmittedFA(submitted);
     //sendToLocal function in local.js stores checklist data into local storage
-    sendToLocal("fall arrest", submittedFA);
+    sendToLocal("fall arrest", submitted);
     //reset checklist
     setFallArrest({
       date: "",
@@ -120,7 +121,7 @@ const FAChecklist = ({ onSubmit }) => {
         }
         type="radio"
         value="OK"
-        name="OK"
+        name="webOK"
         //control to keep from multiple radio buttons in the same question being checked
         checked={fallArrest.webbing === "OK"}
       ></input>
@@ -131,7 +132,7 @@ const FAChecklist = ({ onSubmit }) => {
         }
         type="radio"
         value="Issue"
-        name="Issue"
+        name="webIssue"
         checked={fallArrest.webbing === "Issue"}
       ></input>
       Issue <div></div>
@@ -141,7 +142,7 @@ const FAChecklist = ({ onSubmit }) => {
         }
         type="radio"
         value="NA"
-        name="NA"
+        name="webNA"
         checked={fallArrest.webbing === "NA"}
       ></input>
       N/A
@@ -158,7 +159,7 @@ const FAChecklist = ({ onSubmit }) => {
         }
         type="radio"
         value="OK"
-        name="OK"
+        name="dRingOK"
         //control to keep from multiple radio buttons in the same question being checked
         checked={fallArrest.dRing === "OK"}
       ></input>
@@ -169,7 +170,7 @@ const FAChecklist = ({ onSubmit }) => {
         }
         type="radio"
         value="Issue"
-        name="Issue"
+        name="dRingIssue"
         checked={fallArrest.dRing === "Issue"}
       ></input>
       Issue <div></div>
@@ -179,7 +180,7 @@ const FAChecklist = ({ onSubmit }) => {
         }
         type="radio"
         value="NA"
-        name="NA"
+        name="dRingNA"
         checked={fallArrest.dRing === "NA"}
       ></input>
       N/A

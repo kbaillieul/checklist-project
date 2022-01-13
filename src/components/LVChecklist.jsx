@@ -12,8 +12,9 @@ const LVChecklist = ({ onSubmit }) => {
   const submitChecklist = (e) => {
     const newChecklist = JSON.stringify(lightVehicle);
     onSubmit(newChecklist);
-    setSubmittedLV([...submittedLV, newChecklist]);
-    sendToLocal("light vehicle", submittedLV);
+    const submitted = [...submittedLV, newChecklist];
+    setSubmittedLV(submitted);
+    sendToLocal("light vehicle", submitted);
     setLightVehicle({
       date: "",
       idNum: "",
