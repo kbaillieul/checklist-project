@@ -31,7 +31,7 @@ const LVChecklist = ({ onSubmit }) => {
           setLightVehicle({ ...lightVehicle, date: e.target.value })
         }
       />
-      <div></div>
+      <br />
       <label>2. Light Vehicle ID Number</label>
       <input
         type="text"
@@ -40,7 +40,7 @@ const LVChecklist = ({ onSubmit }) => {
           setLightVehicle({ ...lightVehicle, idNum: e.target.value })
         }
       />
-      <div></div>
+      <br />
       <label>3. Inspection Type</label>
       <input
         type="text"

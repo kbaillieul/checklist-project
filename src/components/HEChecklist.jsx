@@ -29,7 +29,7 @@ const HEChecklist = ({ onSubmit }) => {
         value={heavyEquip.date}
         onChange={(e) => setHeavyEquip({ ...heavyEquip, date: e.target.value })}
       />
-      <div></div>
+      <br />
       <label>2. Location</label>
       <input
         type="text"
@@ -38,7 +38,7 @@ const HEChecklist = ({ onSubmit }) => {
           setHeavyEquip({ ...heavyEquip, location: e.target.value })
         }
       />
-      <div></div>
+      <br />
       <label>3. Task Description</label>
       <input
         type="text"

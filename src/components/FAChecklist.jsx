@@ -49,7 +49,7 @@ const FAChecklist = ({ onSubmit }) => {
         value={fallArrest.date}
         onChange={(e) => setFallArrest({ ...fallArrest, date: e.target.value })}
       />
-      <div></div>
+      <br />
       <label>2. Employee Name</label>
       <input
         type="text"
@@ -58,7 +58,7 @@ const FAChecklist = ({ onSubmit }) => {
           setFallArrest({ ...fallArrest, employeeName: e.target.value })
         }
       />
-      <div></div>
+      <br />
       <label>3. Location</label>
       <input
         type="text"
@@ -67,14 +67,14 @@ const FAChecklist = ({ onSubmit }) => {
           setFallArrest({ ...fallArrest, location: e.target.value })
         }
       />
-      <div></div>
+      <br />
       <label>4. Task Description</label>
       <input
         type="text"
         value={fallArrest.task}
         onChange={(e) => setFallArrest({ ...fallArrest, task: e.target.value })}
       />
-      <div></div>
+      <br />
       <label>
         5. There is an applicable and realistic rescue plan in place for this
         work{" "}
@@ -87,7 +87,7 @@ const FAChecklist = ({ onSubmit }) => {
           setFallArrest({ ...fallArrest, plan: e.target.checked })
         }
       />
-      <div></div>
+      <br />
       <label>
         6. I am not working alone. Working alone is never permitted in a
         scenario requiring fall arrest.{" "}
@@ -100,7 +100,7 @@ const FAChecklist = ({ onSubmit }) => {
           setFallArrest({ ...fallArrest, alone: e.target.checked })
         }
       />
-      <div></div>
+      <br />
       <label>7. Harness ID Number</label>
       <input
         type="text"
@@ -109,12 +109,12 @@ const FAChecklist = ({ onSubmit }) => {
           setFallArrest({ ...fallArrest, idNumber: e.target.value })
         }
       />
-      <div></div>
+      <br />
       <label>
         8. Webbing - Check for frayed edges, broken fibers, pulled stitches,
         cuts, burns, and chemical damage.
       </label>
-      <div></div>
+      <br />
       <input
         onChange={(e) =>
           setFallArrest({ ...fallArrest, webbing: e.target.value })
@@ -125,7 +125,7 @@ const FAChecklist = ({ onSubmit }) => {
         //control to keep from multiple radio buttons in the same question being checked
         checked={fallArrest.webbing === "OK"}
       ></input>
-      OK <div></div>
+      OK <br />
       <input
         onChange={(e) =>
           setFallArrest({ ...fallArrest, webbing: e.target.value })
@@ -135,7 +135,7 @@ const FAChecklist = ({ onSubmit }) => {
         name="webIssue"
         checked={fallArrest.webbing === "Issue"}
       ></input>
-      Issue <div></div>
+      Issue <br />
       <input
         onChange={(e) =>
           setFallArrest({ ...fallArrest, webbing: e.target.value })
@@ -146,13 +146,13 @@ const FAChecklist = ({ onSubmit }) => {
         checked={fallArrest.webbing === "NA"}
       ></input>
       N/A
-      <div></div>
+      <br />
       <label>
         9. "D" Ring/Back Pads - Check “D” rings for distortion, cracks, breaks,
         and rough or sharp edges. The “D” ring should pivot freely. “D” ring
         back pads should also be inspected for damage.
       </label>
-      <div></div>
+      <br />
       <input
         onChange={(e) =>
           setFallArrest({ ...fallArrest, dRing: e.target.value })
@@ -163,7 +163,7 @@ const FAChecklist = ({ onSubmit }) => {
         //control to keep from multiple radio buttons in the same question being checked
         checked={fallArrest.dRing === "OK"}
       ></input>
-      OK <div></div>
+      OK <br />
       <input
         onChange={(e) =>
           setFallArrest({ ...fallArrest, dRing: e.target.value })
@@ -173,7 +173,7 @@ const FAChecklist = ({ onSubmit }) => {
         name="dRingIssue"
         checked={fallArrest.dRing === "Issue"}
       ></input>
-      Issue <div></div>
+      Issue <br />
       <input
         onChange={(e) =>
           setFallArrest({ ...fallArrest, dRing: e.target.value })
