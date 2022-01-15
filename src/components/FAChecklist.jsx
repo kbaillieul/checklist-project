@@ -14,19 +14,21 @@ const FAChecklist = ({ onSubmit }) => {
     webbing: "",
     dRing: "",
   });
-  //state to hold submitted Fall Arrest checklists
-  const [submittedFA, setSubmittedFA] = useState([]);
+  let submitted = [];
+  // //state to hold submitted Fall Arrest checklists
+  // const [submittedFA, setSubmittedFA] = useState([]);
 
   //function called on submit button click that sends object of checklist responses to app.js function addChecklist
   const submitChecklist = (e) => {
-    const newChecklist = JSON.stringify(fallArrest);
-    //send checklist results to onSubmit function in app.js to be added to completed checklists
-    onSubmit(newChecklist);
-    //update state to include new checklist results
-    const submitted = [...submittedFA, newChecklist];
-    setSubmittedFA(submitted);
+    // const newChecklist = JSON.stringify(fallArrest);
+    // //send checklist results to onSubmit function in app.js to be added to completed checklists
+    // onSubmit(newChecklist);
+    // //update state to include new checklist results
+    submitted = [...submitted, fallArrest];
+    // setSubmittedFA(submitted);
     //sendToLocal function in local.js stores checklist data into local storage
-    sendToLocal("fall arrest", submitted);
+    sendToLocal("fallArrest", submitted);
+    onSubmit();
     //reset checklist
     setFallArrest({
       date: "",
