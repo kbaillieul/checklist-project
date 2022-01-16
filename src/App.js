@@ -9,14 +9,13 @@ import { useState } from "react";
 function App() {
   //state that determined which checklist is visible; 0 for no checklist, 1 for Fall Arrest, 2 for Light Vehicle, 3 for Heavy Equipment
   const [showChecklist, setShowChecklist] = useState(0);
-  let fallArrest = [];
-  //state to hold completed checklists
-  // const [completedChecklists, setCompletedChecklists] = useState([]);
+  const [completed, setCompleted] = useState([]);
+
   //completed checklists are added to array that holds all submitted checklist data and is sent to Completed.jsx to be displayed
   const addChecklist = () => {
     // setCompletedChecklists([...completedChecklists, checklist]);
-    fallArrest = [...fallArrest, localStorage.getItem("fallArrest")];
-    console.log(fallArrest);
+    setCompleted([...completed, localStorage.getItem("fallArrest")]);
+    console.log(completed);
   };
   return (
     <div className="container">
@@ -30,7 +29,7 @@ function App() {
       {showChecklist === 1 && <FAChecklist onSubmit={addChecklist} />}
       {showChecklist === 2 && <LVChecklist onSubmit={addChecklist} />}
       {showChecklist === 3 && <HEChecklist onSubmit={addChecklist} />}
-      {/* <Completed completedChecklists={completedChecklists} /> */}
+      <Completed completedChecklists={completed} />
     </div>
   );
 }
