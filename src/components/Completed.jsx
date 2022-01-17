@@ -2,10 +2,13 @@ import React from "react";
 import List from "./List";
 
 const Completed = ({ completedChecklists }) => {
-  const completedList = completedChecklists.map((checklist) => (
-    <List checklist={checklist} />
-  ));
-  return <div>{completedList}</div>;
+  return (
+    <div>
+      {completedChecklists.map((checklist) => (
+        <List checklist={checklist.date} />
+      ))}
+    </div>
+  );
 };
 
 export default Completed;
