@@ -19,7 +19,7 @@ const FAChecklist = ({ onSubmit }) => {
   const submitChecklist = (e) => {
     //sendToLocal function in local.js stores checklist data into local storage
     sendToLocal("fallArrest", fallArrest);
-
+    onSubmit();
     //reset checklist
     setFallArrest({
       date: "",

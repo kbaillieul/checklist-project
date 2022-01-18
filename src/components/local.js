@@ -3,5 +3,5 @@ export const sendToLocal = (type, checklist) => {
 };
 
 export const submittedFA = () => {
-  const completeFA = localStorage.getItem("fallArrest");
+  localStorage.getItem("fallArrest");
 };

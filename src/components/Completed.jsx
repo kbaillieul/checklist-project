@@ -4,9 +4,10 @@ import List from "./List";
 const Completed = ({ completedChecklists }) => {
   return (
     <div>
-      {completedChecklists.map((checklist) => (
+      {/* {completedChecklists.map((checklist) => (
         <List checklist={checklist.date} />
-      ))}
+      ))} */}
+      {console.log(JSON.stringify(completedChecklists))}
     </div>
   );
 };

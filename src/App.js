@@ -10,7 +10,11 @@ import { submittedFA } from "./components/local";
 function App() {
   //state that determined which checklist is visible; 0 for no checklist, 1 for Fall Arrest, 2 for Light Vehicle, 3 for Heavy Equipment
   const [showChecklist, setShowChecklist] = useState(0);
-
+  const [completed, setCompleted] = useState([]);
+  const refresh = () => {
+    setCompleted(submittedFA());
+    console.log(completed);
+  };
   return (
     <div className="container">
       {/* Props pass to header, pass to buttons. Depending on button clicked, setShowChecklist value changes to show checklist selected from buttons */}
@@ -20,14 +24,8 @@ function App() {
         addHE={() => setShowChecklist(3)}
       />
       {/* onSubmit prop passed to each checklist. When Submit button clicked, addChecklist function adds completed checklist to list of completed checklists */}
-      {showChecklist === 1 && (
-        <FAChecklist
-          onSubmit={() => <Completed completedChecklists={submittedFA} />}
-        />
-      )}
-      {/* // {showChecklist === 2 && <LVChecklist onSubmit={addChecklist} />}
-      // {showChecklist === 3 && <HEChecklist onSubmit={addChecklist} />}
-      // <Completed completedChecklists={submittedFA} /> */}
+      {showChecklist === 1 && <FAChecklist onSubmit={refresh} />}
+      {completed !== undefined && <Completed completedChecklists={completed} />}
     </div>
   );
 }
