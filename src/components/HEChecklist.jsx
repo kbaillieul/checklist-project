@@ -3,23 +3,18 @@ import { useState } from "react";
 import { sendToLocal } from "./local";
 
 const HEChecklist = ({ onSubmit }) => {
-  const [heavyEquip, setHeavyEquip] = useState({
+  const defaultHE = {
     date: "",
     location: "",
     task: "",
-  });
-  const [submittedHE, setSubmittedHE] = useState([]);
+  };
+  const [heavyEquip, setHeavyEquip] = useState(defaultHE);
+
   const submitChecklist = (e) => {
-    // const newChecklist = JSON.stringify(heavyEquip);
-    // onSubmit(newChecklist);
-    // const submitted = [...submittedHE, newChecklist];
-    // setSubmittedHE(submitted);
-    // sendToLocal("heavy equipment", submitted);
-    setHeavyEquip({
-      date: "",
-      location: "",
-      task: "",
-    });
+    //sendToLocal function in local.js stores checklist data into local storage
+    sendToLocal("heavyEquip", heavyEquip);
+    onSubmit();
+    setHeavyEquip(defaultHE);
   };
   return (
     <div>

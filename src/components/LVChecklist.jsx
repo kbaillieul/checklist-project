@@ -3,23 +3,18 @@ import { useState } from "react";
 import { sendToLocal } from "./local";
 
 const LVChecklist = ({ onSubmit }) => {
-  const [lightVehicle, setLightVehicle] = useState({
+  const defaultLV = {
     date: "",
-    idNum: "",
-    type: "",
-  });
-  const [submittedLV, setSubmittedLV] = useState([]);
+    location: "",
+    task: "",
+  };
+  const [lightVehicle, setLightVehicle] = useState(defaultLV);
+
   const submitChecklist = (e) => {
-    // const newChecklist = JSON.stringify(lightVehicle);
-    // onSubmit(newChecklist);
-    // const submitted = [...submittedLV, newChecklist];
-    // // setSubmittedLV(submitted);
-    // sendToLocal("light vehicle", submitted);
-    setLightVehicle({
-      date: "",
-      idNum: "",
-      type: "",
-    });
+    //sendToLocal function in local.js stores checklist data into local storage
+    sendToLocal("lightVehicle", lightVehicle);
+    onSubmit();
+    setLightVehicle(defaultLV);
   };
   return (
     <div>

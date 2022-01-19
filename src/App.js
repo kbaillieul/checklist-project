@@ -12,8 +12,7 @@ function App() {
   const [showChecklist, setShowChecklist] = useState(0);
   const [completed, setCompleted] = useState([]);
   const refresh = () => {
-    setCompleted(submittedFA());
-    return completed;
+    setCompleted(submittedFA(showChecklist));
   };
   return (
     <div className="container">
@@ -25,6 +24,8 @@ function App() {
       />
       {/* onSubmit prop passed to each checklist. When Submit button clicked, addChecklist function adds completed checklist to list of completed checklists */}
       {showChecklist === 1 && <FAChecklist onSubmit={refresh} />}
+      {/* {showChecklist === 2 && <LVChecklist onSubmit={refresh} />}
+      {showChecklist === 3 && <HEChecklist onSubmit={refresh} />} */}
       {completed !== undefined && <Completed completedChecklists={completed} />}
     </div>
   );
