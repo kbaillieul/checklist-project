@@ -1,7 +1,10 @@
+let stored = [];
+
 export const sendToLocal = (type, checklist) => {
-  localStorage.setItem(type, checklist);
+  stored = [localStorage.getItem("fallArrest"), JSON.stringify(checklist)];
+  localStorage.setItem(type, stored);
 };
 
 export const submittedFA = () => {
-  localStorage.getItem("fallArrest");
+  return localStorage.getItem("fallArrest");
 };
