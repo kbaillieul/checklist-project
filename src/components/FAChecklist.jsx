@@ -2,8 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { sendToLocal, submittedFA } from "./local";
 const FAChecklist = ({ onSubmit }) => {
-  //state that holds checklist responses in an object
-  const [fallArrest, setFallArrest] = useState({
+  const defaultFA = {
     date: "",
     employeeName: "",
     location: "",
@@ -13,25 +12,16 @@ const FAChecklist = ({ onSubmit }) => {
     idNumber: "",
     webbing: "",
     dRing: "",
-  });
+  };
+  //state that holds checklist responses in an object
+  const [fallArrest, setFallArrest] = useState(defaultFA);
 
   //function called on submit button click that sends object of checklist responses to app.js function addChecklist
   const submitChecklist = (e) => {
     //sendToLocal function in local.js stores checklist data into local storage
     sendToLocal("fallArrest", fallArrest);
     onSubmit();
-    //reset checklist
-    setFallArrest({
-      date: "",
-      employeeName: "",
-      location: "",
-      task: "",
-      plan: false,
-      alone: false,
-      idNumber: "",
-      webbing: "",
-      dRing: "",
-    });
+    setFallArrest(defaultFA);
   };
 
   return (

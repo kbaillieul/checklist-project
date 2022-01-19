@@ -13,7 +13,7 @@ function App() {
   const [completed, setCompleted] = useState([]);
   const refresh = () => {
     setCompleted(submittedFA());
-    console.log(completed);
+    return completed;
   };
   return (
     <div className="container">
