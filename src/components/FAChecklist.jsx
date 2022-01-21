@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { sendToLocal, submittedFA } from "./local";
+import { sendFAToLocal } from "./local";
 const FAChecklist = ({ onSubmit }) => {
   const defaultFA = {
     date: "",
@@ -19,7 +19,7 @@ const FAChecklist = ({ onSubmit }) => {
   //function called on submit button click that sends object of checklist responses to app.js function addChecklist
   const submitChecklist = (e) => {
     //sendToLocal function in local.js stores checklist data into local storage
-    sendToLocal("fallArrest", fallArrest);
+    sendFAToLocal(fallArrest);
     onSubmit();
     setFallArrest(defaultFA);
   };

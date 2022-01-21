@@ -5,14 +5,14 @@ import HEChecklist from "./components/HEChecklist";
 import Completed from "./components/Completed";
 import Header from "./components/Header";
 import { useState } from "react";
-import { submittedFA } from "./components/local";
+import { getFAFromLocal } from "./components/local";
 
 function App() {
   //state that determined which checklist is visible; 0 for no checklist, 1 for Fall Arrest, 2 for Light Vehicle, 3 for Heavy Equipment
   const [showChecklist, setShowChecklist] = useState(0);
   const [completed, setCompleted] = useState([]);
   const refresh = () => {
-    setCompleted(submittedFA(showChecklist));
+    setCompleted(getFAFromLocal());
   };
   return (
     <div className="container">
@@ -26,7 +26,7 @@ function App() {
       {showChecklist === 1 && <FAChecklist onSubmit={refresh} />}
       {/* {showChecklist === 2 && <LVChecklist onSubmit={refresh} />}
       {showChecklist === 3 && <HEChecklist onSubmit={refresh} />} */}
-      {completed !== undefined && <Completed completedChecklists={completed} />}
+      <Completed completedChecklists={completed} />
     </div>
   );
 }

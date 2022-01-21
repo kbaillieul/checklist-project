@@ -12,7 +12,7 @@ const LVChecklist = ({ onSubmit }) => {
 
   const submitChecklist = (e) => {
     //sendToLocal function in local.js stores checklist data into local storage
-    sendToLocal("lightVehicle", lightVehicle);
+    // sendToLocal("lightVehicle", lightVehicle);
     onSubmit();
     setLightVehicle(defaultLV);
   };

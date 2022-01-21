@@ -12,7 +12,7 @@ const HEChecklist = ({ onSubmit }) => {
 
   const submitChecklist = (e) => {
     //sendToLocal function in local.js stores checklist data into local storage
-    sendToLocal("heavyEquip", heavyEquip);
+    // sendToLocal("heavyEquip", heavyEquip);
     onSubmit();
     setHeavyEquip(defaultHE);
   };
