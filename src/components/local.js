@@ -1,9 +1,10 @@
 export const sendFAToLocal = (checklist) => {
   const list = getFAFromLocal();
+  console.log(list);
   const newValue =
     list === null
-      ? [JSON.stringify(checklist)]
-      : [...list, JSON.stringify(checklist)];
+      ? JSON.stringify(checklist)
+      : JSON.stringify([...list, checklist]);
   localStorage.setItem("fallArrest", newValue);
 };
 export const getFAFromLocal = () => {
