@@ -6,9 +6,9 @@ const Completed = ({ completedChecklists }) => {
   console.log(completedChecklists);
   return (
     <div>
-      {/* {completedChecklists.map((checklist) => (
+      {completedChecklists.map((checklist) => (
         <List checklist={checklist} />
-      ))} */}
+      ))}
     </div>
   );
 };
