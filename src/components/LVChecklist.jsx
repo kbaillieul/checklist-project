@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { sendToLocal } from "./local";
+import { sendLVToLocal } from "./local";
 
 const LVChecklist = ({ onSubmit }) => {
   const defaultLV = {
@@ -12,7 +12,7 @@ const LVChecklist = ({ onSubmit }) => {
 
   const submitChecklist = (e) => {
     //sendToLocal function in local.js stores checklist data into local storage
-    // sendToLocal("lightVehicle", lightVehicle);
+    sendLVToLocal(lightVehicle);
     onSubmit();
     setLightVehicle(defaultLV);
   };

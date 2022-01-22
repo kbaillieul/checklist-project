@@ -5,14 +5,26 @@ import HEChecklist from "./components/HEChecklist";
 import Completed from "./components/Completed";
 import Header from "./components/Header";
 import { useState } from "react";
-import { getFAFromLocal } from "./components/local";
+import {
+  getFAFromLocal,
+  getLVFromLocal,
+  getHEFromLocal,
+} from "./components/local";
 
 function App() {
   //state that determined which checklist is visible; 0 for no checklist, 1 for Fall Arrest, 2 for Light Vehicle, 3 for Heavy Equipment
   const [showChecklist, setShowChecklist] = useState(0);
-  const [completed, setCompleted] = useState([]);
-  const refresh = () => {
-    setCompleted(getFAFromLocal());
+  const [completedFA, setCompletedFA] = useState([]);
+  const [completedLV, setCompletedLV] = useState([]);
+  const [completedHE, setCompletedHE] = useState([]);
+  const refreshFA = () => {
+    setCompletedFA(getFAFromLocal());
+  };
+  const refreshLV = () => {
+    setCompletedLV(getLVFromLocal());
+  };
+  const refreshHE = () => {
+    setCompletedHE(getHEFromLocal());
   };
   return (
     <div className="container">
@@ -23,10 +35,14 @@ function App() {
         addHE={() => setShowChecklist(3)}
       />
       {/* onSubmit prop passed to each checklist. When Submit button clicked, addChecklist function adds completed checklist to list of completed checklists */}
-      {showChecklist === 1 && <FAChecklist onSubmit={refresh} />}
-      {/* {showChecklist === 2 && <LVChecklist onSubmit={refresh} />}
-      {showChecklist === 3 && <HEChecklist onSubmit={refresh} />} */}
-      <Completed completedChecklists={completed} />
+      {showChecklist === 1 && <FAChecklist onSubmit={refreshFA} />}
+      {showChecklist === 2 && <LVChecklist onSubmit={refreshLV} />}
+      {showChecklist === 3 && <HEChecklist onSubmit={refreshHE} />}
+      <Completed
+        completedFA={completedFA}
+        completedLV={completedLV}
+        completedHE={completedHE}
+      />
     </div>
   );
 }

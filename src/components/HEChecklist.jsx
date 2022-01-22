@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { sendToLocal } from "./local";
+import { sendHEToLocal } from "./local";
 
 const HEChecklist = ({ onSubmit }) => {
   const defaultHE = {
@@ -12,7 +12,7 @@ const HEChecklist = ({ onSubmit }) => {
 
   const submitChecklist = (e) => {
     //sendToLocal function in local.js stores checklist data into local storage
-    // sendToLocal("heavyEquip", heavyEquip);
+    sendHEToLocal(heavyEquip);
     onSubmit();
     setHeavyEquip(defaultHE);
   };

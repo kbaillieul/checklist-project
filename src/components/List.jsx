@@ -1,9 +1,11 @@
 import React from "react";
 
-const List = ({ checklist }) => {
+const List = ({ FAChecklist, LVChecklist, HEChecklist }) => {
   return (
     <div>
-      <h2>{checklist.date}</h2>
+      <h2>{FAChecklist.date}</h2>
+      {/* <h2>{LVChecklist.date}</h2>
+      <h2>{HEChecklist.date}</h2> */}
     </div>
   );
 };
