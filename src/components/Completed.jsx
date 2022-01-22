@@ -1,21 +1,21 @@
 import React from "react";
 import List from "./List";
-import { useState } from "react";
 
 const Completed = ({ completedFA, completedLV, completedHE }) => {
-  console.log(completedLV);
-  console.log(completedHE);
   return (
     <div>
-      {completedFA.map((checklist) => (
-        <List FAChecklist={checklist} />
+      <h1>Fall Arrest Checklists</h1>
+      {completedFA.map((FAChecklist) => (
+        <List FAChecklist={FAChecklist} LVChecklist={[]} HEChecklist={[]} />
       ))}
-      {/* {completedLV.map((checklist) => (
-        <List LVChecklist={checklist} />
+      <h1>Light Vehicle Checklists</h1>
+      {completedLV.map((LVChecklist) => (
+        <List LVChecklist={LVChecklist} FAChecklist={[]} HEChecklist={[]} />
       ))}
-      {completedHE.map((checklist) => (
-        <List HEChecklist={checklist} />
-      ))} */}
+      <h1>Heavy Equipment Checklists</h1>
+      {completedHE.map((HEChecklist) => (
+        <List HEChecklist={HEChecklist} LVChecklist={[]} FAChecklist={[]} />
+      ))}
     </div>
   );
 };
