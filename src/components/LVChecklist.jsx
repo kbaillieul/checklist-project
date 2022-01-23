@@ -1,6 +1,8 @@
-import React from "react";
 import { useState } from "react";
 import { sendLVToLocal } from "./local";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 const LVChecklist = ({ onSubmit }) => {
   const defaultLV = {
@@ -18,13 +20,17 @@ const LVChecklist = ({ onSubmit }) => {
   };
   return (
     <div>
-      <label>1. Date</label>
-      <input
+      <label>1. Date of Inspection</label>
+      {/* <input
         type="text"
         value={lightVehicle.date}
         onChange={(e) =>
           setLightVehicle({ ...lightVehicle, date: e.target.value })
         }
+      /> */}
+      <DatePicker
+        selected={lightVehicle.date}
+        onChange={(date) => setLightVehicle({ ...lightVehicle, date: date })}
       />
       <br />
       <label>2. Light Vehicle ID Number</label>

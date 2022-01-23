@@ -1,6 +1,8 @@
-import React from "react";
 import { useState } from "react";
 import { sendHEToLocal } from "./local";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 const HEChecklist = ({ onSubmit }) => {
   const defaultHE = {
@@ -18,11 +20,15 @@ const HEChecklist = ({ onSubmit }) => {
   };
   return (
     <div>
-      <label>1. Date</label>
-      <input
+      <label>1. Date of Inspection</label>
+      {/* <input
         type="text"
         value={heavyEquip.date}
         onChange={(e) => setHeavyEquip({ ...heavyEquip, date: e.target.value })}
+      /> */}
+      <DatePicker
+        selected={heavyEquip.date}
+        onChange={(date) => setHeavyEquip({ ...heavyEquip, date: date })}
       />
       <br />
       <label>2. Location</label>

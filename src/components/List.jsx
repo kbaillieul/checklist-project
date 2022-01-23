@@ -1,5 +1,3 @@
-import React from "react";
-
 const List = ({ FAChecklist, LVChecklist, HEChecklist }) => {
   return (
     <div>

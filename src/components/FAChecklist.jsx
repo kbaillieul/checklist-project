@@ -1,6 +1,8 @@
-import React from "react";
 import { useState } from "react";
 import { sendFAToLocal } from "./local";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 const FAChecklist = ({ onSubmit }) => {
   const defaultFA = {
     date: "",
@@ -26,11 +28,15 @@ const FAChecklist = ({ onSubmit }) => {
 
   return (
     <div>
-      <label>1. Date of Inspection (dd/mm/yyyy)</label>
-      <input
+      <label>1. Date of Inspection</label>
+      {/* <input
         type="text"
         value={fallArrest.date}
         onChange={(e) => setFallArrest({ ...fallArrest, date: e.target.value })}
+      /> */}
+      <DatePicker
+        selected={fallArrest.date}
+        onChange={(date) => setFallArrest({ ...fallArrest, date: date })}
       />
       <br />
       <label>2. Employee Name</label>
