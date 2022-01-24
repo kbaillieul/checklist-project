@@ -14,9 +14,9 @@ import {
 function App() {
   //state that determined which checklist is visible; 0 for no checklist, 1 for Fall Arrest, 2 for Light Vehicle, 3 for Heavy Equipment
   const [showChecklist, setShowChecklist] = useState(0);
-  const [completedFA, setCompletedFA] = useState([]);
-  const [completedLV, setCompletedLV] = useState([]);
-  const [completedHE, setCompletedHE] = useState([]);
+  const [completedFA, setCompletedFA] = useState(getFAFromLocal());
+  const [completedLV, setCompletedLV] = useState(getLVFromLocal());
+  const [completedHE, setCompletedHE] = useState(getHEFromLocal());
   const refreshFA = () => {
     setCompletedFA(getFAFromLocal());
   };
