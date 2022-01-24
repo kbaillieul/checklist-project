@@ -9,6 +9,8 @@ const LVChecklist = ({ onSubmit }) => {
     date: "",
     idNum: "",
     type: "",
+    oil: "",
+    coolant: "",
   };
   const [lightVehicle, setLightVehicle] = useState(defaultLV);
 
@@ -16,7 +18,9 @@ const LVChecklist = ({ onSubmit }) => {
     if (
       lightVehicle.date === "" ||
       lightVehicle.idNum === "" ||
-      lightVehicle.type === ""
+      lightVehicle.type === "" ||
+      lightVehicle.oil === "" ||
+      lightVehicle.coolant === ""
     ) {
       alert("Please complete all questions to submit checklist");
     } else {
@@ -59,6 +63,75 @@ const LVChecklist = ({ onSubmit }) => {
         }
       />
       <div>
+        <br />
+        <label>4. Oil Level</label>
+        <br />
+        <input
+          onChange={(e) =>
+            setLightVehicle({ ...lightVehicle, oil: e.target.value })
+          }
+          type="radio"
+          value="OK"
+          name="oilOK"
+          //control to keep from multiple radio buttons in the same question being checked
+          checked={lightVehicle.oil === "OK"}
+        ></input>
+        OK <br />
+        <input
+          onChange={(e) =>
+            setLightVehicle({ ...lightVehicle, oil: e.target.value })
+          }
+          type="radio"
+          value="Issue"
+          name="oilIssue"
+          checked={lightVehicle.oil === "Issue"}
+        ></input>
+        Issue <br />
+        <input
+          onChange={(e) =>
+            setLightVehicle({ ...lightVehicle, oil: e.target.value })
+          }
+          type="radio"
+          value="NA"
+          name="oilNA"
+          checked={lightVehicle.oil === "NA"}
+        ></input>
+        N/A
+        <br />
+        <label>5. Coolant Level</label>
+        <br />
+        <input
+          onChange={(e) =>
+            setLightVehicle({ ...lightVehicle, coolant: e.target.value })
+          }
+          type="radio"
+          value="OK"
+          name="coolOK"
+          //control to keep from multiple radio buttons in the same question being checked
+          checked={lightVehicle.coolant === "OK"}
+        ></input>
+        OK <br />
+        <input
+          onChange={(e) =>
+            setLightVehicle({ ...lightVehicle, coolant: e.target.value })
+          }
+          type="radio"
+          value="Issue"
+          name="coolantIssue"
+          checked={lightVehicle.coolant === "Issue"}
+        ></input>
+        Issue <br />
+        <input
+          onChange={(e) =>
+            setLightVehicle({ ...lightVehicle, coolant: e.target.value })
+          }
+          type="radio"
+          value="NA"
+          name="coolantNA"
+          checked={lightVehicle.coolant === "NA"}
+        ></input>
+        N/A
+        <br />
         <button className="submit" onClick={submitChecklist}>
           Submit
         </button>

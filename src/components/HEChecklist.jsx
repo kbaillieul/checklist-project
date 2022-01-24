@@ -9,6 +9,8 @@ const HEChecklist = ({ onSubmit }) => {
     date: "",
     location: "",
     task: "",
+    alarm: "",
+    hydraulics: "",
   };
   const [heavyEquip, setHeavyEquip] = useState(defaultHE);
 
@@ -16,7 +18,9 @@ const HEChecklist = ({ onSubmit }) => {
     if (
       heavyEquip.date === "" ||
       heavyEquip.location === "" ||
-      heavyEquip.task === ""
+      heavyEquip.task === "" ||
+      heavyEquip.alarm === "" ||
+      heavyEquip.hydraulics === ""
     ) {
       alert("Please answer all questions to submit checklist");
     } else {
@@ -55,6 +59,74 @@ const HEChecklist = ({ onSubmit }) => {
         onChange={(e) => setHeavyEquip({ ...heavyEquip, task: e.target.value })}
       />
       <div>
+        <label>4. Backup Alarm</label>
+        <br />
+        <input
+          onChange={(e) =>
+            setHeavyEquip({ ...heavyEquip, alarm: e.target.value })
+          }
+          type="radio"
+          value="OK"
+          name="alarmOK"
+          //control to keep from multiple radio buttons in the same question being checked
+          checked={heavyEquip.alarm === "OK"}
+        ></input>
+        OK <br />
+        <input
+          onChange={(e) =>
+            setHeavyEquip({ ...heavyEquip, alarm: e.target.value })
+          }
+          type="radio"
+          value="Issue"
+          name="alarmIssue"
+          checked={heavyEquip.alarm === "Issue"}
+        ></input>
+        Issue <br />
+        <input
+          onChange={(e) =>
+            setHeavyEquip({ ...heavyEquip, alarm: e.target.value })
+          }
+          type="radio"
+          value="NA"
+          name="alarmNA"
+          checked={heavyEquip.alarm === "NA"}
+        ></input>
+        N/A
+        <br />
+        <label>5. Hydraulics</label>
+        <br />
+        <input
+          onChange={(e) =>
+            setHeavyEquip({ ...heavyEquip, hydraulics: e.target.value })
+          }
+          type="radio"
+          value="OK"
+          name="hydraulicsOK"
+          //control to keep from multiple radio buttons in the same question being checked
+          checked={heavyEquip.hydraulics === "OK"}
+        ></input>
+        OK <br />
+        <input
+          onChange={(e) =>
+            setHeavyEquip({ ...heavyEquip, hydraulics: e.target.value })
+          }
+          type="radio"
+          value="Issue"
+          name="hydraulicsIssue"
+          checked={heavyEquip.hydraulics === "Issue"}
+        ></input>
+        Issue <br />
+        <input
+          onChange={(e) =>
+            setHeavyEquip({ ...heavyEquip, hydraulics: e.target.value })
+          }
+          type="radio"
+          value="NA"
+          name="hydraulicsNA"
+          checked={heavyEquip.hydraulics === "NA"}
+        ></input>
+        N/A
+        <br />
         <button className="submit" onClick={submitChecklist}>
           {" "}
           Submit
