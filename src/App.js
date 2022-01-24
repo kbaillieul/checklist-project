@@ -1,9 +1,11 @@
 import "./App.css";
-import FAChecklist from "./components/FAChecklist";
-import LVChecklist from "./components/LVChecklist";
-import HEChecklist from "./components/HEChecklist";
-import Completed from "./components/Completed";
-import Header from "./components/Header";
+import {
+  Header,
+  FAChecklist,
+  LVChecklist,
+  HEChecklist,
+  Completed,
+} from "./components/Index";
 import { useState } from "react";
 import {
   getFAFromLocal,
