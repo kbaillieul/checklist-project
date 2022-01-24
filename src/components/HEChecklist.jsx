@@ -13,10 +13,18 @@ const HEChecklist = ({ onSubmit }) => {
   const [heavyEquip, setHeavyEquip] = useState(defaultHE);
 
   const submitChecklist = (e) => {
-    //sendToLocal function in local.js stores checklist data into local storage
-    sendHEToLocal(heavyEquip);
-    onSubmit();
-    setHeavyEquip(defaultHE);
+    if (
+      heavyEquip.date === "" ||
+      heavyEquip.location === "" ||
+      heavyEquip.task === ""
+    ) {
+      alert("Please answer all questions to submit checklist");
+    } else {
+      //sendToLocal function in local.js stores checklist data into local storage
+      sendHEToLocal(heavyEquip);
+      onSubmit();
+      setHeavyEquip(defaultHE);
+    }
   };
   return (
     <div>

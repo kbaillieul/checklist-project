@@ -7,16 +7,24 @@ import "react-datepicker/dist/react-datepicker.css";
 const LVChecklist = ({ onSubmit }) => {
   const defaultLV = {
     date: "",
-    location: "",
-    task: "",
+    idNum: "",
+    type: "",
   };
   const [lightVehicle, setLightVehicle] = useState(defaultLV);
 
   const submitChecklist = (e) => {
-    //sendToLocal function in local.js stores checklist data into local storage
-    sendLVToLocal(lightVehicle);
-    onSubmit();
-    setLightVehicle(defaultLV);
+    if (
+      lightVehicle.date === "" ||
+      lightVehicle.idNum === "" ||
+      lightVehicle.type === ""
+    ) {
+      alert("Please complete all questions to submit checklist");
+    } else {
+      //sendToLocal function in local.js stores checklist data into local storage
+      sendLVToLocal(lightVehicle);
+      onSubmit();
+      setLightVehicle(defaultLV);
+    }
   };
   return (
     <div>
