@@ -20,10 +20,22 @@ const FAChecklist = ({ onSubmit }) => {
 
   //function called on submit button click that sends object of checklist responses to app.js function addChecklist
   const submitChecklist = (e) => {
-    //sendToLocal function in local.js stores checklist data into local storage
-    sendFAToLocal(fallArrest);
-    onSubmit();
-    setFallArrest(defaultFA);
+    if (
+      fallArrest.date === "" ||
+      fallArrest.employeeName === "" ||
+      fallArrest.location === "" ||
+      fallArrest.task === "" ||
+      fallArrest.idNumber === "" ||
+      fallArrest.webbing === "" ||
+      fallArrest.dRing === ""
+    ) {
+      alert("Please answer all questions to submit checklist");
+    } else {
+      //sendToLocal function in local.js stores checklist data into local storage
+      sendFAToLocal(fallArrest);
+      onSubmit();
+      setFallArrest(defaultFA);
+    }
   };
 
   return (
