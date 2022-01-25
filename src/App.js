@@ -4,7 +4,7 @@ import {
   FAChecklist,
   LVChecklist,
   HEChecklist,
-  Completed,
+  CompletedChecklists,
 } from "./components/Index";
 import { useState } from "react";
 import {
@@ -16,9 +16,11 @@ import {
 function App() {
   //state that determined which checklist is visible; 0 for no checklist, 1 for Fall Arrest, 2 for Light Vehicle, 3 for Heavy Equipment
   const [showChecklist, setShowChecklist] = useState(0);
+  //states to hold completed checklists of each type
   const [completedFA, setCompletedFA] = useState(getFAFromLocal());
   const [completedLV, setCompletedLV] = useState(getLVFromLocal());
   const [completedHE, setCompletedHE] = useState(getHEFromLocal());
+  //On click of submit button in each checklist, refresh function is called to get new checklist values from local storage
   const refreshFA = () => {
     setCompletedFA(getFAFromLocal());
   };
@@ -32,15 +34,16 @@ function App() {
     <div className="container">
       {/* Props pass to header, pass to buttons. Depending on button clicked, setShowChecklist value changes to show checklist selected from buttons */}
       <Header
-        addFA={() => setShowChecklist(1)}
-        addLV={() => setShowChecklist(2)}
-        addHE={() => setShowChecklist(3)}
+        showFAChecklist={() => setShowChecklist(1)}
+        showLVChecklist={() => setShowChecklist(2)}
+        showHEChecklist={() => setShowChecklist(3)}
       />
-      {/* onSubmit prop passed to each checklist. When Submit button clicked, addChecklist function adds completed checklist to list of completed checklists */}
+      {/* onSubmit prop passed to each checklist. When Submit button clicked, refresh function adds completed checklist to list of completed checklists */}
       {showChecklist === 1 && <FAChecklist onSubmit={refreshFA} />}
       {showChecklist === 2 && <LVChecklist onSubmit={refreshLV} />}
       {showChecklist === 3 && <HEChecklist onSubmit={refreshHE} />}
-      <Completed
+      {/* States holding completed checklists passed to CompletedChecklists to be displayed on page */}
+      <CompletedChecklists
         completedFA={completedFA}
         completedLV={completedLV}
         completedHE={completedHE}

@@ -24,7 +24,6 @@ const HEChecklist = ({ onSubmit }) => {
     ) {
       alert("Please answer all questions to submit checklist");
     } else {
-      //sendToLocal function in local.js stores checklist data into local storage
       sendHEToLocal(heavyEquip);
       onSubmit();
       setHeavyEquip(defaultHE);
@@ -102,7 +101,6 @@ const HEChecklist = ({ onSubmit }) => {
           type="radio"
           value="OK"
           name="hydraulicsOK"
-          //control to keep from multiple radio buttons in the same question being checked
           checked={heavyEquip.hydraulics === "OK"}
         ></input>
         OK <br />

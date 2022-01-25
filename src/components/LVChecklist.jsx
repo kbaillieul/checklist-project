@@ -24,7 +24,6 @@ const LVChecklist = ({ onSubmit }) => {
     ) {
       alert("Please complete all questions to submit checklist");
     } else {
-      //sendToLocal function in local.js stores checklist data into local storage
       sendLVToLocal(lightVehicle);
       onSubmit();
       setLightVehicle(defaultLV);

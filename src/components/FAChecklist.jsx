@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { sendFAToLocal } from "./local";
 import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
+
 const FAChecklist = ({ onSubmit }) => {
+  //default FA checklist responses to reset form to
   const defaultFA = {
     date: "",
     employeeName: "",
@@ -18,7 +19,7 @@ const FAChecklist = ({ onSubmit }) => {
   //state that holds checklist responses in an object
   const [fallArrest, setFallArrest] = useState(defaultFA);
 
-  //function called on submit button click that sends object of checklist responses to app.js function addChecklist
+  //function called on submit button click that checks if all questions are answered, sends checklist responses to function to add to local storage, and resets checklist
   const submitChecklist = (e) => {
     if (
       fallArrest.date === "" ||
@@ -31,9 +32,11 @@ const FAChecklist = ({ onSubmit }) => {
     ) {
       alert("Please answer all questions to submit checklist");
     } else {
-      //sendToLocal function in local.js stores checklist data into local storage
+      //sendFAToLocal function in local.js stores checklist data into local storage
       sendFAToLocal(fallArrest);
+      //call to refreshFA function in app.js to updated completed checklists
       onSubmit();
+      //reset to default
       setFallArrest(defaultFA);
     }
   };
