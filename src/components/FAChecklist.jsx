@@ -126,7 +126,6 @@ const FAChecklist = ({ onSubmit }) => {
         }
         type="radio"
         value="OK"
-        name="webOK"
         //control to keep from multiple radio buttons in the same question being checked
         checked={fallArrest.webbing === "OK"}
       ></input>
@@ -137,7 +136,6 @@ const FAChecklist = ({ onSubmit }) => {
         }
         type="radio"
         value="Issue"
-        name="webIssue"
         checked={fallArrest.webbing === "Issue"}
       ></input>
       Issue <br />
@@ -147,7 +145,6 @@ const FAChecklist = ({ onSubmit }) => {
         }
         type="radio"
         value="NA"
-        name="webNA"
         checked={fallArrest.webbing === "NA"}
       ></input>
       N/A
@@ -164,7 +161,6 @@ const FAChecklist = ({ onSubmit }) => {
         }
         type="radio"
         value="OK"
-        name="dRingOK"
         //control to keep from multiple radio buttons in the same question being checked
         checked={fallArrest.dRing === "OK"}
       ></input>
@@ -175,7 +171,6 @@ const FAChecklist = ({ onSubmit }) => {
         }
         type="radio"
         value="Issue"
-        name="dRingIssue"
         checked={fallArrest.dRing === "Issue"}
       ></input>
       Issue <br />
@@ -185,7 +180,6 @@ const FAChecklist = ({ onSubmit }) => {
         }
         type="radio"
         value="NA"
-        name="dRingNA"
         checked={fallArrest.dRing === "NA"}
       ></input>
       N/A

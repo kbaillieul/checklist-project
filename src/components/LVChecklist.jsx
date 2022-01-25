@@ -71,7 +71,6 @@ const LVChecklist = ({ onSubmit }) => {
           }
           type="radio"
           value="OK"
-          name="oilOK"
           //control to keep from multiple radio buttons in the same question being checked
           checked={lightVehicle.oil === "OK"}
         ></input>
@@ -82,7 +81,6 @@ const LVChecklist = ({ onSubmit }) => {
           }
           type="radio"
           value="Issue"
-          name="oilIssue"
           checked={lightVehicle.oil === "Issue"}
         ></input>
         Issue <br />
@@ -92,7 +90,6 @@ const LVChecklist = ({ onSubmit }) => {
           }
           type="radio"
           value="NA"
-          name="oilNA"
           checked={lightVehicle.oil === "NA"}
         ></input>
         N/A
@@ -105,7 +102,6 @@ const LVChecklist = ({ onSubmit }) => {
           }
           type="radio"
           value="OK"
-          name="coolOK"
           //control to keep from multiple radio buttons in the same question being checked
           checked={lightVehicle.coolant === "OK"}
         ></input>
@@ -116,7 +112,6 @@ const LVChecklist = ({ onSubmit }) => {
           }
           type="radio"
           value="Issue"
-          name="coolantIssue"
           checked={lightVehicle.coolant === "Issue"}
         ></input>
         Issue <br />
@@ -126,7 +121,6 @@ const LVChecklist = ({ onSubmit }) => {
           }
           type="radio"
           value="NA"
-          name="coolantNA"
           checked={lightVehicle.coolant === "NA"}
         ></input>
         N/A

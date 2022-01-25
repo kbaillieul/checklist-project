@@ -66,7 +66,6 @@ const HEChecklist = ({ onSubmit }) => {
           }
           type="radio"
           value="OK"
-          name="alarmOK"
           //control to keep from multiple radio buttons in the same question being checked
           checked={heavyEquip.alarm === "OK"}
         ></input>
@@ -77,7 +76,6 @@ const HEChecklist = ({ onSubmit }) => {
           }
           type="radio"
           value="Issue"
-          name="alarmIssue"
           checked={heavyEquip.alarm === "Issue"}
         ></input>
         Issue <br />
@@ -87,7 +85,6 @@ const HEChecklist = ({ onSubmit }) => {
           }
           type="radio"
           value="NA"
-          name="alarmNA"
           checked={heavyEquip.alarm === "NA"}
         ></input>
         N/A
@@ -100,7 +97,6 @@ const HEChecklist = ({ onSubmit }) => {
           }
           type="radio"
           value="OK"
-          name="hydraulicsOK"
           checked={heavyEquip.hydraulics === "OK"}
         ></input>
         OK <br />
@@ -110,7 +106,6 @@ const HEChecklist = ({ onSubmit }) => {
           }
           type="radio"
           value="Issue"
-          name="hydraulicsIssue"
           checked={heavyEquip.hydraulics === "Issue"}
         ></input>
         Issue <br />
@@ -120,7 +115,6 @@ const HEChecklist = ({ onSubmit }) => {
           }
           type="radio"
           value="NA"
-          name="hydraulicsNA"
           checked={heavyEquip.hydraulics === "NA"}
         ></input>
         N/A
