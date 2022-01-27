@@ -51,6 +51,7 @@ const FAChecklist = ({ onSubmit }) => {
       /> */}
       <DatePicker
         selected={fallArrest.date}
+        showTimeSelect
         onChange={(date) => setFallArrest({ ...fallArrest, date: date })}
       />
       <br />
