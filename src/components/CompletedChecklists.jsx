@@ -1,31 +1,21 @@
-import CompletedChecklistsList from "./CompletedChecklistsList";
+import CompletedFAChecklists from "./CompletedFAChecklists";
+import CompletedLVChecklists from "./CompletedLVChecklists";
+import CompletedHEChecklists from "./CompletedHEChecklists";
 
 const CompletedChecklists = ({ completedFA, completedLV, completedHE }) => {
   return (
     <div>
       <h1>Fall Arrest Checklists</h1>
       {completedFA.map((FAChecklist) => (
-        <CompletedChecklistsList
-          FAChecklist={FAChecklist}
-          LVChecklist={[]}
-          HEChecklist={[]}
-        />
+        <CompletedFAChecklists FAChecklist={FAChecklist} />
       ))}
       <h1>Light Vehicle Checklists</h1>
       {completedLV.map((LVChecklist) => (
-        <CompletedChecklistsList
-          LVChecklist={LVChecklist}
-          FAChecklist={[]}
-          HEChecklist={[]}
-        />
+        <CompletedLVChecklists LVChecklist={LVChecklist} />
       ))}
       <h1>Heavy Equipment Checklists</h1>
       {completedHE.map((HEChecklist) => (
-        <CompletedChecklistsList
-          HEChecklist={HEChecklist}
-          LVChecklist={[]}
-          FAChecklist={[]}
-        />
+        <CompletedHEChecklists HEChecklist={HEChecklist} />
       ))}
     </div>
   );

@@ -1,4 +1,6 @@
 const CompletedChecklistsList = ({ FAChecklist, LVChecklist, HEChecklist }) => {
+  const dateString = new Date(FAChecklist.date);
+  console.log(dateString.toDateString());
   return (
     <div>
       {FAChecklist !== [] && <ol>{FAChecklist.date}</ol>}
