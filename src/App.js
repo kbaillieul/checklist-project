@@ -38,6 +38,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Header />} />
           <Route path="/fallarrest" element={<FAMain />} />
+          <Route path="/newfallarrest" element={<FAChecklist />} />
         </Routes>
       </Router>
 
