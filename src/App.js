@@ -6,6 +6,8 @@ import {
   HEChecklist,
   CompletedChecklists,
   FAMain,
+  LVMain,
+  HEMain,
 } from "./components/Index";
 import { useState } from "react";
 import {
@@ -20,18 +22,18 @@ function App() {
   // const [showChecklist, setShowChecklist] = useState(0);
   // //states to hold completed checklists of each type
   const [completedFA, setCompletedFA] = useState(getFAFromLocal());
-  // const [completedLV, setCompletedLV] = useState(getLVFromLocal());
-  // const [completedHE, setCompletedHE] = useState(getHEFromLocal());
+  const [completedLV, setCompletedLV] = useState(getLVFromLocal());
+  const [completedHE, setCompletedHE] = useState(getHEFromLocal());
   // //On click of submit button in each checklist, refresh function is called to get new checklist values from local storage
   const refreshFA = () => {
     setCompletedFA(getFAFromLocal());
   };
-  // const refreshLV = () => {
-  //   setCompletedLV(getLVFromLocal());
-  // };
-  // const refreshHE = () => {
-  //   setCompletedHE(getHEFromLocal());
-  // };
+  const refreshLV = () => {
+    setCompletedLV(getLVFromLocal());
+  };
+  const refreshHE = () => {
+    setCompletedHE(getHEFromLocal());
+  };
   return (
     <div className="container">
       <Router>
@@ -44,6 +46,22 @@ function App() {
           <Route
             path="/newfallarrest"
             element={<FAChecklist onSubmit={refreshFA} />}
+          />
+          <Route
+            path="/lightvehicle"
+            element={<LVMain completedLV={completedLV} />}
+          />
+          <Route
+            path="/newlightvehicle"
+            element={<LVChecklist onSubmit={refreshLV} />}
+          />
+          <Route
+            path="/heavyequipment"
+            element={<HEMain completedHE={completedHE} />}
+          />
+          <Route
+            path="/newheavyequipment"
+            element={<HEChecklist onSubmit={refreshHE} />}
           />
         </Routes>
       </Router>

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { sendHEToLocal } from "./local";
 import DatePicker from "react-datepicker";
+import { useNavigate } from "react-router-dom";
 
 import "react-datepicker/dist/react-datepicker.css";
 
 const HEChecklist = ({ onSubmit }) => {
+  const navigate = useNavigate();
   const defaultHE = {
     date: "",
     location: "",
@@ -27,6 +29,7 @@ const HEChecklist = ({ onSubmit }) => {
       sendHEToLocal(heavyEquip);
       onSubmit();
       setHeavyEquip(defaultHE);
+      navigate("/heavyequipment");
     }
   };
   return (
@@ -39,6 +42,7 @@ const HEChecklist = ({ onSubmit }) => {
       /> */}
       <DatePicker
         selected={heavyEquip.date}
+        showTimeSelect
         onChange={(date) => setHeavyEquip({ ...heavyEquip, date: date })}
       />
       <br />

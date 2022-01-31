@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { sendLVToLocal } from "./local";
 import DatePicker from "react-datepicker";
+import { useNavigate } from "react-router-dom";
 
 import "react-datepicker/dist/react-datepicker.css";
 
 const LVChecklist = ({ onSubmit }) => {
+  const navigate = useNavigate();
   const defaultLV = {
     date: "",
     idNum: "",
@@ -27,6 +29,7 @@ const LVChecklist = ({ onSubmit }) => {
       sendLVToLocal(lightVehicle);
       onSubmit();
       setLightVehicle(defaultLV);
+      navigate("/lightvehicle");
     }
   };
   return (
@@ -41,6 +44,7 @@ const LVChecklist = ({ onSubmit }) => {
       /> */}
       <DatePicker
         selected={lightVehicle.date}
+        showTimeSelect
         onChange={(date) => setLightVehicle({ ...lightVehicle, date: date })}
       />
       <br />

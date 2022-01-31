@@ -6,14 +6,20 @@ const Header = ({ showFAChecklist, showLVChecklist, showHEChecklist }) => {
   const FAClick = (e) => {
     navigate("/fallarrest");
   };
+  const LVClick = (e) => {
+    navigate("/lightvehicle");
+  };
+  const HEClick = (e) => {
+    navigate("/heavyequipment");
+  };
   return (
     <header>
       <h1>Fall Arrest & Fleet Checklists</h1>
       <div>
         {/* Button text and addFA function passed in as props  */}
         <Button text="Fall Arrest Checklist" onClick={FAClick} />
-        <Button text="Light Vehicle Checklist" onClick={showLVChecklist} />
-        <Button text="Heavy Equipment Checklist" onClick={showHEChecklist} />
+        <Button text="Light Vehicle Checklist" onClick={LVClick} />
+        <Button text="Heavy Equipment Checklist" onClick={HEClick} />
       </div>
     </header>
   );
