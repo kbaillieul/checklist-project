@@ -2,8 +2,10 @@ import { useState } from "react";
 import { sendFAToLocal } from "./local";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useNavigate } from "react-router-dom";
 
 const FAChecklist = ({ onSubmit }) => {
+  const navigate = useNavigate();
   //default FA checklist responses to reset form to
   const defaultFA = {
     date: "",
@@ -38,6 +40,7 @@ const FAChecklist = ({ onSubmit }) => {
       onSubmit();
       //reset to default
       setFallArrest(defaultFA);
+      navigate("/fallarrest");
     }
   };
 

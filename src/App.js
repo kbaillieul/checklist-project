@@ -19,13 +19,13 @@ function App() {
   // //state that determined which checklist is visible; 0 for no checklist, 1 for Fall Arrest, 2 for Light Vehicle, 3 for Heavy Equipment
   // const [showChecklist, setShowChecklist] = useState(0);
   // //states to hold completed checklists of each type
-  // const [completedFA, setCompletedFA] = useState(getFAFromLocal());
+  const [completedFA, setCompletedFA] = useState(getFAFromLocal());
   // const [completedLV, setCompletedLV] = useState(getLVFromLocal());
   // const [completedHE, setCompletedHE] = useState(getHEFromLocal());
   // //On click of submit button in each checklist, refresh function is called to get new checklist values from local storage
-  // const refreshFA = () => {
-  //   setCompletedFA(getFAFromLocal());
-  // };
+  const refreshFA = () => {
+    setCompletedFA(getFAFromLocal());
+  };
   // const refreshLV = () => {
   //   setCompletedLV(getLVFromLocal());
   // };
@@ -37,8 +37,14 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Header />} />
-          <Route path="/fallarrest" element={<FAMain />} />
-          <Route path="/newfallarrest" element={<FAChecklist />} />
+          <Route
+            path="/fallarrest"
+            element={<FAMain completedFA={completedFA} />}
+          />
+          <Route
+            path="/newfallarrest"
+            element={<FAChecklist onSubmit={refreshFA} />}
+          />
         </Routes>
       </Router>
 
