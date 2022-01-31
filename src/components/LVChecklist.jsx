@@ -2,12 +2,13 @@ import { useState } from "react";
 import { sendLVToLocal } from "./local";
 import DatePicker from "react-datepicker";
 import { useNavigate } from "react-router-dom";
-
+import { v4 as uuidv4 } from "uuid";
 import "react-datepicker/dist/react-datepicker.css";
 
 const LVChecklist = ({ onSubmit }) => {
   const navigate = useNavigate();
   const defaultLV = {
+    key: "",
     date: "",
     idNum: "",
     type: "",
@@ -26,6 +27,7 @@ const LVChecklist = ({ onSubmit }) => {
     ) {
       alert("Please complete all questions to submit checklist");
     } else {
+      lightVehicle.key = uuidv4();
       sendLVToLocal(lightVehicle);
       onSubmit();
       setLightVehicle(defaultLV);

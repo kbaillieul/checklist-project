@@ -3,11 +3,13 @@ import { sendFAToLocal } from "./local";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 const FAChecklist = ({ onSubmit }) => {
   const navigate = useNavigate();
   //default FA checklist responses to reset form to
   const defaultFA = {
+    key: "",
     date: "",
     employeeName: "",
     location: "",
@@ -34,6 +36,7 @@ const FAChecklist = ({ onSubmit }) => {
     ) {
       alert("Please answer all questions to submit checklist");
     } else {
+      fallArrest.key = uuidv4();
       //sendFAToLocal function in local.js stores checklist data into local storage
       sendFAToLocal(fallArrest);
       //call to refreshFA function in app.js to updated completed checklists

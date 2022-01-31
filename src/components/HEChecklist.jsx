@@ -2,12 +2,13 @@ import { useState } from "react";
 import { sendHEToLocal } from "./local";
 import DatePicker from "react-datepicker";
 import { useNavigate } from "react-router-dom";
-
+import { v4 as uuidv4 } from "uuid";
 import "react-datepicker/dist/react-datepicker.css";
 
 const HEChecklist = ({ onSubmit }) => {
   const navigate = useNavigate();
   const defaultHE = {
+    key: "",
     date: "",
     location: "",
     task: "",
@@ -26,6 +27,7 @@ const HEChecklist = ({ onSubmit }) => {
     ) {
       alert("Please answer all questions to submit checklist");
     } else {
+      heavyEquip.key = uuidv4();
       sendHEToLocal(heavyEquip);
       onSubmit();
       setHeavyEquip(defaultHE);
