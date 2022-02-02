@@ -15,7 +15,7 @@ const Header = ({ showFAChecklist, showLVChecklist, showHEChecklist }) => {
   };
   return (
     <header>
-      {/* <Navbar /> */}
+      <Navbar />
       <h1>Fall Arrest & Fleet Checklists</h1>
       <div>
         {/* Button text and addFA function passed in as props  */}

@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import "react-datepicker/dist/react-datepicker.css";
+import Navbar from "./Navbar";
 
 const HEChecklist = ({ onSubmit }) => {
   const navigate = useNavigate();
@@ -36,6 +37,7 @@ const HEChecklist = ({ onSubmit }) => {
   };
   return (
     <div>
+      <Navbar />
       <label>1. Date of Inspection</label>
       {/* <input
         type="text"
