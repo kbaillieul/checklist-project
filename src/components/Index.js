@@ -6,3 +6,4 @@ export { default as CompletedChecklists } from "./CompletedChecklists";
 export { default as FAMain } from "./FAMain";
 export { default as LVMain } from "./LVMain";
 export { default as HEMain } from "./HEMain";
+export { default as FAChecklistDetails } from "./FAChecklistDetails";

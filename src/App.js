@@ -8,6 +8,7 @@ import {
   FAMain,
   LVMain,
   HEMain,
+  FAChecklistDetails,
 } from "./components/Index";
 import { useState } from "react";
 import {
@@ -42,7 +43,9 @@ function App() {
           <Route
             path="/fallarrest"
             element={<FAMain completedFA={completedFA} />}
-          />
+          >
+            <Route path=":key" element={<FAChecklistDetails />} />
+          </Route>
           <Route
             path="/newfallarrest"
             element={<FAChecklist onSubmit={refreshFA} />}
