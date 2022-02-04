@@ -8,6 +8,7 @@ const CompletedFAChecklistsMap = ({ completedFA }) => {
       {completedFA.map((FAChecklist) => (
         <CompletedFAChecklists FAChecklist={FAChecklist} />
       ))}
+      <hr />
       <Outlet />
     </div>
   );
