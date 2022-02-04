@@ -1,16 +1,15 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Outlet } from "react-router-dom";
 import CompletedFAChecklistsMap from "./CompletedFAChecklistsMap";
-import Navbar from "./Navbar";
 
 const FAMain = ({ completedFA }) => {
   const navigate = useNavigate();
   const newFA = (e) => {
-    navigate("/newfallarrest");
+    navigate("/fallarrest/new");
   };
   return (
     <div>
-      <Navbar />
+      <Outlet />
       <h2>Fall Arrest Checklist</h2>
       <button onClick={newFA}>Add New</button>
       <h2>Completed Checklists</h2>

@@ -9,6 +9,7 @@ import {
   LVMain,
   HEMain,
   FAChecklistDetails,
+  Navbar,
 } from "./components/Index";
 import { useState } from "react";
 import {
@@ -39,33 +40,15 @@ function App() {
     <div className="container">
       <Router>
         <Routes>
-          <Route path="/" element={<Header />} />
-          <Route
-            path="/fallarrest"
-            element={<FAMain completedFA={completedFA} />}
-          >
-            <Route path=":key" element={<FAChecklistDetails />} />
+          <Route path="/" element={<Navbar />}>
+            <Route index element={<Header />} />
+            <Route
+              path="fallarrest"
+              element={<FAMain completedFA={completedFA} />}
+            >
+              <Route path="new" element={<FAChecklist />} />
+            </Route>
           </Route>
-          <Route
-            path="/newfallarrest"
-            element={<FAChecklist onSubmit={refreshFA} />}
-          />
-          <Route
-            path="/lightvehicle"
-            element={<LVMain completedLV={completedLV} />}
-          />
-          <Route
-            path="/newlightvehicle"
-            element={<LVChecklist onSubmit={refreshLV} />}
-          />
-          <Route
-            path="/heavyequipment"
-            element={<HEMain completedHE={completedHE} />}
-          />
-          <Route
-            path="/newheavyequipment"
-            element={<HEChecklist onSubmit={refreshHE} />}
-          />
         </Routes>
       </Router>
 

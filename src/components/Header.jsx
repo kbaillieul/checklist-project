@@ -1,6 +1,5 @@
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
-import Navbar from "./Navbar";
 
 const Header = ({ showFAChecklist, showLVChecklist, showHEChecklist }) => {
   const navigate = useNavigate();
@@ -15,7 +14,6 @@ const Header = ({ showFAChecklist, showLVChecklist, showHEChecklist }) => {
   };
   return (
     <header>
-      <Navbar />
       <h1>Fall Arrest & Fleet Checklists</h1>
       <div>
         {/* Button text and addFA function passed in as props  */}

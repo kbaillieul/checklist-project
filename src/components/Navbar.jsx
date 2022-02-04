@@ -8,6 +8,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import { useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -23,52 +24,55 @@ const Navbar = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-            onClick={handleMenu}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Menu
-          </Typography>
-          <div>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorEl}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorEl)}
-              onClose={() => setAnchorEl(null)}
+    <>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+              onClick={handleMenu}
             >
-              <MenuItem onClick={() => handleRoute("/fallarrest")}>
-                Fall Arrest
-              </MenuItem>
-              <MenuItem onClick={() => handleRoute("/lightvehicle")}>
-                Light Vehicle
-              </MenuItem>
-              <MenuItem onClick={() => handleRoute("/heavyequipment")}>
-                Heavy Equipment
-              </MenuItem>
-            </Menu>
-          </div>
-        </Toolbar>
-      </AppBar>
-    </Box>
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              Menu
+            </Typography>
+            <div>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorEl)}
+                onClose={() => setAnchorEl(null)}
+              >
+                <MenuItem onClick={() => handleRoute("/fallarrest")}>
+                  Fall Arrest
+                </MenuItem>
+                <MenuItem onClick={() => handleRoute("/lightvehicle")}>
+                  Light Vehicle
+                </MenuItem>
+                <MenuItem onClick={() => handleRoute("/heavyequipment")}>
+                  Heavy Equipment
+                </MenuItem>
+              </Menu>
+            </div>
+          </Toolbar>
+        </AppBar>
+      </Box>
+      <Outlet />
+    </>
   );
 };
 export default Navbar;
