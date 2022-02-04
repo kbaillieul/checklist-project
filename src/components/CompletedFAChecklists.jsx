@@ -7,7 +7,7 @@ const CompletedFAChecklists = ({ FAChecklist }) => {
   const key = FAChecklist.key;
   return (
     <div>
-      <Link to={`/fallarrest/${key}`} key={key}>
+      <Link to={`/fallarrest/completed/${key}`} key={key}>
         {FAChecklist !== [] && <ol>{FADateString}</ol>}
       </Link>
       {FAChecklist !== [] && <ol>{FADateString}</ol>}

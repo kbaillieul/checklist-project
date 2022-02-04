@@ -8,3 +8,4 @@ export { default as LVMain } from "./LVMain";
 export { default as HEMain } from "./HEMain";
 export { default as FAChecklistDetails } from "./FAChecklistDetails";
 export { default as Navbar } from "./Navbar";
+export { default as CompletedFAChecklistsMap } from "./CompletedFAChecklistsMap";

@@ -1,5 +1,6 @@
 import React from "react";
 import CompletedFAChecklists from "./CompletedFAChecklists";
+import { Outlet } from "react-router-dom";
 
 const CompletedFAChecklistsMap = ({ completedFA }) => {
   return (
@@ -7,6 +8,7 @@ const CompletedFAChecklistsMap = ({ completedFA }) => {
       {completedFA.map((FAChecklist) => (
         <CompletedFAChecklists FAChecklist={FAChecklist} />
       ))}
+      <Outlet />
     </div>
   );
 };

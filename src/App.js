@@ -10,6 +10,7 @@ import {
   HEMain,
   FAChecklistDetails,
   Navbar,
+  CompletedFAChecklistsMap,
 } from "./components/Index";
 import { useState } from "react";
 import {
@@ -46,7 +47,16 @@ function App() {
               path="fallarrest"
               element={<FAMain completedFA={completedFA} />}
             >
-              <Route path="new" element={<FAChecklist />} />
+              <Route
+                path="new"
+                element={<FAChecklist onSubmit={refreshFA} />}
+              />
+              <Route
+                path="completed"
+                element={<CompletedFAChecklistsMap completedFA={completedFA} />}
+              >
+                <Route path=":key" element={<FAChecklistDetails />} />
+              </Route>
             </Route>
           </Route>
         </Routes>

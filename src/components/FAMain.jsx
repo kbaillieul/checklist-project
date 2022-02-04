@@ -7,13 +7,18 @@ const FAMain = ({ completedFA }) => {
   const newFA = (e) => {
     navigate("/fallarrest/new");
   };
+  const viewComplete = (e) => {
+    navigate("/fallarrest/completed");
+  };
   return (
     <div>
-      <Outlet />
       <h2>Fall Arrest Checklist</h2>
-      <button onClick={newFA}>Add New</button>
-      <h2>Completed Checklists</h2>
-      <CompletedFAChecklistsMap completedFA={completedFA} />
+      <button onClick={newFA}>Add New Checklist</button>
+      <button onClick={viewComplete}>View Completed Checklists</button>
+      <hr />
+      <Outlet />
+      {/* <h2>Completed Checklists</h2>
+      <CompletedFAChecklistsMap completedFA={completedFA} /> */}
     </div>
   );
 };
