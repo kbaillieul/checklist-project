@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
+import Box from "@mui/material/Box";
 
 const CompletedFAChecklists = ({ FAChecklist }) => {
   const FADate = new Date(FAChecklist.date);
@@ -10,7 +11,6 @@ const CompletedFAChecklists = ({ FAChecklist }) => {
       <Link to={`/fallarrest/completed/${key}`} key={key}>
         {FAChecklist !== [] && <ol>{FADateString}</ol>}
       </Link>
-      {FAChecklist !== [] && <ol>{FADateString}</ol>}
       {FAChecklist.plan === false && <li>Issue noted with rescue plan</li>}
       {FAChecklist.alone === false && <li>Issue noted with working alone</li>}
       {FAChecklist.webbing === "Issue" && <li>Issue noted with webbing</li>}

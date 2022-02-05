@@ -16,7 +16,7 @@ const FAMain = ({ completedFA }) => {
   };
   return (
     <div>
-      <h2>Fall Arrest Checklist</h2>
+      <h2>Fall Arrest Checklists</h2>
       <Stack direction="row" spacing={2}>
         <Button
           onClick={newFA}
@@ -34,12 +34,9 @@ const FAMain = ({ completedFA }) => {
           View Completed Checklists
         </Button>
       </Stack>
-      {/* <button onClick={newFA}>Add New Checklist</button>
-      <button onClick={viewComplete}>View Completed Checklists</button> */}
+      <br />
       <hr />
       <Outlet />
-      {/* <h2>Completed Checklists</h2>
-      <CompletedFAChecklistsMap completedFA={completedFA} /> */}
     </div>
   );
 };

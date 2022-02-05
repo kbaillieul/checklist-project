@@ -50,11 +50,6 @@ const FAChecklist = ({ onSubmit }) => {
   return (
     <div>
       <label>1. Date of Inspection</label>
-      {/* <input
-        type="text"
-        value={fallArrest.date}
-        onChange={(e) => setFallArrest({ ...fallArrest, date: e.target.value })}
-      /> */}
       <DatePicker
         selected={fallArrest.date}
         showTimeSelect

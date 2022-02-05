@@ -5,6 +5,7 @@ import { Outlet } from "react-router-dom";
 const CompletedFAChecklistsMap = ({ completedFA }) => {
   return (
     <div>
+      <h2>Completed Fall Arrest Checklists</h2>
       {completedFA.map((FAChecklist) => (
         <CompletedFAChecklists FAChecklist={FAChecklist} />
       ))}
