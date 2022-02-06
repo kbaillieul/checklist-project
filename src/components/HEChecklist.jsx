@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import "react-datepicker/dist/react-datepicker.css";
-import Navbar from "./Navbar";
+import Button from "@mui/material/Button";
 
 const HEChecklist = ({ onSubmit }) => {
   const navigate = useNavigate();
@@ -32,19 +32,14 @@ const HEChecklist = ({ onSubmit }) => {
       sendHEToLocal(heavyEquip);
       onSubmit();
       setHeavyEquip(defaultHE);
-      navigate("/heavyequipment");
+      navigate("/heavyequipment/completed");
     }
   };
   return (
     <div>
-      <Navbar />
       <label>1. Date of Inspection</label>
-      {/* <input
-        type="text"
-        value={heavyEquip.date}
-        onChange={(e) => setHeavyEquip({ ...heavyEquip, date: e.target.value })}
-      /> */}
       <DatePicker
+        className="text-Input"
         selected={heavyEquip.date}
         showTimeSelect
         onChange={(date) => setHeavyEquip({ ...heavyEquip, date: date })}
@@ -52,6 +47,7 @@ const HEChecklist = ({ onSubmit }) => {
       <br />
       <label>2. Location</label>
       <input
+        className="text-Input"
         type="text"
         value={heavyEquip.location}
         onChange={(e) =>
@@ -61,6 +57,7 @@ const HEChecklist = ({ onSubmit }) => {
       <br />
       <label>3. Task Description</label>
       <input
+        className="text-Input"
         type="text"
         value={heavyEquip.task}
         onChange={(e) => setHeavyEquip({ ...heavyEquip, task: e.target.value })}
@@ -127,10 +124,13 @@ const HEChecklist = ({ onSubmit }) => {
         ></input>
         N/A
         <br />
-        <button className="submit" onClick={submitChecklist}>
-          {" "}
+        <Button
+          variant="contained"
+          className="submit"
+          onClick={submitChecklist}
+        >
           Submit
-        </button>
+        </Button>
       </div>
     </div>
   );

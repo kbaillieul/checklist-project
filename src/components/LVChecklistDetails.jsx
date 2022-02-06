@@ -11,7 +11,6 @@ const LVChecklistDetails = () => {
     if (checklist[i].key === params.key) {
       selectedChecklist = checklist[i];
       LVDate = new Date(checklist[i].date);
-      console.log(checklist[i]);
     }
   }
   return (

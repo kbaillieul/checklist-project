@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import Button from "@mui/material/Button";
 
 const FAChecklist = ({ onSubmit }) => {
   const navigate = useNavigate();
@@ -43,7 +44,7 @@ const FAChecklist = ({ onSubmit }) => {
       onSubmit();
       //reset to default
       setFallArrest(defaultFA);
-      navigate("/fallarrest");
+      navigate("/fallarrest/completed");
     }
   };
 
@@ -189,9 +190,13 @@ const FAChecklist = ({ onSubmit }) => {
       ></input>
       N/A
       <div>
-        <button className="submit" onClick={submitChecklist}>
+        <Button
+          variant="contained"
+          className="submit"
+          onClick={submitChecklist}
+        >
           Submit
-        </button>
+        </Button>
       </div>
     </div>
   );

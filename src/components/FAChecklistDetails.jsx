@@ -11,7 +11,6 @@ const FAChecklistDetails = () => {
     if (checklist[i].key === params.key) {
       selectedChecklist = checklist[i];
       FADate = new Date(checklist[i].date);
-      console.log(checklist[i]);
     }
   }
   return (

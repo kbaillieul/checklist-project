@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import "react-datepicker/dist/react-datepicker.css";
-import Navbar from "./Navbar";
+import Button from "@mui/material/Button";
 
 const LVChecklist = ({ onSubmit }) => {
   const navigate = useNavigate();
@@ -32,21 +32,14 @@ const LVChecklist = ({ onSubmit }) => {
       sendLVToLocal(lightVehicle);
       onSubmit();
       setLightVehicle(defaultLV);
-      navigate("/lightvehicle");
+      navigate("/lightvehicle/completed");
     }
   };
   return (
     <div>
-      <Navbar />
       <label>1. Date of Inspection</label>
-      {/* <input
-        type="text"
-        value={lightVehicle.date}
-        onChange={(e) =>
-          setLightVehicle({ ...lightVehicle, date: e.target.value })
-        }
-      /> */}
       <DatePicker
+        className="text-Input"
         selected={lightVehicle.date}
         showTimeSelect
         onChange={(date) => setLightVehicle({ ...lightVehicle, date: date })}
@@ -54,6 +47,7 @@ const LVChecklist = ({ onSubmit }) => {
       <br />
       <label>2. Light Vehicle ID Number</label>
       <input
+        className="text-Input"
         type="text"
         value={lightVehicle.idNum}
         onChange={(e) =>
@@ -63,6 +57,7 @@ const LVChecklist = ({ onSubmit }) => {
       <br />
       <label>3. Inspection Type</label>
       <input
+        className="text-Input"
         type="text"
         value={lightVehicle.type}
         onChange={(e) =>
@@ -133,9 +128,13 @@ const LVChecklist = ({ onSubmit }) => {
         ></input>
         N/A
         <br />
-        <button className="submit" onClick={submitChecklist}>
+        <Button
+          variant="contained"
+          className="submit"
+          onClick={submitChecklist}
+        >
           Submit
-        </button>
+        </Button>
       </div>
     </div>
   );

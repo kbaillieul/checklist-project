@@ -2,7 +2,6 @@ export { default as Header } from "./Header";
 export { default as FAChecklist } from "./FAChecklist";
 export { default as LVChecklist } from "./LVChecklist";
 export { default as HEChecklist } from "./HEChecklist";
-export { default as CompletedChecklists } from "./CompletedChecklists";
 export { default as FAMain } from "./FAMain";
 export { default as LVMain } from "./LVMain";
 export { default as HEMain } from "./HEMain";
