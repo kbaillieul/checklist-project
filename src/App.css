@@ -18,6 +18,21 @@ h2 {
   text-align: center;
 }
 
+h1 {
+  text-align: center;
+}
+
+label {
+  font-size: 10px;
+  display: inline;
+}
+
+.text-Input {
+  width: 100px;
+  height: 20px;
+  padding: 2px;
+}
+
 .container {
   max-width: 900px;
   margin: 25px auto;
@@ -37,19 +52,4 @@ h2 {
   border-radius: 5px;
   font-size: 12px;
   font-family: inherit;
-}
-
-.submit {
-  background: #00357b;
-  color: #fff;
-  border: none;
-  padding: 5px;
-  margin: 5px;
-  border-radius: 5px;
-  font-size: 12px;
-  font-family: inherit;
-}
-
-label {
-  font-size: 14px;
 }

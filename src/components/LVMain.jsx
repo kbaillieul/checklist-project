@@ -1,20 +1,41 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import CompletedLVChecklistsMap from "./CompletedLVChecklistsMap";
-import Navbar from "./Navbar";
+import { useNavigate, Outlet } from "react-router-dom";
+import Button from "@mui/material/Button";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import Stack from "@mui/material/Stack";
 
 const LVMain = ({ completedLV }) => {
   const navigate = useNavigate();
   const newLV = (e) => {
-    navigate("/newlightvehicle");
+    navigate("/lightvehicle/new");
+  };
+  const viewComplete = (e) => {
+    navigate("/lightvehicle/completed");
   };
   return (
     <div>
-      <Navbar />
-      <h2>Light Vehicle Checklist</h2>
-      <button onClick={newLV}>Add New</button>
-      <h2>Completed Checklists</h2>
-      <CompletedLVChecklistsMap completedLV={completedLV} />
+      <h1>Light Vehicle Checklists</h1>
+      <Stack direction="row" spacing={2}>
+        <Button
+          onClick={newLV}
+          variant="outlined"
+          startIcon={<AddCircleOutlineIcon />}
+        >
+          New Light Vehicle Checklist
+        </Button>
+        <br />
+        <Button
+          onClick={viewComplete}
+          variant="outlined"
+          startIcon={<CheckCircleOutlineIcon />}
+        >
+          View Completed Checklists
+        </Button>
+      </Stack>
+      <br />
+      <hr />
+      <Outlet />
     </div>
   );
 };

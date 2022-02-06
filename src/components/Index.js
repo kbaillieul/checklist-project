@@ -9,3 +9,7 @@ export { default as HEMain } from "./HEMain";
 export { default as FAChecklistDetails } from "./FAChecklistDetails";
 export { default as Navbar } from "./Navbar";
 export { default as CompletedFAChecklistsMap } from "./CompletedFAChecklistsMap";
+export { default as CompletedLVChecklistsMap } from "./CompletedLVChecklistsMap";
+export { default as CompletedHEChecklistsMap } from "./CompletedHEChecklistsMap";
+export { default as LVChecklistDetails } from "./LVChecklistDetails";
+export { default as HEChecklistDetails } from "./HEChecklistDetails";

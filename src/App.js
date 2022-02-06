@@ -11,6 +11,10 @@ import {
   FAChecklistDetails,
   Navbar,
   CompletedFAChecklistsMap,
+  CompletedLVChecklistsMap,
+  CompletedHEChecklistsMap,
+  LVChecklistDetails,
+  HEChecklistDetails,
 } from "./components/Index";
 import { useState } from "react";
 import {
@@ -56,6 +60,36 @@ function App() {
                 element={<CompletedFAChecklistsMap completedFA={completedFA} />}
               >
                 <Route path=":key" element={<FAChecklistDetails />} />
+              </Route>
+            </Route>
+            <Route
+              path="lightvehicle"
+              element={<LVMain completedLV={completedLV} />}
+            >
+              <Route
+                path="new"
+                element={<LVChecklist onSubmit={refreshLV} />}
+              />
+              <Route
+                path="completed"
+                element={<CompletedLVChecklistsMap completedLV={completedLV} />}
+              >
+                <Route path=":key" element={<LVChecklistDetails />} />
+              </Route>
+            </Route>
+            <Route
+              path="heavyequipment"
+              element={<HEMain completedHE={completedHE} />}
+            >
+              <Route
+                path="new"
+                element={<HEChecklist onSubmit={refreshHE} />}
+              />
+              <Route
+                path="completed"
+                element={<CompletedHEChecklistsMap completedHE={completedHE} />}
+              >
+                <Route path=":key" element={<HEChecklistDetails />} />
               </Route>
             </Route>
           </Route>

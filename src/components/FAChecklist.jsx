@@ -49,15 +49,17 @@ const FAChecklist = ({ onSubmit }) => {
 
   return (
     <div>
-      <label>1. Date of Inspection</label>
+      <label>1. Date of Inspection: </label>
       <DatePicker
+        className="text-Input"
         selected={fallArrest.date}
         showTimeSelect
         onChange={(date) => setFallArrest({ ...fallArrest, date: date })}
       />
       <br />
-      <label>2. Employee Name</label>
+      <label>2. Employee Name: </label>
       <input
+        className="text-Input"
         type="text"
         value={fallArrest.employeeName}
         onChange={(e) =>
@@ -65,8 +67,9 @@ const FAChecklist = ({ onSubmit }) => {
         }
       />
       <br />
-      <label>3. Location</label>
+      <label>3. Location: </label>
       <input
+        className="text-Input"
         type="text"
         value={fallArrest.location}
         onChange={(e) =>
@@ -74,8 +77,9 @@ const FAChecklist = ({ onSubmit }) => {
         }
       />
       <br />
-      <label>4. Task Description</label>
+      <label>4. Task Description: </label>
       <input
+        className="text-Input"
         type="text"
         value={fallArrest.task}
         onChange={(e) => setFallArrest({ ...fallArrest, task: e.target.value })}
@@ -107,8 +111,9 @@ const FAChecklist = ({ onSubmit }) => {
         }
       />
       <br />
-      <label>7. Harness ID Number</label>
+      <label>7. Harness ID Number: </label>
       <input
+        className="text-Input"
         type="text"
         value={fallArrest.idNumber}
         onChange={(e) =>
@@ -152,8 +157,7 @@ const FAChecklist = ({ onSubmit }) => {
       <br />
       <label>
         9. "D" Ring/Back Pads - Check “D” rings for distortion, cracks, breaks,
-        and rough or sharp edges. The “D” ring should pivot freely. “D” ring
-        back pads should also be inspected for damage.
+        and rough or sharp edges.
       </label>
       <br />
       <input

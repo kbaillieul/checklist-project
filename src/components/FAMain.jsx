@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate, Outlet } from "react-router-dom";
-import CompletedFAChecklistsMap from "./CompletedFAChecklistsMap";
 import Button from "@mui/material/Button";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
@@ -16,7 +15,7 @@ const FAMain = ({ completedFA }) => {
   };
   return (
     <div>
-      <h2>Fall Arrest Checklists</h2>
+      <h1>Fall Arrest Checklists</h1>
       <Stack direction="row" spacing={2}>
         <Button
           onClick={newFA}

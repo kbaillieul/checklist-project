@@ -11,17 +11,9 @@ import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
 import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing";
 import Divider from "@mui/material/Divider";
 
-const Header = ({ showFAChecklist, showLVChecklist, showHEChecklist }) => {
+const Header = () => {
   const navigate = useNavigate();
-  const FAClick = (e) => {
-    navigate("/fallarrest");
-  };
-  const LVClick = (e) => {
-    navigate("/lightvehicle");
-  };
-  const HEClick = (e) => {
-    navigate("/heavyequipment");
-  };
+
   const handleRoute = (route) => {
     navigate(route);
   };
@@ -49,19 +41,27 @@ const Header = ({ showFAChecklist, showLVChecklist, showHEChecklist }) => {
       <ListItem>
         <ListItemAvatar>
           <Avatar>
-            <DirectionsCarIcon />
+            <DirectionsCarIcon onClick={() => handleRoute("/lightvehicle")} />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="Light Vehicle Pre-Use Inspection" />
+        <ListItemText
+          primary="Light Vehicle Pre-Use Inspection"
+          onClick={() => handleRoute("/lightvehicle")}
+        />
       </ListItem>
       <Divider variant="inset" component="li" />
       <ListItem>
         <ListItemAvatar>
           <Avatar>
-            <PrecisionManufacturingIcon />
+            <PrecisionManufacturingIcon
+              onClick={() => handleRoute("/heavyequipment")}
+            />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="Heavy Equipment Pre-Use Inspection" />
+        <ListItemText
+          primary="Heavy Equipment Pre-Use Inspection"
+          onClick={() => handleRoute("/heavyequipment")}
+        />
       </ListItem>
     </List>
   );
