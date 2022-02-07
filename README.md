@@ -5,13 +5,13 @@ This project is the first React project I've created in the Get Coding program a
 Overview
 
 On load of the project, the user can select a checklist type from Fall Arrest, Light Vehicle Pre-Use, and Heavy Equipment Pre-Use.
-![alt text](https://github.com/kbaillieul/checklist-project/blob/branch1/checklist1.PNG?raw=true)
+![alt text](https://github.com/kbaillieul/checklist-project/blob/Branch1/images/checklist1.png)
 
 The user can click the New Checklist button to complete and submit a new checklist.
-![alt text](https://github.com/kbaillieul/checklist-project/blob/branch1/checklist2.PNG?raw=true)
+![alt text](https://github.com/kbaillieul/checklist-project/blob/Branch1/images/checklist2.png)
 
 The user can click the View Completed Checklists button to view the checklists that have already been submitted and stored on local storage. Completed checklists have bullet points that indicate any high priority issues indicated in the submitted checklists. Users can click the link with the checklist date to get all the submitted information from the checklist.
-![alt text](https://github.com/kbaillieul/checklist-project/blob/branch1/checklist3.PNG?raw=true)
+![alt text](https://github.com/kbaillieul/checklist-project/blob/Branch1/images/checklist3.png)
 
 Installation
 Clone down this repository. You will need node and npm installed globally on your machine.
