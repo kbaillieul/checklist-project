@@ -56,6 +56,7 @@ const FAChecklist = ({ onSubmit }) => {
         selected={fallArrest.date}
         showTimeSelect
         onChange={(date) => setFallArrest({ ...fallArrest, date: date })}
+        maxDate={new Date()}
       />
       <br />
       <label>2. Employee Name: </label>

@@ -43,6 +43,7 @@ const HEChecklist = ({ onSubmit }) => {
         selected={heavyEquip.date}
         showTimeSelect
         onChange={(date) => setHeavyEquip({ ...heavyEquip, date: date })}
+        maxDate={new Date()}
       />
       <br />
       <label>2. Location</label>

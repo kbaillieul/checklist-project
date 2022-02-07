@@ -1,6 +1,5 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
-import Box from "@mui/material/Box";
+import { Link } from "react-router-dom";
 
 const CompletedFAChecklists = ({ FAChecklist }) => {
   const FADate = new Date(FAChecklist.date);

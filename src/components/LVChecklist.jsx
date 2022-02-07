@@ -43,6 +43,7 @@ const LVChecklist = ({ onSubmit }) => {
         selected={lightVehicle.date}
         showTimeSelect
         onChange={(date) => setLightVehicle({ ...lightVehicle, date: date })}
+        maxDate={new Date()}
       />
       <br />
       <label>2. Light Vehicle ID Number</label>

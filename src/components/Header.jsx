@@ -22,7 +22,7 @@ const Header = () => {
       sx={{
         width: "100%",
         maxWidth: 360,
-        bgcolor: "background.paper",
+        bgcolor: "inherit",
       }}
     >
       <ListItem>

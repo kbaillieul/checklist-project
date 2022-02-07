@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-import Box from "@mui/material/Box";
 
 const CompletedLVChecklists = ({ LVChecklist }) => {
   const LVDate = new Date(LVChecklist.date);

@@ -42,14 +42,3 @@ label {
   border-radius: 10px;
   font-size: 10px;
 }
-
-.button {
-  background: #00357b;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  margin: 5px;
-  border-radius: 5px;
-  font-size: 12px;
-  font-family: inherit;
-}
