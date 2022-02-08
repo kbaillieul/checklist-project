@@ -65,78 +65,72 @@ const LVChecklist = ({ onSubmit }) => {
           setLightVehicle({ ...lightVehicle, type: e.target.value })
         }
       />
-      <div>
-        <br />
-        <label>4. Oil Level</label>
-        <br />
-        <input
-          onChange={(e) =>
-            setLightVehicle({ ...lightVehicle, oil: e.target.value })
-          }
-          type="radio"
-          value="OK"
-          //control to keep from multiple radio buttons in the same question being checked
-          checked={lightVehicle.oil === "OK"}
-        ></input>
-        OK <br />
-        <input
-          onChange={(e) =>
-            setLightVehicle({ ...lightVehicle, oil: e.target.value })
-          }
-          type="radio"
-          value="Issue"
-          checked={lightVehicle.oil === "Issue"}
-        ></input>
-        Issue <br />
-        <input
-          onChange={(e) =>
-            setLightVehicle({ ...lightVehicle, oil: e.target.value })
-          }
-          type="radio"
-          value="NA"
-          checked={lightVehicle.oil === "NA"}
-        ></input>
-        N/A
-        <br />
-        <label>5. Coolant Level</label>
-        <br />
-        <input
-          onChange={(e) =>
-            setLightVehicle({ ...lightVehicle, coolant: e.target.value })
-          }
-          type="radio"
-          value="OK"
-          //control to keep from multiple radio buttons in the same question being checked
-          checked={lightVehicle.coolant === "OK"}
-        ></input>
-        OK <br />
-        <input
-          onChange={(e) =>
-            setLightVehicle({ ...lightVehicle, coolant: e.target.value })
-          }
-          type="radio"
-          value="Issue"
-          checked={lightVehicle.coolant === "Issue"}
-        ></input>
-        Issue <br />
-        <input
-          onChange={(e) =>
-            setLightVehicle({ ...lightVehicle, coolant: e.target.value })
-          }
-          type="radio"
-          value="NA"
-          checked={lightVehicle.coolant === "NA"}
-        ></input>
-        N/A
-        <br />
-        <Button
-          variant="contained"
-          className="submit"
-          onClick={submitChecklist}
-        >
-          Submit
-        </Button>
-      </div>
+      <br />
+      <label>4. Oil Level</label>
+      <br />
+      <input
+        onChange={(e) =>
+          setLightVehicle({ ...lightVehicle, oil: e.target.value })
+        }
+        type="radio"
+        value="OK"
+        //control to keep from multiple radio buttons in the same question being checked
+        checked={lightVehicle.oil === "OK"}
+      ></input>
+      OK <br />
+      <input
+        onChange={(e) =>
+          setLightVehicle({ ...lightVehicle, oil: e.target.value })
+        }
+        type="radio"
+        value="Issue"
+        checked={lightVehicle.oil === "Issue"}
+      ></input>
+      Issue <br />
+      <input
+        onChange={(e) =>
+          setLightVehicle({ ...lightVehicle, oil: e.target.value })
+        }
+        type="radio"
+        value="NA"
+        checked={lightVehicle.oil === "NA"}
+      ></input>
+      N/A
+      <br />
+      <label>5. Coolant Level</label>
+      <br />
+      <input
+        onChange={(e) =>
+          setLightVehicle({ ...lightVehicle, coolant: e.target.value })
+        }
+        type="radio"
+        value="OK"
+        //control to keep from multiple radio buttons in the same question being checked
+        checked={lightVehicle.coolant === "OK"}
+      ></input>
+      OK <br />
+      <input
+        onChange={(e) =>
+          setLightVehicle({ ...lightVehicle, coolant: e.target.value })
+        }
+        type="radio"
+        value="Issue"
+        checked={lightVehicle.coolant === "Issue"}
+      ></input>
+      Issue <br />
+      <input
+        onChange={(e) =>
+          setLightVehicle({ ...lightVehicle, coolant: e.target.value })
+        }
+        type="radio"
+        value="NA"
+        checked={lightVehicle.coolant === "NA"}
+      ></input>
+      N/A
+      <br />
+      <Button variant="contained" className="submit" onClick={submitChecklist}>
+        Submit
+      </Button>
     </div>
   );
 };

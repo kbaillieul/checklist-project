@@ -44,10 +44,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navbar />}>
             <Route index element={<Header />} />
-            <Route
-              path="fallarrest"
-              element={<FAMain completedFA={completedFA} />}
-            >
+            <Route path="fallarrest" element={<FAMain />}>
               <Route
                 path="new"
                 element={<FAChecklist onSubmit={refreshFA} />}
@@ -59,10 +56,7 @@ function App() {
                 <Route path=":key" element={<FAChecklistDetails />} />
               </Route>
             </Route>
-            <Route
-              path="lightvehicle"
-              element={<LVMain completedLV={completedLV} />}
-            >
+            <Route path="lightvehicle" element={<LVMain />}>
               <Route
                 path="new"
                 element={<LVChecklist onSubmit={refreshLV} />}
@@ -74,10 +68,7 @@ function App() {
                 <Route path=":key" element={<LVChecklistDetails />} />
               </Route>
             </Route>
-            <Route
-              path="heavyequipment"
-              element={<HEMain completedHE={completedHE} />}
-            >
+            <Route path="heavyequipment" element={<HEMain />}>
               <Route
                 path="new"
                 element={<HEChecklist onSubmit={refreshHE} />}

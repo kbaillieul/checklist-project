@@ -5,7 +5,7 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import Stack from "@mui/material/Stack";
 
-const HEMain = ({ completedHE }) => {
+const HEMain = () => {
   const navigate = useNavigate();
   const newHE = (e) => {
     navigate("/heavyequipment/new");

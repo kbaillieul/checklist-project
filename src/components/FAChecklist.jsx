@@ -50,14 +50,16 @@ const FAChecklist = ({ onSubmit }) => {
 
   return (
     <div>
-      <label>1. Date of Inspection: </label>
-      <DatePicker
-        className="text-Input"
-        selected={fallArrest.date}
-        showTimeSelect
-        onChange={(date) => setFallArrest({ ...fallArrest, date: date })}
-        maxDate={new Date()}
-      />
+      <label className="form">
+        1. Date of Inspection:{" "}
+        <DatePicker
+          className="text-Input"
+          selected={fallArrest.date}
+          showTimeSelect
+          onChange={(date) => setFallArrest({ ...fallArrest, date: date })}
+          maxDate={new Date()}
+        />
+      </label>
       <br />
       <label>2. Employee Name: </label>
       <input

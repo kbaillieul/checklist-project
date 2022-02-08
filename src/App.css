@@ -42,3 +42,9 @@ label {
   border-radius: 10px;
   font-size: 10px;
 }
+
+.form {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
