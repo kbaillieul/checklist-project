@@ -16,7 +16,7 @@ const LVMain = () => {
   return (
     <div>
       <h1>Light Vehicle Checklists</h1>
-      <Stack direction="row" spacing={2}>
+      <Stack style={{ justifyContent: "center" }} direction="row" spacing={2}>
         <Button
           onClick={newLV}
           variant="outlined"

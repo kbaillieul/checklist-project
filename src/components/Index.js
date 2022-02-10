@@ -7,6 +7,7 @@ export { default as LVMain } from "./lightvehicle/LVMain";
 export { default as HEMain } from "./heavyequipment/HEMain";
 export { default as FAChecklistDetails } from "./fallarrest/FAChecklistDetails";
 export { default as Navbar } from "./Navbar";
+export { default as Navigation } from "./Navigation";
 export { default as CompletedFAChecklistsMap } from "./fallarrest/CompletedFAChecklistsMap";
 export { default as CompletedLVChecklistsMap } from "./lightvehicle/CompletedLVChecklistsMap";
 export { default as CompletedHEChecklistsMap } from "./heavyequipment/CompletedHEChecklistsMap";

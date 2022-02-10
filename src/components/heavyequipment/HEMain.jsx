@@ -16,7 +16,7 @@ const HEMain = () => {
   return (
     <div>
       <h1>Heavy Equipment Checklists</h1>
-      <Stack direction="row" spacing={2}>
+      <Stack style={{ justifyContent: "center" }} direction="row" spacing={2}>
         <Button
           onClick={newHE}
           variant="outlined"

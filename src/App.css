@@ -48,3 +48,17 @@ label {
   flex-direction: row;
   align-items: flex-start;
 }
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-buttons {
+  display: block;
+}
+
+.icons {
+  transform: scale(1.8);
+}
