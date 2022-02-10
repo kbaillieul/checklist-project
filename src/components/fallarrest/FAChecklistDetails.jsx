@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { getFAFromLocal } from "./local";
+import { getFAFromLocal } from "../../database";
 
 const FAChecklistDetails = () => {
   let params = useParams();

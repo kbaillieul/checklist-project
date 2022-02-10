@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { sendFAToLocal } from "./local";
+import { sendFAToLocal } from "../../database";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";

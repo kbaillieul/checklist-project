@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { getHEFromLocal } from "./local";
+import { getHEFromLocal } from "../../database";
 
 const HEChecklistDetails = () => {
   let params = useParams();

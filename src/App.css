@@ -9,7 +9,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
 }
@@ -33,7 +33,7 @@ label {
   padding: 2px;
 }
 
-.container {
+/* .container {
   max-width: 900px;
   margin: 25px auto;
   min-height: 300px;
@@ -41,7 +41,7 @@ label {
   padding: 25px;
   border-radius: 10px;
   font-size: 10px;
-}
+} */
 
 .form {
   display: flex;

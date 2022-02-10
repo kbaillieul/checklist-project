@@ -16,11 +16,7 @@ import {
   HEChecklistDetails,
 } from "./components/Index";
 import { useState } from "react";
-import {
-  getFAFromLocal,
-  getLVFromLocal,
-  getHEFromLocal,
-} from "./components/local";
+import { getFAFromLocal, getLVFromLocal, getHEFromLocal } from "./database";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {

@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { getLVFromLocal } from "./local";
+import { getLVFromLocal } from "../../database";
 
 const LVChecklistDetails = () => {
   let params = useParams();

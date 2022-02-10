@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { sendLVToLocal } from "./local";
+import { sendLVToLocal } from "../../database";
 import DatePicker from "react-datepicker";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
