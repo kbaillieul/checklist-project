@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { sendHEToLocal } from "../../database";
+import { addHeavyEquipmentChecklist } from "../../database";
 import DatePicker from "react-datepicker";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
@@ -29,10 +29,10 @@ const HEChecklist = ({ onSubmit }) => {
       alert("Please answer all questions to submit checklist");
     } else {
       heavyEquip.key = uuidv4();
-      sendHEToLocal(heavyEquip);
+      addHeavyEquipmentChecklist(heavyEquip);
       onSubmit();
       setHeavyEquip(defaultHE);
-      navigate("/heavyequipment/completed");
+      navigate("/heavy-equipment/completed");
     }
   };
   return (

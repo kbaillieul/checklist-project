@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { sendFAToLocal } from "../../database";
+import { addFallArrestChecklist } from "../../database";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
@@ -39,12 +39,12 @@ const FAChecklist = ({ onSubmit }) => {
     } else {
       fallArrest.key = uuidv4();
       //sendFAToLocal function in local.js stores checklist data into local storage
-      sendFAToLocal(fallArrest);
+      addFallArrestChecklist(fallArrest);
       //call to refreshFA function in app.js to updated completed checklists
       onSubmit();
       //reset to default
       setFallArrest(defaultFA);
-      navigate("/fallarrest/completed");
+      navigate("/fall-arrest/completed");
     }
   };
 

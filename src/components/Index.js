@@ -1,7 +1,7 @@
-export { default as Header } from "./Header";
-export { default as FAChecklist } from "./fallarrest/FAChecklist";
-export { default as LVChecklist } from "./lightvehicle/LVChecklist";
-export { default as HEChecklist } from "./heavyequipment/HEChecklist";
+export { default as Home } from "./Home";
+export { default as NewFAChecklist } from "./fallarrest/NewFAChecklist";
+export { default as NewLVChecklist } from "./lightvehicle/NewLVChecklist";
+export { default as NewHEChecklist } from "./heavyequipment/NewHEChecklist";
 export { default as FAMain } from "./fallarrest/FAMain";
 export { default as LVMain } from "./lightvehicle/LVMain";
 export { default as HEMain } from "./heavyequipment/HEMain";

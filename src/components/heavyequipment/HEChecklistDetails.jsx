@@ -1,10 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { getHEFromLocal } from "../../database";
+import { getHeavyEquipmentChecklists, getHEFromLocal } from "../../database";
 
 const HEChecklistDetails = () => {
   let params = useParams();
-  let checklist = getHEFromLocal();
+  let checklist = getHeavyEquipmentChecklists();
   let selectedChecklist = [];
   let HEDate;
   for (let i = 0; i < checklist.length; i++) {

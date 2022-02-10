@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { sendLVToLocal } from "../../database";
+import { addLightVehicleChecklist } from "../../database";
 import DatePicker from "react-datepicker";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
@@ -29,10 +29,10 @@ const LVChecklist = ({ onSubmit }) => {
       alert("Please complete all questions to submit checklist");
     } else {
       lightVehicle.key = uuidv4();
-      sendLVToLocal(lightVehicle);
+      addLightVehicleChecklist(lightVehicle);
       onSubmit();
       setLightVehicle(defaultLV);
-      navigate("/lightvehicle/completed");
+      navigate("/light-vehicle/completed");
     }
   };
   return (

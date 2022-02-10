@@ -1,9 +1,9 @@
 import "./App.css";
 import {
-  Header,
-  FAChecklist,
-  LVChecklist,
-  HEChecklist,
+  Home,
+  NewFAChecklist,
+  NewLVChecklist,
+  NewHEChecklist,
   FAMain,
   LVMain,
   HEMain,
@@ -16,34 +16,38 @@ import {
   HEChecklistDetails,
 } from "./components/Index";
 import { useState } from "react";
-import { getFAFromLocal, getLVFromLocal, getHEFromLocal } from "./database";
+import {
+  getFallArrestChecklists,
+  getLightVehicleChecklists,
+  getHeavyEquipmentChecklists,
+} from "./database";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   // //states to hold completed checklists of each type
-  const [completedFA, setCompletedFA] = useState(getFAFromLocal());
-  const [completedLV, setCompletedLV] = useState(getLVFromLocal());
-  const [completedHE, setCompletedHE] = useState(getHEFromLocal());
+  const [completedFA, setCompletedFA] = useState(getFallArrestChecklists());
+  const [completedLV, setCompletedLV] = useState(getLightVehicleChecklists());
+  const [completedHE, setCompletedHE] = useState(getHeavyEquipmentChecklists());
   // //On click of submit button in each checklist, refresh function is called to get new checklist values from local storage
   const refreshFA = () => {
-    setCompletedFA(getFAFromLocal());
+    setCompletedFA(getFallArrestChecklists());
   };
   const refreshLV = () => {
-    setCompletedLV(getLVFromLocal());
+    setCompletedLV(getLightVehicleChecklists());
   };
   const refreshHE = () => {
-    setCompletedHE(getHEFromLocal());
+    setCompletedHE(getHeavyEquipmentChecklists());
   };
   return (
     <div className="container">
       <Router>
         <Routes>
           <Route path="/" element={<Navbar />}>
-            <Route index element={<Header />} />
-            <Route path="fallarrest" element={<FAMain />}>
+            <Route index element={<Home />} />
+            <Route path="fall-arrest" element={<FAMain />}>
               <Route
                 path="new"
-                element={<FAChecklist onSubmit={refreshFA} />}
+                element={<NewFAChecklist onSubmit={refreshFA} />}
               />
               <Route
                 path="completed"
@@ -52,10 +56,10 @@ function App() {
                 <Route path=":key" element={<FAChecklistDetails />} />
               </Route>
             </Route>
-            <Route path="lightvehicle" element={<LVMain />}>
+            <Route path="light-vehicle" element={<LVMain />}>
               <Route
                 path="new"
-                element={<LVChecklist onSubmit={refreshLV} />}
+                element={<NewLVChecklist onSubmit={refreshLV} />}
               />
               <Route
                 path="completed"
@@ -64,10 +68,10 @@ function App() {
                 <Route path=":key" element={<LVChecklistDetails />} />
               </Route>
             </Route>
-            <Route path="heavyequipment" element={<HEMain />}>
+            <Route path="heavy-equipment" element={<HEMain />}>
               <Route
                 path="new"
-                element={<HEChecklist onSubmit={refreshHE} />}
+                element={<NewHEChecklist onSubmit={refreshHE} />}
               />
               <Route
                 path="completed"

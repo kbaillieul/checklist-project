@@ -1,10 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { getFAFromLocal } from "../../database";
+import { getFAFromLocal, getFallArrestChecklists } from "../../database";
 
 const FAChecklistDetails = () => {
   let params = useParams();
-  let checklist = getFAFromLocal();
+  let checklist = getFallArrestChecklists();
   let selectedChecklist = [];
   let FADate;
   for (let i = 0; i < checklist.length; i++) {

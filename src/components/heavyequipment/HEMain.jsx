@@ -8,10 +8,10 @@ import Stack from "@mui/material/Stack";
 const HEMain = () => {
   const navigate = useNavigate();
   const newHE = (e) => {
-    navigate("/heavyequipment/new");
+    navigate("/heavy-equipment/new");
   };
   const viewComplete = (e) => {
-    navigate("/heavyequipment/completed");
+    navigate("/heavy-equipment/completed");
   };
   return (
     <div>

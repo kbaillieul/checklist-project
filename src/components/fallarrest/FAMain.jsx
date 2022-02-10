@@ -8,10 +8,10 @@ import Stack from "@mui/material/Stack";
 const FAMain = () => {
   const navigate = useNavigate();
   const newFA = (e) => {
-    navigate("/fallarrest/new");
+    navigate("/fall-arrest/new");
   };
   const viewComplete = (e) => {
-    navigate("/fallarrest/completed");
+    navigate("/fall-arrest/completed");
   };
   return (
     <div>

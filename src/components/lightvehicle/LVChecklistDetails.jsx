@@ -1,10 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { getLVFromLocal } from "../../database";
+import { getLightVehicleChecklists, getLVFromLocal } from "../../database";
 
 const LVChecklistDetails = () => {
   let params = useParams();
-  let checklist = getLVFromLocal();
+  let checklist = getLightVehicleChecklists();
   let selectedChecklist = [];
   let LVDate;
   for (let i = 0; i < checklist.length; i++) {

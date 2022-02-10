@@ -28,24 +28,24 @@ const Header = () => {
       <ListItem>
         <ListItemAvatar>
           <Avatar>
-            <LocalHospitalIcon onClick={() => handleRoute("/fallarrest")} />
+            <LocalHospitalIcon onClick={() => handleRoute("/fall-arrest")} />
           </Avatar>
         </ListItemAvatar>
         <ListItemText
           primary="Fall Arrest Checklist"
-          onClick={() => handleRoute("/fallarrest")}
+          onClick={() => handleRoute("/fall-arrest")}
         />
       </ListItem>
       <Divider variant="inset" component="li" />
       <ListItem>
         <ListItemAvatar>
           <Avatar>
-            <DirectionsCarIcon onClick={() => handleRoute("/lightvehicle")} />
+            <DirectionsCarIcon onClick={() => handleRoute("/light-vehicle")} />
           </Avatar>
         </ListItemAvatar>
         <ListItemText
           primary="Light Vehicle Pre-Use Inspection"
-          onClick={() => handleRoute("/lightvehicle")}
+          onClick={() => handleRoute("/light-vehicle")}
         />
       </ListItem>
       <Divider variant="inset" component="li" />
@@ -53,13 +53,13 @@ const Header = () => {
         <ListItemAvatar>
           <Avatar>
             <PrecisionManufacturingIcon
-              onClick={() => handleRoute("/heavyequipment")}
+              onClick={() => handleRoute("/heavy-equipment")}
             />
           </Avatar>
         </ListItemAvatar>
         <ListItemText
           primary="Heavy Equipment Pre-Use Inspection"
-          onClick={() => handleRoute("/heavyequipment")}
+          onClick={() => handleRoute("/heavy-equipment")}
         />
       </ListItem>
     </List>

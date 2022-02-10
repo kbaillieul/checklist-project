@@ -8,10 +8,10 @@ import Stack from "@mui/material/Stack";
 const LVMain = () => {
   const navigate = useNavigate();
   const newLV = (e) => {
-    navigate("/lightvehicle/new");
+    navigate("/light-vehicle/new");
   };
   const viewComplete = (e) => {
-    navigate("/lightvehicle/completed");
+    navigate("/light-vehicle/completed");
   };
   return (
     <div>

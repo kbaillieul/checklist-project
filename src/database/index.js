@@ -1,6 +1,6 @@
 //function to send completed FA checklist to local storage
-export const sendFAToLocal = (checklist) => {
-  const list = getFAFromLocal();
+export const addFallArrestChecklist = (checklist) => {
+  const list = getFallArrestChecklists();
   const newValue =
     list === null
       ? JSON.stringify(checklist)
@@ -9,14 +9,14 @@ export const sendFAToLocal = (checklist) => {
 };
 
 //function to get checklist object stored in local storage under fallArrest key
-export const getFAFromLocal = () => {
+export const getFallArrestChecklists = () => {
   const getFA = localStorage.getItem("fallArrest");
   return getFA === null ? [] : JSON.parse(getFA);
 };
 
 //function to send completed LV checklist to local storage
-export const sendLVToLocal = (checklist) => {
-  const list = getLVFromLocal();
+export const addLightVehicleChecklist = (checklist) => {
+  const list = getLightVehicleChecklists();
   const newValue =
     list === null
       ? JSON.stringify(checklist)
@@ -25,14 +25,14 @@ export const sendLVToLocal = (checklist) => {
 };
 
 //function to get checklist object stored in local storage under lightVehicle key
-export const getLVFromLocal = () => {
+export const getLightVehicleChecklists = () => {
   const getLV = localStorage.getItem("lightVehicle");
   return getLV === null ? [] : JSON.parse(getLV);
 };
 
 //function to send completed HE checklist to local storage
-export const sendHEToLocal = (checklist) => {
-  const list = getHEFromLocal();
+export const addHeavyEquipmentChecklist = (checklist) => {
+  const list = getHeavyEquipmentChecklists();
   const newValue =
     list === null
       ? JSON.stringify(checklist)
@@ -41,7 +41,7 @@ export const sendHEToLocal = (checklist) => {
 };
 
 //function to get checklist object stored in local storage under heavyEquip key
-export const getHEFromLocal = () => {
+export const getHeavyEquipmentChecklists = () => {
   const getHE = localStorage.getItem("heavyEquip");
   return getHE === null ? [] : JSON.parse(getHE);
 };
