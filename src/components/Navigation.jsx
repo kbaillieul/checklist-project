@@ -6,16 +6,15 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Outlet } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { isOptionGroup } from "@mui/base";
 
 const drawerWidth = 200;
 
@@ -27,21 +26,37 @@ function ResponsiveDrawer(props) {
     setMobileOpen(!mobileOpen);
   };
 
+  const navigate = useNavigate();
+  const handleRoute = (route) => {
+    navigate(route);
+  };
+
   const drawer = (
     <div>
       <Toolbar />
       <Divider />
       <List>
-        {[
-          "Home",
-          "Fall Arrest Checklist",
-          "Light Vehicle Checklist",
-          "Heavy Equipment Checklist",
-        ].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItem>
+          <ListItemText primary="Home" onClick={() => handleRoute("/")} />
+        </ListItem>
+        <ListItem>
+          <ListItemText
+            primary="Fall Arrest Checklist"
+            onClick={() => handleRoute("/fall-arrest")}
+          />
+        </ListItem>
+        <ListItem>
+          <ListItemText
+            primary="Light Vehicle Checklist"
+            onClick={() => handleRoute("/light-vehicle")}
+          />
+        </ListItem>
+        <ListItem>
+          <ListItemText
+            primary="Heavy Equipment Checklist"
+            onClick={() => handleRoute("/heavy-equipment")}
+          />
+        </ListItem>
       </List>
       <Divider />
     </div>
