@@ -42,7 +42,7 @@ function ResponsiveDrawer(props) {
         <ListItem>
           <ListItemText
             primary="Fall Arrest Checklist"
-            onClick={() => handleRoute("/fall-arrest")}
+            onClick={() => handleRoute("/fall-arrest/completed")}
           />
         </ListItem>
         <ListItem>

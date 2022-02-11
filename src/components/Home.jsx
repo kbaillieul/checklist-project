@@ -31,13 +31,13 @@ const Header = () => {
               <LocalHospitalIcon
                 sx={{ bgcolor: "primary.main" }}
                 className="icons"
-                onClick={() => handleRoute("/fall-arrest")}
+                onClick={() => handleRoute("/fall-arrest/completed")}
               />
             </Avatar>
           </ListItemAvatar>
           <ListItemText
             primary="Fall Arrest Checklist"
-            onClick={() => handleRoute("/fall-arrest")}
+            onClick={() => handleRoute("/fall-arrest/completed")}
           />
         </ListItem>
         <Divider variant="inset" component="li" />

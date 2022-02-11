@@ -39,12 +39,12 @@ const CompletedFAChecklists = ({ FAChecklist }) => {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography sx={{ width: "33%", flexShrink: 0 }}>
+          <Typography sx={{ width: "66%", flexShrink: 0 }}>
             {FADateString}
           </Typography>
           <Typography sx={{ color: "text.secondary" }}>
-            {counter === 0
-              ? "No Issues Identified"
+            {counter === 1
+              ? `${counter} Issue Identified`
               : `${counter} Issues Identified`}
           </Typography>
         </AccordionSummary>
