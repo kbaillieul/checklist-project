@@ -46,14 +46,14 @@ const Header = () => {
             <Avatar>
               <DirectionsCarIcon
                 sx={{ bgcolor: "primary.main" }}
-                onClick={() => handleRoute("/light-vehicle")}
+                onClick={() => handleRoute("/light-vehicle/completed")}
                 className="icons"
               />
             </Avatar>
           </ListItemAvatar>
           <ListItemText
             primary="Light Vehicle Pre-Use Inspection"
-            onClick={() => handleRoute("/light-vehicle")}
+            onClick={() => handleRoute("/light-vehicle/completed")}
           />
         </ListItem>
         <Divider variant="inset" component="li" />
@@ -62,14 +62,14 @@ const Header = () => {
             <Avatar>
               <PrecisionManufacturingIcon
                 sx={{ bgcolor: "primary.main" }}
-                onClick={() => handleRoute("/heavy-equipment")}
+                onClick={() => handleRoute("/heavy-equipment/completed")}
                 className="icons"
               />
             </Avatar>
           </ListItemAvatar>
           <ListItemText
             primary="Heavy Equipment Pre-Use Inspection"
-            onClick={() => handleRoute("/heavy-equipment")}
+            onClick={() => handleRoute("/heavy-equipment/completed")}
           />
         </ListItem>
       </List>

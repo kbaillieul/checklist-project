@@ -48,13 +48,13 @@ function ResponsiveDrawer(props) {
         <ListItem>
           <ListItemText
             primary="Light Vehicle Checklist"
-            onClick={() => handleRoute("/light-vehicle")}
+            onClick={() => handleRoute("/light-vehicle/completed")}
           />
         </ListItem>
         <ListItem>
           <ListItemText
             primary="Heavy Equipment Checklist"
-            onClick={() => handleRoute("/heavy-equipment")}
+            onClick={() => handleRoute("/heavy-equipment/completed")}
           />
         </ListItem>
       </List>
