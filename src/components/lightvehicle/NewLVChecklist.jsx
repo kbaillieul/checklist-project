@@ -11,18 +11,23 @@ const LVChecklist = ({ onSubmit }) => {
   const defaultLV = {
     key: "",
     date: "",
+    employeeName: "",
+    location: "",
     idNum: "",
-    type: "",
+    fuel: "",
     oil: "",
     coolant: "",
+    confirm: false,
   };
   const [lightVehicle, setLightVehicle] = useState(defaultLV);
 
   const submitChecklist = (e) => {
     if (
       lightVehicle.date === "" ||
+      lightVehicle.employeeName === "" ||
+      lightVehicle.location === "" ||
       lightVehicle.idNum === "" ||
-      lightVehicle.type === "" ||
+      lightVehicle.fuel === "" ||
       lightVehicle.oil === "" ||
       lightVehicle.coolant === ""
     ) {
@@ -46,7 +51,27 @@ const LVChecklist = ({ onSubmit }) => {
         maxDate={new Date()}
       />
       <br />
-      <label>2. Light Vehicle ID Number</label>
+      <label>2. Employee Name</label>
+      <input
+        className="text-Input"
+        type="text"
+        value={lightVehicle.employeeName}
+        onChange={(e) =>
+          setLightVehicle({ ...lightVehicle, employeeName: e.target.value })
+        }
+      />
+      <br />
+      <label>3. Location</label>
+      <input
+        className="text-Input"
+        type="text"
+        value={lightVehicle.location}
+        onChange={(e) =>
+          setLightVehicle({ ...lightVehicle, location: e.target.value })
+        }
+      />
+      <br />
+      <label>4. Light Vehicle ID Number</label>
       <input
         className="text-Input"
         type="text"
@@ -56,17 +81,38 @@ const LVChecklist = ({ onSubmit }) => {
         }
       />
       <br />
-      <label>3. Inspection Type</label>
-      <input
-        className="text-Input"
-        type="text"
-        value={lightVehicle.type}
-        onChange={(e) =>
-          setLightVehicle({ ...lightVehicle, type: e.target.value })
-        }
-      />
+      <label>5. Fuel Level</label>
       <br />
-      <label>4. Oil Level</label>
+      <input
+        onChange={(e) =>
+          setLightVehicle({ ...lightVehicle, fuel: e.target.value })
+        }
+        type="radio"
+        value="OK"
+        //control to keep from multiple radio buttons in the same question being checked
+        checked={lightVehicle.fuel === "OK"}
+      ></input>
+      OK <br />
+      <input
+        onChange={(e) =>
+          setLightVehicle({ ...lightVehicle, fuel: e.target.value })
+        }
+        type="radio"
+        value="Issue"
+        checked={lightVehicle.fuel === "Issue"}
+      ></input>
+      Issue <br />
+      <input
+        onChange={(e) =>
+          setLightVehicle({ ...lightVehicle, fuel: e.target.value })
+        }
+        type="radio"
+        value="NA"
+        checked={lightVehicle.fuel === "NA"}
+      ></input>
+      N/A
+      <br />
+      <label>6. Oil Level</label>
       <br />
       <input
         onChange={(e) =>
@@ -97,7 +143,7 @@ const LVChecklist = ({ onSubmit }) => {
       ></input>
       N/A
       <br />
-      <label>5. Coolant Level</label>
+      <label>7. Coolant Level</label>
       <br />
       <input
         onChange={(e) =>
@@ -127,6 +173,18 @@ const LVChecklist = ({ onSubmit }) => {
         checked={lightVehicle.coolant === "NA"}
       ></input>
       N/A
+      <br />
+      <label>
+        8. Vehicle is in good working condition, clean, and ready for use.{" "}
+      </label>
+      <input
+        type="checkbox"
+        value={lightVehicle.confirm}
+        checked={lightVehicle.confirm}
+        onChange={(e) =>
+          setLightVehicle({ ...lightVehicle, confirm: e.target.checked })
+        }
+      />
       <br />
       <Button variant="contained" className="submit" onClick={submitChecklist}>
         Submit

@@ -19,6 +19,12 @@ const CompletedLVChecklists = ({ LVChecklist }) => {
   if (LVChecklist.coolant === "Issue") {
     counter += 1;
   }
+  if (LVChecklist.fuel === "Issue") {
+    counter += 1;
+  }
+  if (LVChecklist.confirm === false) {
+    counter += 1;
+  }
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -46,10 +52,17 @@ const CompletedLVChecklists = ({ LVChecklist }) => {
         <AccordionDetails>
           <Typography>
             <h4> 1. Date Completed: {LVDateString}</h4>
-            <h4> 2. Vehicle ID Number: {LVChecklist.idNum}</h4>
-            <h4> 3. Inspection Type: {LVChecklist.type}</h4>
-            <h4> 4. Oil Level: {LVChecklist.oil}</h4>
-            <h4> 5. Coolant Level: {LVChecklist.coolant}</h4>
+            <h4> 2. Employee Name: {LVChecklist.employeeName}</h4>
+            <h4> 3. Location: {LVChecklist.location}</h4>
+            <h4> 4. Vehicle ID Number: {LVChecklist.idNum}</h4>
+            <h4> 5. Fuel Level: {LVChecklist.fuel}</h4>
+            <h4> 6. Oil Level: {LVChecklist.oil}</h4>
+            <h4> 7. Coolant Level: {LVChecklist.coolant}</h4>
+            <h4>
+              {" "}
+              8. Vehicle is in good working condition, clean, and ready for use:{" "}
+              {LVChecklist.confirm === true ? "True" : "False"}
+            </h4>
           </Typography>
         </AccordionDetails>
       </Accordion>
