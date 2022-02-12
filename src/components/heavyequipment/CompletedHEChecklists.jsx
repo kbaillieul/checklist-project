@@ -19,6 +19,12 @@ const CompletedHEChecklists = ({ HEChecklist }) => {
   if (HEChecklist.hydraulics === "Issue") {
     counter += 1;
   }
+  if (HEChecklist.fluid === "Issue") {
+    counter += 1;
+  }
+  if (HEChecklist.hazard === "Issue") {
+    counter += 1;
+  }
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -46,10 +52,13 @@ const CompletedHEChecklists = ({ HEChecklist }) => {
         <AccordionDetails>
           <Typography>
             <h4> 1. Date Completed: {HEDateString}</h4>
-            <h4> 2. Location: {HEChecklist.location}</h4>
-            <h4> 3. Task: {HEChecklist.task}</h4>
-            <h4> 4. Backup Alarm: {HEChecklist.alarm}</h4>
-            <h4> 5. Hydraulics: {HEChecklist.hydraulics}</h4>
+            <h4> 2. Employee Name: {HEChecklist.employeeName}</h4>
+            <h4> 3. Location: {HEChecklist.location}</h4>
+            <h4> 4. Equipment ID Number: {HEChecklist.idNum}</h4>
+            <h4> 5. Nearby Hazards: {HEChecklist.hazard}</h4>
+            <h4> 6. Fluid Levels and Leaks: {HEChecklist.fluid}</h4>
+            <h4> 7. Backup Alarm: {HEChecklist.alarm}</h4>
+            <h4> 8. Hydraulics: {HEChecklist.hydraulics}</h4>
           </Typography>
         </AccordionDetails>
       </Accordion>

@@ -11,8 +11,11 @@ const HEChecklist = ({ onSubmit }) => {
   const defaultHE = {
     key: "",
     date: "",
+    employeeName: "",
     location: "",
-    task: "",
+    idNum: "",
+    hazard: "",
+    fluid: "",
     alarm: "",
     hydraulics: "",
   };
@@ -21,8 +24,11 @@ const HEChecklist = ({ onSubmit }) => {
   const submitChecklist = (e) => {
     if (
       heavyEquip.date === "" ||
+      heavyEquip.employeeName === "" ||
       heavyEquip.location === "" ||
-      heavyEquip.task === "" ||
+      heavyEquip.idNum === "" ||
+      heavyEquip.hazard === "" ||
+      heavyEquip.fluid === "" ||
       heavyEquip.alarm === "" ||
       heavyEquip.hydraulics === ""
     ) {
@@ -46,7 +52,17 @@ const HEChecklist = ({ onSubmit }) => {
         maxDate={new Date()}
       />
       <br />
-      <label>2. Location</label>
+      <label>2. Employee Name</label>
+      <input
+        className="text-Input"
+        type="text"
+        value={heavyEquip.employeeName}
+        onChange={(e) =>
+          setHeavyEquip({ ...heavyEquip, employeeName: e.target.value })
+        }
+      />
+      <br />
+      <label>3. Location</label>
       <input
         className="text-Input"
         type="text"
@@ -55,16 +71,89 @@ const HEChecklist = ({ onSubmit }) => {
           setHeavyEquip({ ...heavyEquip, location: e.target.value })
         }
       />
-      <br />
-      <label>3. Task Description</label>
-      <input
-        className="text-Input"
-        type="text"
-        value={heavyEquip.task}
-        onChange={(e) => setHeavyEquip({ ...heavyEquip, task: e.target.value })}
-      />
       <div>
-        <label>4. Backup Alarm</label>
+        <label>4. Equipment ID Number</label>
+        <input
+          className="text-Input"
+          type="text"
+          value={heavyEquip.idNum}
+          onChange={(e) =>
+            setHeavyEquip({ ...heavyEquip, idNum: e.target.value })
+          }
+        />
+        <br />
+        <label>
+          5. Nearby Hazards - Check for safety and environmental hazards around
+          equipment and work site
+        </label>
+        <br />
+        <input
+          onChange={(e) =>
+            setHeavyEquip({ ...heavyEquip, hazard: e.target.value })
+          }
+          type="radio"
+          value="OK"
+          //control to keep from multiple radio buttons in the same question being checked
+          checked={heavyEquip.hazard === "OK"}
+        ></input>
+        OK <br />
+        <input
+          onChange={(e) =>
+            setHeavyEquip({ ...heavyEquip, hazard: e.target.value })
+          }
+          type="radio"
+          value="Issue"
+          checked={heavyEquip.hazard === "Issue"}
+        ></input>
+        Issue <br />
+        <input
+          onChange={(e) =>
+            setHeavyEquip({ ...heavyEquip, hazard: e.target.value })
+          }
+          type="radio"
+          value="NA"
+          checked={heavyEquip.hazard === "NA"}
+        ></input>
+        N/A
+        <br />
+        <label>
+          6. Fluid Levels and Leaks - Check levels and potential leaks of engine
+          oil, fuel, hydralic and radiator fluid.{" "}
+        </label>
+        <br />
+        <input
+          onChange={(e) =>
+            setHeavyEquip({ ...heavyEquip, fluid: e.target.value })
+          }
+          type="radio"
+          value="OK"
+          //control to keep from multiple radio buttons in the same question being checked
+          checked={heavyEquip.fluid === "OK"}
+        ></input>
+        OK <br />
+        <input
+          onChange={(e) =>
+            setHeavyEquip({ ...heavyEquip, fluid: e.target.value })
+          }
+          type="radio"
+          value="Issue"
+          checked={heavyEquip.fluid === "Issue"}
+        ></input>
+        Issue <br />
+        <input
+          onChange={(e) =>
+            setHeavyEquip({ ...heavyEquip, fluid: e.target.value })
+          }
+          type="radio"
+          value="NA"
+          checked={heavyEquip.fluid === "NA"}
+        ></input>
+        N/A
+        <br />
+        <label>
+          7. Backup Alarm - Check backup alarm is working and loud enough to be
+          heard in an operational environment.
+        </label>
         <br />
         <input
           onChange={(e) =>
@@ -95,7 +184,10 @@ const HEChecklist = ({ onSubmit }) => {
         ></input>
         N/A
         <br />
-        <label>5. Hydraulics</label>
+        <label>
+          8. Hydraulics - Check for cylinders, hoses, and valves free from leaks
+          and damage.{" "}
+        </label>
         <br />
         <input
           onChange={(e) =>
