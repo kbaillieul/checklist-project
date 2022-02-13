@@ -49,7 +49,7 @@ const FAChecklist = ({ onSubmit }) => {
   };
 
   return (
-    <div>
+    <div className="form-container">
       <label className="form">
         1. Date of Inspection:{" "}
         <DatePicker

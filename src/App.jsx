@@ -7,12 +7,9 @@ import {
   FAMain,
   LVMain,
   HEMain,
-  FAChecklistDetails,
   CompletedFAChecklistsMap,
   CompletedLVChecklistsMap,
   CompletedHEChecklistsMap,
-  LVChecklistDetails,
-  HEChecklistDetails,
   Navigation,
 } from "./components/Index";
 import { useState } from "react";
@@ -52,9 +49,7 @@ function App() {
               <Route
                 path="completed"
                 element={<CompletedFAChecklistsMap completedFA={completedFA} />}
-              >
-                <Route path=":key" element={<FAChecklistDetails />} />
-              </Route>
+              ></Route>
             </Route>
             <Route path="light-vehicle" element={<LVMain />}>
               <Route
@@ -64,9 +59,7 @@ function App() {
               <Route
                 path="completed"
                 element={<CompletedLVChecklistsMap completedLV={completedLV} />}
-              >
-                <Route path=":key" element={<LVChecklistDetails />} />
-              </Route>
+              ></Route>
             </Route>
             <Route path="heavy-equipment" element={<HEMain />}>
               <Route
@@ -76,9 +69,7 @@ function App() {
               <Route
                 path="completed"
                 element={<CompletedHEChecklistsMap completedHE={completedHE} />}
-              >
-                <Route path=":key" element={<HEChecklistDetails />} />
-              </Route>
+              ></Route>
             </Route>
           </Route>
         </Routes>

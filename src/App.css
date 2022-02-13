@@ -22,26 +22,11 @@ h1 {
   text-align: center;
 }
 
-label {
-  font-size: 10px;
-  display: inline;
-}
-
 .text-Input {
   width: 100px;
   height: 20px;
   padding: 2px;
 }
-
-/* .container {
-  max-width: 900px;
-  margin: 25px auto;
-  min-height: 300px;
-  border: 2px solid;
-  padding: 25px;
-  border-radius: 10px;
-  font-size: 10px;
-} */
 
 .form {
   display: flex;
@@ -61,4 +46,8 @@ label {
 
 .icons {
   transform: scale(1.8);
+}
+
+.form-container {
+  font-size: 12px;
 }
