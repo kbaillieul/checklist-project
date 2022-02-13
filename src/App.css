@@ -51,3 +51,11 @@ h1 {
 .form-container {
   font-size: 12px;
 }
+
+.date-picker {
+  display: flex;
+  flex-direction: row;
+}
+.date-picker-label {
+  width: 40%;
+}

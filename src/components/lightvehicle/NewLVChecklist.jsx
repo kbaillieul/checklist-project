@@ -41,16 +41,17 @@ const LVChecklist = ({ onSubmit }) => {
     }
   };
   return (
-    <div>
-      <label>1. Date of Inspection</label>
-      <DatePicker
-        className="text-Input"
-        selected={lightVehicle.date}
-        showTimeSelect
-        onChange={(date) => setLightVehicle({ ...lightVehicle, date: date })}
-        maxDate={new Date()}
-      />
-      <br />
+    <div className="form-container">
+      <div className="date-picker">
+        <label className="date-picker-label">1. Date of Inspection</label>
+        <DatePicker
+          className="text-Input"
+          selected={lightVehicle.date}
+          showTimeSelect
+          onChange={(date) => setLightVehicle({ ...lightVehicle, date: date })}
+          maxDate={new Date()}
+        />
+      </div>
       <label>2. Employee Name</label>
       <input
         className="text-Input"
