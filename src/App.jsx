@@ -10,7 +10,7 @@ import {
   CompletedFAChecklistsMap,
   CompletedLVChecklistsMap,
   CompletedHEChecklistsMap,
-  Navigation,
+  NavBar,
 } from "./components/Index";
 import { useState } from "react";
 import {
@@ -39,7 +39,7 @@ function App() {
     <div className="container">
       <Router>
         <Routes>
-          <Route path="/" element={<Navigation />}>
+          <Route path="/" element={<NavBar />}>
             <Route index element={<Home />} />
             <Route path="fall-arrest" element={<FAMain />}>
               <Route

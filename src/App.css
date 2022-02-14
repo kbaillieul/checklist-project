@@ -28,12 +28,6 @@ h1 {
   padding: 2px;
 }
 
-.form {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-}
-
 .divider {
   display: flex;
   align-items: center;
@@ -50,6 +44,7 @@ h1 {
 
 .form-container {
   font-size: 12px;
+  font-family: "Poppins", sans-serif;
 }
 
 .date-picker {
@@ -57,5 +52,17 @@ h1 {
   flex-direction: row;
 }
 .date-picker-label {
-  width: 40%;
+  width: 70%;
+}
+
+@media only screen and (min-width: 768px) {
+  .date-picker-label {
+    width: 35%;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .date-picker-label {
+    width: 15%;
+  }
 }
