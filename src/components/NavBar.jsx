@@ -17,7 +17,12 @@ import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 220;
-
+const style = {
+  backgroundColor: "background.paper",
+  "&:hover": {
+    opacity: [0.9, 0.8, 0.7],
+  },
+};
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
     flexGrow: 1,
@@ -119,22 +124,22 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-          <ListItem>
+          <ListItem sx={style}>
             <ListItemText primary="Home" onClick={() => handleRoute("/")} />
           </ListItem>
-          <ListItem>
+          <ListItem sx={style}>
             <ListItemText
               primary="Fall Arrest Checklist"
               onClick={() => handleRoute("/fall-arrest/completed")}
             />
           </ListItem>
-          <ListItem>
+          <ListItem sx={style}>
             <ListItemText
               primary="Light Vehicle Checklist"
               onClick={() => handleRoute("/light-vehicle/completed")}
             />
           </ListItem>
-          <ListItem>
+          <ListItem sx={style}>
             <ListItemText
               primary="Heavy Equipment Checklist"
               onClick={() => handleRoute("/heavy-equipment/completed")}

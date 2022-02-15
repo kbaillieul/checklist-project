@@ -10,6 +10,12 @@ import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
 import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing";
 import Divider from "@mui/material/Divider";
 
+const style = {
+  backgroundColor: "background.paper",
+  "&:hover": {
+    opacity: [0.9, 0.8, 0.7],
+  },
+};
 const Header = () => {
   const navigate = useNavigate();
 
@@ -25,7 +31,7 @@ const Header = () => {
           maxWidth: 375,
         }}
       >
-        <ListItem>
+        <ListItem sx={style}>
           <ListItemAvatar>
             <Avatar>
               <LocalHospitalIcon
@@ -41,7 +47,7 @@ const Header = () => {
           />
         </ListItem>
         <Divider variant="inset" component="li" />
-        <ListItem>
+        <ListItem sx={style}>
           <ListItemAvatar>
             <Avatar>
               <DirectionsCarIcon
@@ -57,7 +63,7 @@ const Header = () => {
           />
         </ListItem>
         <Divider variant="inset" component="li" />
-        <ListItem>
+        <ListItem sx={style}>
           <ListItemAvatar>
             <Avatar>
               <PrecisionManufacturingIcon

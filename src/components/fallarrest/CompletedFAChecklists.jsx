@@ -10,6 +10,8 @@ const CompletedFAChecklists = ({ FAChecklist }) => {
   const FADateString = FADate.toString();
   const key = FAChecklist.key;
   const [expanded, setExpanded] = React.useState(false);
+
+  //counter tracks number of issues identified in checklist
   let counter = 0;
 
   if (FAChecklist.alone === false) {
