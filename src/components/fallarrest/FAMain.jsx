@@ -16,7 +16,6 @@ const FAMain = () => {
   return (
     <div>
       <h1>Fall Arrest Checklists</h1>
-      <div className="main-buttons"></div>
 
       <Stack style={{ justifyContent: "center" }} direction="row" spacing={2}>
         <Button

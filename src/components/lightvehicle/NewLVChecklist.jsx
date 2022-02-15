@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import "react-datepicker/dist/react-datepicker.css";
 import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
 
 const LVChecklist = ({ onSubmit }) => {
   const navigate = useNavigate();
@@ -187,9 +188,15 @@ const LVChecklist = ({ onSubmit }) => {
         }
       />
       <br />
-      <Button variant="contained" className="submit" onClick={submitChecklist}>
-        Submit
-      </Button>
+      <Box textAlign="center">
+        <Button
+          variant="contained"
+          className="submit"
+          onClick={submitChecklist}
+        >
+          Submit
+        </Button>
+      </Box>
     </div>
   );
 };
