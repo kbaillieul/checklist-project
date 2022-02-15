@@ -22,7 +22,7 @@ const Header = () => {
       <List
         sx={{
           width: "100%",
-          maxWidth: 500,
+          maxWidth: 375,
         }}
       >
         <ListItem>
