@@ -5,10 +5,9 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-const CompletedFAChecklists = ({ FAChecklist }) => {
+const CompletedFAChecklistAccordian = ({ FAChecklist }) => {
   const FADate = new Date(FAChecklist.date);
   const FADateString = FADate.toString();
-  const key = FAChecklist.key;
   const [expanded, setExpanded] = React.useState(false);
 
   //counter tracks number of issues identified in checklist
@@ -76,4 +75,4 @@ const CompletedFAChecklists = ({ FAChecklist }) => {
   );
 };
 
-export default CompletedFAChecklists;
+export default CompletedFAChecklistAccordian;

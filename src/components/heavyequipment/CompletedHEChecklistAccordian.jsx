@@ -5,23 +5,22 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-const CompletedLVChecklists = ({ LVChecklist }) => {
-  const LVDate = new Date(LVChecklist.date);
-  const LVDateString = LVDate.toString();
-  const key = LVChecklist.key;
+const CompletedHEChecklistAccordian = ({ HEChecklist }) => {
+  const HEDate = new Date(HEChecklist.date);
+  const HEDateString = HEDate.toString();
   const [expanded, setExpanded] = React.useState(false);
   let counter = 0;
 
-  if (LVChecklist.oil === "Issue") {
+  if (HEChecklist.alarm === "Issue") {
     counter += 1;
   }
-  if (LVChecklist.coolant === "Issue") {
+  if (HEChecklist.hydraulics === "Issue") {
     counter += 1;
   }
-  if (LVChecklist.fuel === "Issue") {
+  if (HEChecklist.fluid === "Issue") {
     counter += 1;
   }
-  if (LVChecklist.confirm === false) {
+  if (HEChecklist.hazard === "Issue") {
     counter += 1;
   }
 
@@ -40,7 +39,7 @@ const CompletedLVChecklists = ({ LVChecklist }) => {
           id="panel1bh-header"
         >
           <Typography sx={{ width: "66%", flexShrink: 0 }}>
-            {LVDateString}
+            {HEDateString}
           </Typography>
           <Typography sx={{ color: "text.secondary" }}>
             {counter === 1
@@ -50,18 +49,14 @@ const CompletedLVChecklists = ({ LVChecklist }) => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            <h4> 1. Date Completed: {LVDateString}</h4>
-            <h4> 2. Employee Name: {LVChecklist.employeeName}</h4>
-            <h4> 3. Location: {LVChecklist.location}</h4>
-            <h4> 4. Vehicle ID Number: {LVChecklist.idNum}</h4>
-            <h4> 5. Fuel Level: {LVChecklist.fuel}</h4>
-            <h4> 6. Oil Level: {LVChecklist.oil}</h4>
-            <h4> 7. Coolant Level: {LVChecklist.coolant}</h4>
-            <h4>
-              {" "}
-              8. Vehicle is in good working condition, clean, and ready for use:{" "}
-              {LVChecklist.confirm === true ? "True" : "False"}
-            </h4>
+            <h4> 1. Date Completed: {HEDateString}</h4>
+            <h4> 2. Employee Name: {HEChecklist.employeeName}</h4>
+            <h4> 3. Location: {HEChecklist.location}</h4>
+            <h4> 4. Equipment ID Number: {HEChecklist.idNum}</h4>
+            <h4> 5. Nearby Hazards: {HEChecklist.hazard}</h4>
+            <h4> 6. Fluid Levels and Leaks: {HEChecklist.fluid}</h4>
+            <h4> 7. Backup Alarm: {HEChecklist.alarm}</h4>
+            <h4> 8. Hydraulics: {HEChecklist.hydraulics}</h4>
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -69,4 +64,4 @@ const CompletedLVChecklists = ({ LVChecklist }) => {
   );
 };
 
-export default CompletedLVChecklists;
+export default CompletedHEChecklistAccordian;
