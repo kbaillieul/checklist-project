@@ -19,6 +19,7 @@ import {
   getHeavyEquipmentChecklists,
 } from "./database";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { CompletedFAContext } from "./Contexts/CompletedFAContext";
 
 function App() {
   // //states to hold completed checklists of each type
@@ -37,43 +38,49 @@ function App() {
   };
   return (
     <div className="container">
-      <Router>
-        <Routes>
-          <Route path="/" element={<NavBar />}>
-            <Route index element={<Home />} />
-            <Route path="fall-arrest" element={<FAMain />}>
-              <Route
-                path="new"
-                element={<NewFAChecklist onSubmit={refreshFA} />}
-              />
-              <Route
-                path="completed"
-                element={<CompletedFAChecklistsMap completedFA={completedFA} />}
-              ></Route>
+      <CompletedFAContext.Provider value={(completedFA, setCompletedFA)}>
+        <Router>
+          <Routes>
+            <Route path="/" element={<NavBar />}>
+              <Route index element={<Home />} />
+              <Route path="fall-arrest" element={<FAMain />}>
+                <Route
+                  path="new"
+                  element={<NewFAChecklist onSubmit={refreshFA} />}
+                />
+                <Route
+                  path="completed"
+                  element={<CompletedFAChecklistsMap />}
+                ></Route>
+              </Route>
+              <Route path="light-vehicle" element={<LVMain />}>
+                <Route
+                  path="new"
+                  element={<NewLVChecklist onSubmit={refreshLV} />}
+                />
+                <Route
+                  path="completed"
+                  element={
+                    <CompletedLVChecklistsMap completedLV={completedLV} />
+                  }
+                ></Route>
+              </Route>
+              <Route path="heavy-equipment" element={<HEMain />}>
+                <Route
+                  path="new"
+                  element={<NewHEChecklist onSubmit={refreshHE} />}
+                />
+                <Route
+                  path="completed"
+                  element={
+                    <CompletedHEChecklistsMap completedHE={completedHE} />
+                  }
+                ></Route>
+              </Route>
             </Route>
-            <Route path="light-vehicle" element={<LVMain />}>
-              <Route
-                path="new"
-                element={<NewLVChecklist onSubmit={refreshLV} />}
-              />
-              <Route
-                path="completed"
-                element={<CompletedLVChecklistsMap completedLV={completedLV} />}
-              ></Route>
-            </Route>
-            <Route path="heavy-equipment" element={<HEMain />}>
-              <Route
-                path="new"
-                element={<NewHEChecklist onSubmit={refreshHE} />}
-              />
-              <Route
-                path="completed"
-                element={<CompletedHEChecklistsMap completedHE={completedHE} />}
-              ></Route>
-            </Route>
-          </Route>
-        </Routes>
-      </Router>
+          </Routes>
+        </Router>
+      </CompletedFAContext.Provider>
     </div>
   );
 }
