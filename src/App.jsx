@@ -19,17 +19,17 @@ import {
   getHeavyEquipmentChecklists,
 } from "./database";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { CompletedFAContext } from "./Contexts/CompletedFAContext";
+import { CompletedFAProvider } from "./Contexts/CompletedFAContext";
 
 function App() {
   // //states to hold completed checklists of each type
-  const [completedFA, setCompletedFA] = useState(getFallArrestChecklists());
+  // const [completedFA, setCompletedFA] = useState(getFallArrestChecklists());
   const [completedLV, setCompletedLV] = useState(getLightVehicleChecklists());
   const [completedHE, setCompletedHE] = useState(getHeavyEquipmentChecklists());
   // //On click of submit button in each checklist, refresh function is called to get new checklist values from local storage
-  const refreshFA = () => {
-    setCompletedFA(getFallArrestChecklists());
-  };
+  // const refreshFA = () => {
+  //   setCompletedFA(getFallArrestChecklists());
+  // };
   const refreshLV = () => {
     setCompletedLV(getLightVehicleChecklists());
   };
@@ -38,16 +38,13 @@ function App() {
   };
   return (
     <div className="container">
-      <CompletedFAContext.Provider value={(completedFA, setCompletedFA)}>
+      <CompletedFAProvider>
         <Router>
           <Routes>
             <Route path="/" element={<NavBar />}>
               <Route index element={<Home />} />
               <Route path="fall-arrest" element={<FAMain />}>
-                <Route
-                  path="new"
-                  element={<NewFAChecklist onSubmit={refreshFA} />}
-                />
+                <Route path="new" element={<NewFAChecklist />} />
                 <Route
                   path="completed"
                   element={<CompletedFAChecklistsMap />}
@@ -80,7 +77,7 @@ function App() {
             </Route>
           </Routes>
         </Router>
-      </CompletedFAContext.Provider>
+      </CompletedFAProvider>
     </div>
   );
 }
