@@ -22,7 +22,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+<<<<<<< HEAD
     "eject": "react-scripts eject"
+=======
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "Branch-2 -d build"
+>>>>>>> parent of f54a490 (Hosting)
   },
   "eslintConfig": {
     "extends": [

@@ -17,10 +17,10 @@ The user can click the View Completed Checklists button to view the checklists t
 
 Clone down this repository. You will need node and npm installed globally on your machine.
 
-### Installation:
+#### Installation:
 
 npm install
 
-### To Start Server:
+#### To Start Server:
 
 npm start
