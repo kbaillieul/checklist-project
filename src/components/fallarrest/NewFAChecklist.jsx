@@ -6,8 +6,12 @@ import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import { useContext } from "react";
+import { CompletedChecklistContext } from "../../Contexts/CompletedChecklistContext";
+import { getFallArrestChecklists } from "../../database";
 
-const FAChecklist = ({ onSubmit }) => {
+const FAChecklist = () => {
+  const [completedFA, setCompletedFA] = useContext(CompletedChecklistContext);
   const navigate = useNavigate();
   //default FA checklist responses to reset form to
   const defaultFA = {
@@ -42,7 +46,7 @@ const FAChecklist = ({ onSubmit }) => {
       //sendFAToLocal function in local.js stores checklist data into local storage
       addFallArrestChecklist(fallArrest);
       //call to refreshFA function in app.js to updated completed checklists
-      onSubmit();
+      setCompletedFA(getFallArrestChecklists());
       //reset to default
       setFallArrest(defaultFA);
       navigate("/fall-arrest/completed");

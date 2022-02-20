@@ -6,8 +6,12 @@ import { v4 as uuidv4 } from "uuid";
 import "react-datepicker/dist/react-datepicker.css";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import { useContext } from "react";
+import { CompletedChecklistContext } from "../../Contexts/CompletedChecklistContext";
+import { getHeavyEquipmentChecklists } from "../../database";
 
-const HEChecklist = ({ onSubmit }) => {
+const HEChecklist = () => {
+  const [completedHE, setCompletedHE] = useContext(CompletedChecklistContext);
   const navigate = useNavigate();
   const defaultHE = {
     key: "",
@@ -37,7 +41,7 @@ const HEChecklist = ({ onSubmit }) => {
     } else {
       heavyEquip.key = uuidv4();
       addHeavyEquipmentChecklist(heavyEquip);
-      onSubmit();
+      setCompletedHE(getHeavyEquipmentChecklists());
       setHeavyEquip(defaultHE);
       navigate("/heavy-equipment/completed");
     }

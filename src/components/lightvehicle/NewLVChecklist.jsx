@@ -6,8 +6,12 @@ import { v4 as uuidv4 } from "uuid";
 import "react-datepicker/dist/react-datepicker.css";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import { useContext } from "react";
+import { CompletedChecklistContext } from "../../Contexts/CompletedChecklistContext";
+import { getLightVehicleChecklists } from "../../database";
 
-const LVChecklist = ({ onSubmit }) => {
+const LVChecklist = () => {
+  const [completedLV, setCompletedLV] = useContext(CompletedChecklistContext);
   const navigate = useNavigate();
   const defaultLV = {
     key: "",
@@ -36,7 +40,7 @@ const LVChecklist = ({ onSubmit }) => {
     } else {
       lightVehicle.key = uuidv4();
       addLightVehicleChecklist(lightVehicle);
-      onSubmit();
+      setCompletedLV(getLightVehicleChecklists());
       setLightVehicle(defaultLV);
       navigate("/light-vehicle/completed");
     }
