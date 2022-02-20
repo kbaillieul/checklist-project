@@ -19,26 +19,26 @@ import {
   getHeavyEquipmentChecklists,
 } from "./database";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { CompletedFAProvider } from "./Contexts/CompletedFAContext";
+import { CompletedChecklistProvider } from "./Contexts/CompletedChecklistContext";
 
 function App() {
   // //states to hold completed checklists of each type
   // const [completedFA, setCompletedFA] = useState(getFallArrestChecklists());
-  const [completedLV, setCompletedLV] = useState(getLightVehicleChecklists());
-  const [completedHE, setCompletedHE] = useState(getHeavyEquipmentChecklists());
+  // const [completedLV, setCompletedLV] = useState(getLightVehicleChecklists());
+  // const [completedHE, setCompletedHE] = useState(getHeavyEquipmentChecklists());
   // //On click of submit button in each checklist, refresh function is called to get new checklist values from local storage
   // const refreshFA = () => {
   //   setCompletedFA(getFallArrestChecklists());
   // };
-  const refreshLV = () => {
-    setCompletedLV(getLightVehicleChecklists());
-  };
-  const refreshHE = () => {
-    setCompletedHE(getHeavyEquipmentChecklists());
-  };
+  // const refreshLV = () => {
+  //   setCompletedLV(getLightVehicleChecklists());
+  // };
+  // const refreshHE = () => {
+  //   setCompletedHE(getHeavyEquipmentChecklists());
+  // };
   return (
     <div className="container">
-      <CompletedFAProvider>
+      <CompletedChecklistProvider>
         <Router>
           <Routes>
             <Route path="/" element={<NavBar />}>
@@ -51,33 +51,23 @@ function App() {
                 ></Route>
               </Route>
               <Route path="light-vehicle" element={<LVMain />}>
-                <Route
-                  path="new"
-                  element={<NewLVChecklist onSubmit={refreshLV} />}
-                />
+                <Route path="new" element={<NewLVChecklist />} />
                 <Route
                   path="completed"
-                  element={
-                    <CompletedLVChecklistsMap completedLV={completedLV} />
-                  }
+                  element={<CompletedLVChecklistsMap />}
                 ></Route>
               </Route>
               <Route path="heavy-equipment" element={<HEMain />}>
-                <Route
-                  path="new"
-                  element={<NewHEChecklist onSubmit={refreshHE} />}
-                />
+                <Route path="new" element={<NewHEChecklist />} />
                 <Route
                   path="completed"
-                  element={
-                    <CompletedHEChecklistsMap completedHE={completedHE} />
-                  }
+                  element={<CompletedHEChecklistsMap />}
                 ></Route>
               </Route>
             </Route>
           </Routes>
         </Router>
-      </CompletedFAProvider>
+      </CompletedChecklistProvider>
     </div>
   );
 }

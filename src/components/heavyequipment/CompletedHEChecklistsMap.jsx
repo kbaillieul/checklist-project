@@ -1,7 +1,10 @@
 import React from "react";
 import CompletedHEChecklistAccordian from "./CompletedHEChecklistAccordian";
+import { useContext } from "react";
+import { CompletedChecklistContext } from "../../Contexts/CompletedChecklistContext";
 
-const CompletedHEChecklistsMap = ({ completedHE }) => {
+const CompletedHEChecklistsMap = () => {
+  const [completedHE] = useContext(CompletedChecklistContext);
   return (
     <div>
       <h2>Completed Heavy Equipment Checklists</h2>

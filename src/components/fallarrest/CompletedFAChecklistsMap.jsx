@@ -1,10 +1,10 @@
 import React from "react";
 import CompletedFAChecklistAccordian from "./CompletedFAChecklistAccordian";
-import { useContext, useState } from "react";
-import { CompletedFAContext } from "../../Contexts/CompletedFAContext";
+import { useContext } from "react";
+import { CompletedChecklistContext } from "../../Contexts/CompletedChecklistContext";
 
 const CompletedFAChecklistsMap = () => {
-  const [completedFA, setCompetedFA] = useContext(CompletedFAContext);
+  const [completedFA] = useContext(CompletedChecklistContext);
   return (
     <div>
       <h2>Completed Fall Arrest Checklists</h2>
