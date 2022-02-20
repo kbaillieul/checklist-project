@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  line-height: 2em;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.text-Input {
+  width: 100px;
+  height: 20px;
+  padding: 2px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icons {
+  transform: scale(1.8);
+}
+
+.form-container {
+  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+}
+
+.date-picker {
+  display: flex;
+  flex-direction: row;
+}
+.date-picker-label {
+  width: 70%;
+}
+
+@media only screen and (min-width: 768px) {
+  .date-picker-label {
+    width: 22%;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .date-picker-label {
+    width: 15%;
+  }
+}
