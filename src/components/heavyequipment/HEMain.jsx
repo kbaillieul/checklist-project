@@ -1,9 +1,11 @@
 import React from "react";
 import { useNavigate, Outlet } from "react-router-dom";
-import Button from "@mui/material/Button";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import Stack from "@mui/material/Stack";
+import {
+  Button,
+  AddCircleOutlineIcon,
+  CheckCircleOutlineIcon,
+  Stack,
+} from "./index";
 
 const HEMain = () => {
   const navigate = useNavigate();

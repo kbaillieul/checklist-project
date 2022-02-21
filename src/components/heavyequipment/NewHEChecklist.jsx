@@ -1,14 +1,15 @@
-import { useState } from "react";
-import { addHeavyEquipmentChecklist } from "../../database";
+import { useState, useContext } from "react";
 import DatePicker from "react-datepicker";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import "react-datepicker/dist/react-datepicker.css";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import { useContext } from "react";
-import { CompletedChecklistContext } from "../../Contexts/CompletedChecklistContext";
-import { getHeavyEquipmentChecklists } from "../../database";
+import {
+  addHeavyEquipmentChecklist,
+  Button,
+  Box,
+  CompletedChecklistContext,
+  getHeavyEquipmentChecklists,
+} from "./index";
 
 const HEChecklist = () => {
   const [completedHE, setCompletedHE] = useContext(CompletedChecklistContext);
