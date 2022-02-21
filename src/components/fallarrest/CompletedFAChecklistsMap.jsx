@@ -1,7 +1,9 @@
 import React from "react";
-import CompletedFAChecklistAccordian from "./CompletedFAChecklistAccordian";
 import { useContext } from "react";
-import { CompletedChecklistContext } from "../../Contexts/CompletedChecklistContext";
+import {
+  CompletedChecklistContext,
+  CompletedFAChecklistAccordian,
+} from "./index";
 
 const CompletedFAChecklistsMap = () => {
   const [completedFA] = useContext(CompletedChecklistContext);

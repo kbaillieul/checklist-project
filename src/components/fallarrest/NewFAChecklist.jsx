@@ -1,14 +1,15 @@
-import { useState } from "react";
-import { addFallArrestChecklist } from "../../database";
+import { useState, useContext } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import { useContext } from "react";
-import { CompletedChecklistContext } from "../../Contexts/CompletedChecklistContext";
-import { getFallArrestChecklists } from "../../database";
+import {
+  addFallArrestChecklist,
+  getFallArrestChecklists,
+  Button,
+  Box,
+  CompletedChecklistContext,
+} from "./index";
 
 const FAChecklist = () => {
   const [completedFA, setCompletedFA] = useContext(CompletedChecklistContext);
