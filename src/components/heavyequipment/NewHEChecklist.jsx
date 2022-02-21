@@ -99,7 +99,6 @@ const HEChecklist = () => {
           }
           type="radio"
           value="OK"
-          //control to keep from multiple radio buttons in the same question being checked
           checked={heavyEquip.hazard === "OK"}
         ></input>
         OK <br />
@@ -133,7 +132,6 @@ const HEChecklist = () => {
           }
           type="radio"
           value="OK"
-          //control to keep from multiple radio buttons in the same question being checked
           checked={heavyEquip.fluid === "OK"}
         ></input>
         OK <br />
@@ -167,7 +165,6 @@ const HEChecklist = () => {
           }
           type="radio"
           value="OK"
-          //control to keep from multiple radio buttons in the same question being checked
           checked={heavyEquip.alarm === "OK"}
         ></input>
         OK <br />

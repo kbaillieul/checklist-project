@@ -1,4 +1,3 @@
-import react from "react";
 import { createContext } from "react";
 import { useState } from "react";
 import {
@@ -7,6 +6,7 @@ import {
   getHeavyEquipmentChecklists,
 } from "../database";
 
+//context to make completed checklist arrays available to all components
 export const CompletedChecklistContext = createContext({});
 
 export const CompletedChecklistProvider = (props) => {

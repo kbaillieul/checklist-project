@@ -95,7 +95,6 @@ const LVChecklist = () => {
         }
         type="radio"
         value="OK"
-        //control to keep from multiple radio buttons in the same question being checked
         checked={lightVehicle.fuel === "OK"}
       ></input>
       OK <br />
@@ -126,7 +125,6 @@ const LVChecklist = () => {
         }
         type="radio"
         value="OK"
-        //control to keep from multiple radio buttons in the same question being checked
         checked={lightVehicle.oil === "OK"}
       ></input>
       OK <br />
@@ -157,7 +155,6 @@ const LVChecklist = () => {
         }
         type="radio"
         value="OK"
-        //control to keep from multiple radio buttons in the same question being checked
         checked={lightVehicle.coolant === "OK"}
       ></input>
       OK <br />

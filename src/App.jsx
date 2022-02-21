@@ -12,30 +12,10 @@ import {
   CompletedHEChecklistsMap,
   NavBar,
 } from "./components/Index";
-import { useState } from "react";
-import {
-  getFallArrestChecklists,
-  getLightVehicleChecklists,
-  getHeavyEquipmentChecklists,
-} from "./database";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CompletedChecklistProvider } from "./Contexts/CompletedChecklistContext";
 
 function App() {
-  // //states to hold completed checklists of each type
-  // const [completedFA, setCompletedFA] = useState(getFallArrestChecklists());
-  // const [completedLV, setCompletedLV] = useState(getLightVehicleChecklists());
-  // const [completedHE, setCompletedHE] = useState(getHeavyEquipmentChecklists());
-  // //On click of submit button in each checklist, refresh function is called to get new checklist values from local storage
-  // const refreshFA = () => {
-  //   setCompletedFA(getFallArrestChecklists());
-  // };
-  // const refreshLV = () => {
-  //   setCompletedLV(getLightVehicleChecklists());
-  // };
-  // const refreshHE = () => {
-  //   setCompletedHE(getHeavyEquipmentChecklists());
-  // };
   return (
     <div className="container">
       <CompletedChecklistProvider>

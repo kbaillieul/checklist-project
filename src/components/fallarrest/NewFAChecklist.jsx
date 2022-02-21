@@ -43,9 +43,9 @@ const FAChecklist = () => {
       alert("Please answer all questions to submit checklist");
     } else {
       fallArrest.key = uuidv4();
-      //sendFAToLocal function in local.js stores checklist data into local storage
+      //sendFAToLocal function stores checklist data into local storage
       addFallArrestChecklist(fallArrest);
-      //call to refreshFA function in app.js to updated completed checklists
+      //call to refresh completedFA checklist array
       setCompletedFA(getFallArrestChecklists());
       //reset to default
       setFallArrest(defaultFA);
@@ -174,7 +174,6 @@ const FAChecklist = () => {
         }
         type="radio"
         value="OK"
-        //control to keep from multiple radio buttons in the same question being checked
         checked={fallArrest.dRing === "OK"}
       ></input>
       OK <br />
