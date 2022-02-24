@@ -6,11 +6,11 @@ import {
 } from "./index";
 
 const CompletedHEChecklistsMap = () => {
-  const [completedHE] = useContext(CompletedChecklistContext);
+  const { heavyEquipment } = useContext(CompletedChecklistContext);
   return (
     <div>
       <h2>Completed Heavy Equipment Checklists</h2>
-      {completedHE.map((HEChecklist) => (
+      {heavyEquipment.map((HEChecklist) => (
         <CompletedHEChecklistAccordian HEChecklist={HEChecklist} />
       ))}
       <hr />
