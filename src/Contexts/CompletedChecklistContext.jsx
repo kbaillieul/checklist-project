@@ -10,10 +10,22 @@ import {
 export const CompletedChecklistContext = createContext({});
 
 export const CompletedChecklistProvider = (props) => {
+  const [completedFA, setCompletedFA] = useState(getFallArrestChecklists());
+  const [completedLV, setCompletedLV] = useState(getLightVehicleChecklists());
+  const [completedHE, setCompletedHE] = useState(getHeavyEquipmentChecklists());
   const checklists = {
-    fallArrest: getFallArrestChecklists(),
-    lightVehicle: getLightVehicleChecklists(),
-    heavyEquipment: getHeavyEquipmentChecklists(),
+    fallArrestComplete: {
+      value: completedFA,
+      update: setCompletedFA,
+    },
+    lightVehicleComplete: {
+      value: completedLV,
+      update: setCompletedLV,
+    },
+    heavyEquipmentComplete: {
+      value: completedHE,
+      update: setCompletedHE,
+    },
   };
   return (
     <CompletedChecklistContext.Provider value={checklists}>

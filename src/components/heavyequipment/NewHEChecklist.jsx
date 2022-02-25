@@ -12,7 +12,7 @@ import {
 } from "./index";
 
 const HEChecklist = () => {
-  const [completedHE, setCompletedHE] = useContext(CompletedChecklistContext);
+  const { heavyEquipmentComplete } = useContext(CompletedChecklistContext);
   const navigate = useNavigate();
   const defaultHE = {
     key: "",
@@ -42,7 +42,7 @@ const HEChecklist = () => {
     } else {
       heavyEquip.key = uuidv4();
       addHeavyEquipmentChecklist(heavyEquip);
-      setCompletedHE(getHeavyEquipmentChecklists());
+      heavyEquipmentComplete.update(getHeavyEquipmentChecklists);
       setHeavyEquip(defaultHE);
       navigate("/heavy-equipment/completed");
     }

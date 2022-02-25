@@ -12,7 +12,7 @@ import {
 } from "./index";
 
 const LVChecklist = () => {
-  const [completedLV, setCompletedLV] = useContext(CompletedChecklistContext);
+  const { lightVehicleComplete } = useContext(CompletedChecklistContext);
   const navigate = useNavigate();
   const defaultLV = {
     key: "",
@@ -41,7 +41,7 @@ const LVChecklist = () => {
     } else {
       lightVehicle.key = uuidv4();
       addLightVehicleChecklist(lightVehicle);
-      setCompletedLV(getLightVehicleChecklists());
+      lightVehicleComplete.update(getLightVehicleChecklists);
       setLightVehicle(defaultLV);
       navigate("/light-vehicle/completed");
     }

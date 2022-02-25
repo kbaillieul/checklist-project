@@ -6,12 +6,12 @@ import {
 } from "./index";
 
 const CompletedFAChecklistsMap = () => {
-  const { fallArrest } = useContext(CompletedChecklistContext);
+  const { fallArrestComplete } = useContext(CompletedChecklistContext);
 
   return (
     <div>
       <h2>Completed Fall Arrest Checklists</h2>
-      {fallArrest.map((FAChecklist) => (
+      {fallArrestComplete.value.map((FAChecklist) => (
         <CompletedFAChecklistAccordian FAChecklist={FAChecklist} />
       ))}
       <hr />
