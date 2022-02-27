@@ -10,8 +10,10 @@ import {
   Box,
   CompletedChecklistContext,
 } from "./index";
+import { useStorage } from "../../useStorage";
 
 const FAChecklist = () => {
+  const [storeFA, setStoreFA] = useStorage("fallArrest", "");
   let { fallArrestComplete } = useContext(CompletedChecklistContext);
   const navigate = useNavigate();
   //default FA checklist responses to reset form to
@@ -45,9 +47,9 @@ const FAChecklist = () => {
     } else {
       fallArrest.key = uuidv4();
       //sendFAToLocal function stores checklist data into local storage
-      addFallArrestChecklist(fallArrest);
+      // addFallArrestChecklist(fallArrest);
       //call to refresh completedFA checklist array
-      fallArrestComplete.update(getFallArrestChecklists);
+      // fallArrestComplete.update(getFallArrestChecklists);
       //reset to default
       setFallArrest(defaultFA);
       navigate("/fall-arrest/completed");

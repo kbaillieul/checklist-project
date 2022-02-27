@@ -5,14 +5,15 @@ import {
   getLightVehicleChecklists,
   getHeavyEquipmentChecklists,
 } from "../database";
+import { useStorage } from "../useStorage";
 
 //context to make completed checklist arrays available to all components
 export const CompletedChecklistContext = createContext({});
 
 export const CompletedChecklistProvider = (props) => {
-  const [completedFA, setCompletedFA] = useState(getFallArrestChecklists());
-  const [completedLV, setCompletedLV] = useState(getLightVehicleChecklists());
-  const [completedHE, setCompletedHE] = useState(getHeavyEquipmentChecklists());
+  const [completedFA, setCompletedFA] = useStorage("fallArrest", "");
+  const [completedLV, setCompletedLV] = useStorage("lightVehicle", "");
+  const [completedHE, setCompletedHE] = useStorage("heavyEquipment", "");
   const checklists = {
     fallArrestComplete: {
       value: completedFA,

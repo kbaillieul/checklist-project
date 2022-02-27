@@ -11,9 +11,9 @@ function getHeavyEquipmentChecklists() {
   const getHE = localStorage.getItem("heavyEquip");
   return getHE === null ? [] : JSON.parse(getHE);
 }
-export default function useStorage(type, checklist) {
+export function useStorage(type, checklist) {
   const [completed, setCompleted] = useState(() => {
-    if (type === "fallArrest") {
+    if (type === "fallArrest" && checklist !== "") {
       const list = getFallArrestChecklists();
       const newValue =
         list === null
@@ -21,7 +21,7 @@ export default function useStorage(type, checklist) {
           : JSON.stringify([...list, checklist]);
       localStorage.setItem("fallArrest", newValue);
       return newValue;
-    } else if (type === "lightVehicle") {
+    } else if (type === "lightVehicle" && checklist !== "") {
       const list = getLightVehicleChecklists();
       const newValue =
         list === null
@@ -29,7 +29,7 @@ export default function useStorage(type, checklist) {
           : JSON.stringify([...list, checklist]);
       localStorage.setItem("lightVehicle", newValue);
       return newValue;
-    } else if (type === "heavyEquipment") {
+    } else if (type === "heavyEquipment" && checklist !== "") {
       const list = getHeavyEquipmentChecklists();
       const newValue =
         list === null
@@ -37,6 +37,15 @@ export default function useStorage(type, checklist) {
           : JSON.stringify([...list, checklist]);
       localStorage.setItem("heavyEquip", newValue);
       return newValue;
+    } else if (type === "fallArrest" && checklist === "") {
+      const list = getFallArrestChecklists();
+      return list;
+    } else if (type === "lightVehicle" && checklist === "") {
+      const list = getLightVehicleChecklists();
+      return list;
+    } else if (type === "heavyEquipment" && checklist === "") {
+      const list = getHeavyEquipmentChecklists();
+      return list;
     }
   });
   return [completed, setCompleted];
