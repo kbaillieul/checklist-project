@@ -7,6 +7,7 @@ import {
 
 const CompletedFAChecklistsMap = () => {
   const { fallArrestComplete } = useContext(CompletedChecklistContext);
+  console.log(fallArrestComplete);
 
   return (
     <div>
