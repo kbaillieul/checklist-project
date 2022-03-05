@@ -1,11 +1,9 @@
 import React from "react";
 import { useNavigate, Outlet } from "react-router-dom";
-import {
-  Button,
-  AddCircleOutlineIcon,
-  CheckCircleOutlineIcon,
-  Stack,
-} from "./index";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
 const FAMain = () => {
   const navigate = useNavigate();

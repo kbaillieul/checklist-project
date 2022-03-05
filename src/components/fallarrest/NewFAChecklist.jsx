@@ -6,10 +6,10 @@ import { v4 as uuidv4 } from "uuid";
 import {
   addFallArrestChecklist,
   getFallArrestChecklists,
-  Button,
-  Box,
   CompletedChecklistContext,
 } from "./index";
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
 
 const FAChecklist = () => {
   let { fallArrestComplete } = useContext(CompletedChecklistContext);

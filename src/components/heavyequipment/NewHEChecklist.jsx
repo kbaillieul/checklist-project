@@ -5,11 +5,11 @@ import { v4 as uuidv4 } from "uuid";
 import "react-datepicker/dist/react-datepicker.css";
 import {
   addHeavyEquipmentChecklist,
-  Button,
-  Box,
   CompletedChecklistContext,
   getHeavyEquipmentChecklists,
 } from "./index";
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
 
 const HEChecklist = () => {
   const { heavyEquipmentComplete } = useContext(CompletedChecklistContext);
