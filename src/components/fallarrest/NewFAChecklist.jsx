@@ -18,6 +18,7 @@ const FAChecklist = () => {
   //default FA checklist responses to reset form to
   const defaultFA = {
     key: "",
+    type: "fallArrest",
     date: "",
     employeeName: "",
     location: "",
