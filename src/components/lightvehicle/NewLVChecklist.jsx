@@ -16,6 +16,7 @@ const LVChecklist = () => {
   const navigate = useNavigate();
   const defaultLV = {
     key: "",
+    type: "lightVehicle",
     date: "",
     employeeName: "",
     location: "",

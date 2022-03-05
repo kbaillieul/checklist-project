@@ -16,6 +16,7 @@ const HEChecklist = () => {
   const navigate = useNavigate();
   const defaultHE = {
     key: "",
+    type: "heavyEquipment",
     date: "",
     employeeName: "",
     location: "",
