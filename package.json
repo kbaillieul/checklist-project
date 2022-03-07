@@ -1,6 +1,7 @@
 {
   "name": "checklist-project",
   "version": "0.1.0",
+  "homepage": "https://kbaillieul.github.io/checklist-project",
   "private": true,
   "dependencies": {
     "-": "^0.0.1",
