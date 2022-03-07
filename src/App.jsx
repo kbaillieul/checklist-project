@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="container">
       <CompletedChecklistProvider>
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <Routes>
             <Route path="/" element={<NavBar />}>
               <Route index element={<Home />} />
