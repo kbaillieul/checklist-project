@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/checklist-projectnpm%20run%20deploy/static/css/main.d88499bd.css",
-    "main.js": "/checklist-projectnpm%20run%20deploy/static/js/main.870e3603.js",
-    "static/js/787.25e5346c.chunk.js": "/checklist-projectnpm%20run%20deploy/static/js/787.25e5346c.chunk.js",
-    "index.html": "/checklist-projectnpm%20run%20deploy/index.html",
-    "main.d88499bd.css.map": "/checklist-projectnpm%20run%20deploy/static/css/main.d88499bd.css.map",
-    "main.870e3603.js.map": "/checklist-projectnpm%20run%20deploy/static/js/main.870e3603.js.map",
-    "787.25e5346c.chunk.js.map": "/checklist-projectnpm%20run%20deploy/static/js/787.25e5346c.chunk.js.map"
+    "main.css": "/checklist-project/static/css/main.d88499bd.css",
+    "main.js": "/checklist-project/static/js/main.e007ea62.js",
+    "static/js/787.25e5346c.chunk.js": "/checklist-project/static/js/787.25e5346c.chunk.js",
+    "index.html": "/checklist-project/index.html",
+    "main.d88499bd.css.map": "/checklist-project/static/css/main.d88499bd.css.map",
+    "main.e007ea62.js.map": "/checklist-project/static/js/main.e007ea62.js.map",
+    "787.25e5346c.chunk.js.map": "/checklist-project/static/js/787.25e5346c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d88499bd.css",
-    "static/js/main.870e3603.js"
+    "static/js/main.e007ea62.js"
   ]
 }
