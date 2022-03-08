@@ -4,6 +4,8 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 
 const CompletedFAChecklistAccordian = ({ FAChecklist }) => {
   const FADate = new Date(FAChecklist.date);
@@ -39,9 +41,10 @@ const CompletedFAChecklistAccordian = ({ FAChecklist }) => {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography sx={{ width: "66%", flexShrink: 0 }}>
+          <Typography sx={{ width: "70%", flexShrink: 0 }}>
             {FADateString}
           </Typography>
+          {counter === 0 ? <CheckCircleOutlineIcon /> : <ErrorOutlineIcon />}
           <Typography sx={{ color: "text.secondary" }}>
             {counter === 1
               ? `${counter} Issue Identified`

@@ -4,6 +4,8 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 
 const CompletedLVChecklistAccordian = ({ LVChecklist }) => {
   const LVDate = new Date(LVChecklist.date);
@@ -38,9 +40,10 @@ const CompletedLVChecklistAccordian = ({ LVChecklist }) => {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography sx={{ width: "66%", flexShrink: 0 }}>
+          <Typography sx={{ width: "70%", flexShrink: 0 }}>
             {LVDateString}
           </Typography>
+          {counter === 0 ? <CheckCircleOutlineIcon /> : <ErrorOutlineIcon />}
           <Typography sx={{ color: "text.secondary" }}>
             {counter === 1
               ? `${counter} Issue Identified`
