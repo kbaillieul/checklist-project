@@ -41,10 +41,10 @@ const LVChecklist = () => {
       alert("Please complete all questions to submit checklist");
     } else {
       lightVehicle.key = uuidv4();
-      addLightVehicleChecklist(lightVehicle);
-      lightVehicleComplete.update(getLightVehicleChecklists);
+      lightVehicleComplete.update(lightVehicle);
       setLightVehicle(defaultLV);
       navigate("/light-vehicle/completed");
+      lightVehicleComplete.value("lightVehicle");
     }
   };
   return (

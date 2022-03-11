@@ -46,12 +46,14 @@ const FAChecklist = () => {
     } else {
       fallArrest.key = uuidv4();
       //sendFAToLocal function stores checklist data into local storage
-      addFallArrestChecklist(fallArrest);
+      // addFallArrestChecklist(fallArrest);
       //call to refresh completedFA checklist array
-      fallArrestComplete.update(getFallArrestChecklists);
+      fallArrestComplete.update(fallArrest);
+      // fallArrestComplete.value();
       //reset to default
       setFallArrest(defaultFA);
       navigate("/fall-arrest/completed");
+      fallArrestComplete.value("fallArrest");
     }
   };
 

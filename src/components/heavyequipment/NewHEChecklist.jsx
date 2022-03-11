@@ -42,10 +42,10 @@ const HEChecklist = () => {
       alert("Please answer all questions to submit checklist");
     } else {
       heavyEquip.key = uuidv4();
-      addHeavyEquipmentChecklist(heavyEquip);
-      heavyEquipmentComplete.update(getHeavyEquipmentChecklists);
+      heavyEquipmentComplete.update(heavyEquip);
       setHeavyEquip(defaultHE);
       navigate("/heavy-equipment/completed");
+      heavyEquipmentComplete.value("heavyEquip");
     }
   };
   return (

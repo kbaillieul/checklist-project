@@ -5,25 +5,27 @@ import {
   getLightVehicleChecklists,
   getHeavyEquipmentChecklists,
 } from "../database";
+import { useLocalStorage } from "../useLocalStorage";
 
 //context to make completed checklist arrays available to all components
 export const CompletedChecklistContext = createContext({});
 
 export const CompletedChecklistProvider = (props) => {
-  const [completedFA, setCompletedFA] = useState(getFallArrestChecklists());
-  const [completedLV, setCompletedLV] = useState(getLightVehicleChecklists());
-  const [completedHE, setCompletedHE] = useState(getHeavyEquipmentChecklists());
+  const [completedFA, setCompletedFA] = useLocalStorage("fallArrest");
+  const [completedLV, setCompletedLV] = useLocalStorage("lightVehicle");
+  const [completedHE, setCompletedHE] = useLocalStorage("heavyEquip");
+
   const checklists = {
     fallArrestComplete: {
-      value: completedFA,
+      value: completedFA("fallArrest"),
       update: setCompletedFA,
     },
     lightVehicleComplete: {
-      value: completedLV,
+      value: completedLV("lightVehicle"),
       update: setCompletedLV,
     },
     heavyEquipmentComplete: {
-      value: completedHE,
+      value: completedHE("heavyEquip"),
       update: setCompletedHE,
     },
   };
