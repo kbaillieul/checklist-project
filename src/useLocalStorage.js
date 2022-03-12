@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-export const useLocalStorage = (key) => {
-  const get = () => {
+export const useLocalStorage = () => {
+  const get = (key) => {
     const getchecklists = localStorage.getItem(key);
     return getchecklists === null ? [] : JSON.parse(getchecklists);
   };
-  const set = (checklist) => {
+  const set = (checklist, key) => {
     const list = get(key);
     const newValue =
       list === null

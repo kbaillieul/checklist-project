@@ -48,12 +48,11 @@ const FAChecklist = () => {
       //sendFAToLocal function stores checklist data into local storage
       // addFallArrestChecklist(fallArrest);
       //call to refresh completedFA checklist array
-      fallArrestComplete.update(fallArrest);
+      fallArrestComplete.update(fallArrest, "fallArrest");
       // fallArrestComplete.value();
       //reset to default
       setFallArrest(defaultFA);
       navigate("/fall-arrest/completed");
-      fallArrestComplete.value("fallArrest");
     }
   };
 

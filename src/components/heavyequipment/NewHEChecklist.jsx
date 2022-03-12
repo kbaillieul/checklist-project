@@ -45,7 +45,6 @@ const HEChecklist = () => {
       heavyEquipmentComplete.update(heavyEquip);
       setHeavyEquip(defaultHE);
       navigate("/heavy-equipment/completed");
-      heavyEquipmentComplete.value("heavyEquip");
     }
   };
   return (

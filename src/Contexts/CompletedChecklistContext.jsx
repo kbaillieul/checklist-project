@@ -11,9 +11,9 @@ import { useLocalStorage } from "../useLocalStorage";
 export const CompletedChecklistContext = createContext({});
 
 export const CompletedChecklistProvider = (props) => {
-  const [completedFA, setCompletedFA] = useLocalStorage("fallArrest");
-  const [completedLV, setCompletedLV] = useLocalStorage("lightVehicle");
-  const [completedHE, setCompletedHE] = useLocalStorage("heavyEquip");
+  const [completedFA, setCompletedFA] = useLocalStorage();
+  const [completedLV, setCompletedLV] = useLocalStorage();
+  const [completedHE, setCompletedHE] = useLocalStorage();
 
   const checklists = {
     fallArrestComplete: {

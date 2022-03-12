@@ -9,6 +9,11 @@ import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
 import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing";
 import Divider from "@mui/material/Divider";
+import Typography from "@mui/material/Typography";
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+/>;
 
 const style = {
   backgroundColor: "background.paper",
@@ -24,61 +29,70 @@ const Header = () => {
   };
 
   return (
-    <div className="divider">
-      <List
-        sx={{
-          width: "100%",
-          maxWidth: 375,
-        }}
-      >
-        <ListItem sx={style}>
-          <ListItemAvatar>
-            <Avatar>
-              <LocalHospitalIcon
-                sx={{ bgcolor: "primary.main" }}
-                className="icons"
-                onClick={() => handleRoute("/fall-arrest/completed")}
-              />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText
-            primary="Fall Arrest Checklist"
-            onClick={() => handleRoute("/fall-arrest/completed")}
-          />
-        </ListItem>
-        <Divider variant="inset" component="li" />
-        <ListItem sx={style}>
-          <ListItemAvatar>
-            <Avatar>
-              <DirectionsCarIcon
-                sx={{ bgcolor: "primary.main" }}
-                onClick={() => handleRoute("/light-vehicle/completed")}
-                className="icons"
-              />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText
-            primary="Light Vehicle Pre-Use Inspection"
-            onClick={() => handleRoute("/light-vehicle/completed")}
-          />
-        </ListItem>
-        <Divider variant="inset" component="li" />
-        <ListItem sx={style}>
-          <ListItemAvatar>
-            <Avatar>
-              <PrecisionManufacturingIcon
-                sx={{ bgcolor: "primary.main" }}
-                onClick={() => handleRoute("/heavy-equipment/completed")}
-                className="icons"
-              />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText
-            primary="Heavy Equipment Pre-Use Inspection"
-            onClick={() => handleRoute("/heavy-equipment/completed")}
-          />
-        </ListItem>
-      </List>
+    <div>
+      <Typography variant="h2" color="primary.main">
+        Welcome,
+      </Typography>
+      <Typography variant="subtitle1" align="center" color="primary.main">
+        select a checklist type:
+      </Typography>
+      <div className="divider">
+        <br />
+        <List
+          sx={{
+            width: "100%",
+            maxWidth: 375,
+          }}
+        >
+          <ListItem sx={style}>
+            <ListItemAvatar>
+              <Avatar>
+                <LocalHospitalIcon
+                  sx={{ bgcolor: "primary.main" }}
+                  className="icons"
+                  onClick={() => handleRoute("/fall-arrest/completed")}
+                />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText
+              primary="Fall Arrest Checklist"
+              onClick={() => handleRoute("/fall-arrest/completed")}
+            />
+          </ListItem>
+          <Divider variant="inset" component="li" />
+          <ListItem sx={style}>
+            <ListItemAvatar>
+              <Avatar>
+                <DirectionsCarIcon
+                  sx={{ bgcolor: "primary.main" }}
+                  onClick={() => handleRoute("/light-vehicle/completed")}
+                  className="icons"
+                />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText
+              primary="Light Vehicle Pre-Use Inspection"
+              onClick={() => handleRoute("/light-vehicle/completed")}
+            />
+          </ListItem>
+          <Divider variant="inset" component="li" />
+          <ListItem sx={style}>
+            <ListItemAvatar>
+              <Avatar>
+                <PrecisionManufacturingIcon
+                  sx={{ bgcolor: "primary.main" }}
+                  onClick={() => handleRoute("/heavy-equipment/completed")}
+                  className="icons"
+                />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText
+              primary="Heavy Equipment Pre-Use Inspection"
+              onClick={() => handleRoute("/heavy-equipment/completed")}
+            />
+          </ListItem>
+        </List>
+      </div>
     </div>
   );
 };

@@ -44,7 +44,6 @@ const LVChecklist = () => {
       lightVehicleComplete.update(lightVehicle);
       setLightVehicle(defaultLV);
       navigate("/light-vehicle/completed");
-      lightVehicleComplete.value("lightVehicle");
     }
   };
   return (
