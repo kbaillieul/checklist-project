@@ -40,6 +40,7 @@ const Header = () => {
         <br />
         <List
           sx={{
+            margin: 8,
             width: "100%",
             maxWidth: 375,
           }}
