@@ -30,11 +30,11 @@ const Header = () => {
 
   return (
     <div>
-      <Typography variant="h2" color="primary.main">
+      <Typography variant="h1" color="primary.main">
         Welcome,
       </Typography>
-      <Typography variant="subtitle1" align="center" color="primary.main">
-        select a checklist type:
+      <Typography variant="h5" align="center">
+        Select a checklist type:
       </Typography>
       <div className="divider">
         <br />

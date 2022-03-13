@@ -4,6 +4,11 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import Typography from "@mui/material/Typography";
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+/>;
 
 const FAMain = () => {
   const navigate = useNavigate();
@@ -15,7 +20,9 @@ const FAMain = () => {
   };
   return (
     <div>
-      <h1>Fall Arrest Checklists</h1>
+      <Typography variant="h2" align="center">
+        Fall Arrest Checklists
+      </Typography>
 
       <Stack style={{ justifyContent: "center" }} direction="row" spacing={2}>
         <Button
