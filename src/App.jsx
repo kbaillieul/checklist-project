@@ -11,6 +11,7 @@ import {
   CompletedLVChecklistsMap,
   CompletedHEChecklistsMap,
   NavBar,
+  Homepage,
 } from "./components/Index";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CompletedChecklistProvider } from "./Contexts/CompletedChecklistContext";
@@ -22,7 +23,7 @@ function App() {
         <Router basename={process.env.PUBLIC_URL}>
           <Routes>
             <Route path="/" element={<NavBar />}>
-              <Route index element={<Home />} />
+              <Route index element={<Homepage />} />
               <Route path="fall-arrest" element={<FAMain />}>
                 <Route path="new" element={<NewFAChecklist />} />
                 <Route

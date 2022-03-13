@@ -36,6 +36,7 @@ const Header = () => {
       <Typography variant="h5" align="center">
         Select a checklist type:
       </Typography>
+
       <div className="divider">
         <br />
         <List
