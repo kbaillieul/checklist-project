@@ -1,4 +1,3 @@
-export { default as Home } from "./Home";
 export { default as Homepage } from "./Homepage";
 export { default as NewFAChecklist } from "./fallarrest/NewFAChecklist";
 export { default as NewLVChecklist } from "./lightvehicle/NewLVChecklist";
