@@ -4,9 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import "react-datepicker/dist/react-datepicker.css";
 import {
-  addLightVehicleChecklist,
-  CompletedChecklistContext,
-  getLightVehicleChecklists,
+  CompletedChecklistContext
 } from "./index";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";

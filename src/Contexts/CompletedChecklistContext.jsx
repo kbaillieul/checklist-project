@@ -1,10 +1,4 @@
 import { createContext } from "react";
-import { useState } from "react";
-import {
-  getFallArrestChecklists,
-  getLightVehicleChecklists,
-  getHeavyEquipmentChecklists,
-} from "../database";
 import { useLocalStorage } from "../useLocalStorage";
 
 //context to make completed checklist arrays available to all components

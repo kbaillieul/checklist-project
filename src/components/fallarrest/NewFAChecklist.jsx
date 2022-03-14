@@ -4,9 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import {
-  addFallArrestChecklist,
-  getFallArrestChecklists,
-  CompletedChecklistContext,
+  CompletedChecklistContext
 } from "./index";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
