@@ -17,15 +17,15 @@ export const CompletedChecklistProvider = (props) => {
 
   const checklists = {
     fallArrestComplete: {
-      value: completedFA("fallArrest"),
+      value: completedFA,
       update: setCompletedFA,
     },
     lightVehicleComplete: {
-      value: completedLV("lightVehicle"),
+      value: completedLV,
       update: setCompletedLV,
     },
     heavyEquipmentComplete: {
-      value: completedHE("heavyEquip"),
+      value: completedHE,
       update: setCompletedHE,
     },
   };

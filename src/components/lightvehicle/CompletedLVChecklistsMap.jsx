@@ -14,7 +14,8 @@ import Typography from "@mui/material/Typography";
 
 const CompletedLVChecklistsMap = () => {
   const { lightVehicleComplete } = useContext(CompletedChecklistContext);
-  if (lightVehicleComplete.value.length === 0) {
+  let completed = lightVehicleComplete.value("lightVehicle");
+  if (completed.length === 0) {
     return (
       <div>
         <Typography variant="h5" align="center">
@@ -22,7 +23,7 @@ const CompletedLVChecklistsMap = () => {
         </Typography>
         <Stack sx={{ width: "100%" }} spacing={2}>
           <Alert severity="info">
-            No Heavy Equipment Checklists have been completed yet.
+            No Light Vehicle Checklists have been completed yet.
           </Alert>
         </Stack>
       </div>
@@ -33,7 +34,7 @@ const CompletedLVChecklistsMap = () => {
         <Typography variant="h5" align="center">
           Completed Light Vehicle Checklists
         </Typography>
-        {lightVehicleComplete.value.map((LVChecklist) => (
+        {completed.map((LVChecklist) => (
           <CompletedLVChecklistAccordian LVChecklist={LVChecklist} />
         ))}
         <hr />

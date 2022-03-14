@@ -42,7 +42,8 @@ const HEChecklist = () => {
       alert("Please answer all questions to submit checklist");
     } else {
       heavyEquip.key = uuidv4();
-      heavyEquipmentComplete.update(heavyEquip);
+      heavyEquipmentComplete.update(heavyEquip, "heavyEquipment");
+      heavyEquipmentComplete.value("heavyEquipment");
       setHeavyEquip(defaultHE);
       navigate("/heavy-equipment/completed");
     }

@@ -49,7 +49,7 @@ const FAChecklist = () => {
       // addFallArrestChecklist(fallArrest);
       //call to refresh completedFA checklist array
       fallArrestComplete.update(fallArrest, "fallArrest");
-      // fallArrestComplete.value();
+      fallArrestComplete.value("fallArrest");
       //reset to default
       setFallArrest(defaultFA);
       navigate("/fall-arrest/completed");

@@ -14,8 +14,9 @@ import Typography from "@mui/material/Typography";
 
 const CompletedFAChecklistsMap = () => {
   const { fallArrestComplete } = useContext(CompletedChecklistContext);
+  let completed = fallArrestComplete.value("fallArrest");
   // let FAEmpty = fallArrestComplete.value;
-  if (fallArrestComplete.value.length === 0) {
+  if (completed.length === 0) {
     return (
       <div>
         <Typography variant="h4" align="center">
@@ -34,7 +35,7 @@ const CompletedFAChecklistsMap = () => {
         <Typography variant="h5" align="center">
           Completed Fall Arrest Checklists
         </Typography>
-        {fallArrestComplete.value.map((FAChecklist) => (
+        {completed.map((FAChecklist) => (
           <CompletedFAChecklistAccordian FAChecklist={FAChecklist} />
         ))}
         <hr />

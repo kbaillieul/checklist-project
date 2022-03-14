@@ -14,7 +14,8 @@ import Typography from "@mui/material/Typography";
 
 const CompletedHEChecklistsMap = () => {
   const { heavyEquipmentComplete } = useContext(CompletedChecklistContext);
-  if (heavyEquipmentComplete.value.length === 0) {
+  let completed = heavyEquipmentComplete.value("heavyEquipment");
+  if (completed.length === 0) {
     return (
       <div>
         <Typography variant="h5" align="center">
@@ -33,7 +34,7 @@ const CompletedHEChecklistsMap = () => {
         <Typography variant="h5" align="center">
           Completed Heavy Equipment Checklists
         </Typography>
-        {heavyEquipmentComplete.value.map((HEChecklist) => (
+        {completed.map((HEChecklist) => (
           <CompletedHEChecklistAccordian HEChecklist={HEChecklist} />
         ))}
         <hr />

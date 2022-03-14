@@ -53,7 +53,7 @@ export default function Homepage() {
           }}
         />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-          <Typography variant="h1" color="primary.main">
+          <Typography variant="h1" color="primary.main" margin="2">
             Welcome,
           </Typography>
           <Typography variant="h5" align="center">
