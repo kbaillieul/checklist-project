@@ -24,6 +24,7 @@ const style = {
   "&:hover": {
     opacity: [0.9, 0.8, 0.7],
   },
+  margin: 2,
 };
 
 export default function Homepage() {
@@ -53,7 +54,7 @@ export default function Homepage() {
           }}
         />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-          <Typography variant="h1" color="primary.main" margin="2">
+          <Typography variant="h1" color="primary.main" sx={{ marginTop: 3 }}>
             Welcome,
           </Typography>
           <Typography variant="h5" align="center">
@@ -64,7 +65,7 @@ export default function Homepage() {
             <br />
             <List
               sx={{
-                margin: 8,
+                margin: 9,
                 width: "100%",
                 maxWidth: 375,
               }}
