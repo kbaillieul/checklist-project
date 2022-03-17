@@ -15,14 +15,10 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import ListItemButton from "@mui/material/ListItemButton";
 
 const drawerWidth = 220;
-const style = {
-  backgroundColor: "background.paper",
-  "&:hover": {
-    opacity: [0.9, 0.8, 0.7],
-  },
-};
+
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
     flexGrow: 1,
@@ -124,26 +120,34 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-          <ListItem sx={style}>
-            <ListItemText primary="Home" onClick={() => handleRoute("/")} />
+          <ListItem>
+            <ListItemButton>
+              <ListItemText primary="Home" onClick={() => handleRoute("/")} />
+            </ListItemButton>
           </ListItem>
-          <ListItem sx={style}>
-            <ListItemText
-              primary="Fall Arrest Checklist"
-              onClick={() => handleRoute("/fall-arrest/completed")}
-            />
+          <ListItem>
+            <ListItemButton>
+              <ListItemText
+                primary="Fall Arrest Checklist"
+                onClick={() => handleRoute("/fall-arrest/completed")}
+              />
+            </ListItemButton>
           </ListItem>
-          <ListItem sx={style}>
-            <ListItemText
-              primary="Light Vehicle Checklist"
-              onClick={() => handleRoute("/light-vehicle/completed")}
-            />
+          <ListItem>
+            <ListItemButton>
+              <ListItemText
+                primary="Light Vehicle Checklist"
+                onClick={() => handleRoute("/light-vehicle/completed")}
+              />
+            </ListItemButton>
           </ListItem>
-          <ListItem sx={style}>
-            <ListItemText
-              primary="Heavy Equipment Checklist"
-              onClick={() => handleRoute("/heavy-equipment/completed")}
-            />
+          <ListItem>
+            <ListItemButton>
+              <ListItemText
+                primary="Heavy Equipment Checklist"
+                onClick={() => handleRoute("/heavy-equipment/completed")}
+              />
+            </ListItemButton>
           </ListItem>
         </List>
         <Divider />
