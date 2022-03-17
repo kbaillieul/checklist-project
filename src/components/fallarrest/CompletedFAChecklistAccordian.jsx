@@ -27,7 +27,7 @@ const CompletedFAChecklistAccordian = ({ FAChecklist }) => {
   if (FAChecklist.webbing === "Issue") {
     counter += 1;
   }
-  const handleChange = (panel) => (event, isExpanded) => {
+  const handleChange = (panel) => (isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
   return (

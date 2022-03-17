@@ -35,10 +35,9 @@ export default function Homepage() {
   };
   return (
     <div>
-      <Grid container component="main" sx={{ height: "100vh" }}>
+      <Grid container spacing={8} sx={{ height: "100vh" }}>
         <CssBaseline />
         <Grid
-          item
           xs={false}
           sm={4}
           md={7}
@@ -53,7 +52,7 @@ export default function Homepage() {
             backgroundPosition: "center",
           }}
         />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <Grid item xs={12} sm={8} md={5} elevation={6} square>
           <Typography variant="h1" color="primary.main" sx={{ marginTop: 3 }}>
             Welcome,
           </Typography>
