@@ -39,7 +39,7 @@ export default function Homepage() {
         <CssBaseline />
         <Grid
           xs={false}
-          sm={4}
+          sm={5}
           md={7}
           sx={{
             backgroundImage: `url(${Background})`,
@@ -52,7 +52,7 @@ export default function Homepage() {
             backgroundPosition: "center",
           }}
         />
-        <Grid item xs={12} sm={8} md={5} elevation={6} square>
+        <Grid item xs={12} sm={7} md={5} elevation={6} square>
           <Typography variant="h1" color="primary.main" sx={{ marginTop: 3 }}>
             Welcome,
           </Typography>
@@ -69,52 +69,49 @@ export default function Homepage() {
                 maxWidth: 375,
               }}
             >
-              <ListItem sx={style}>
+              <ListItem
+                sx={style}
+                onClick={() => handleRoute("/fall-arrest/completed")}
+              >
                 <ListItemAvatar>
                   <Avatar>
                     <LocalHospitalIcon
                       sx={{ bgcolor: "primary.main" }}
                       className="icons"
-                      onClick={() => handleRoute("/fall-arrest/completed")}
                     />
                   </Avatar>
                 </ListItemAvatar>
-                <ListItemText
-                  primary="Fall Arrest Checklist"
-                  onClick={() => handleRoute("/fall-arrest/completed")}
-                />
+                <ListItemText primary="Fall Arrest Checklist" />
               </ListItem>
               <Divider variant="inset" component="li" />
-              <ListItem sx={style}>
+              <ListItem
+                sx={style}
+                onClick={() => handleRoute("/light-vehicle/completed")}
+              >
                 <ListItemAvatar>
                   <Avatar>
                     <DirectionsCarIcon
                       sx={{ bgcolor: "primary.main" }}
-                      onClick={() => handleRoute("/light-vehicle/completed")}
                       className="icons"
                     />
                   </Avatar>
                 </ListItemAvatar>
-                <ListItemText
-                  primary="Light Vehicle Pre-Use Inspection"
-                  onClick={() => handleRoute("/light-vehicle/completed")}
-                />
+                <ListItemText primary="Light Vehicle Pre-Use Inspection" />
               </ListItem>
               <Divider variant="inset" component="li" />
-              <ListItem sx={style}>
+              <ListItem
+                sx={style}
+                onClick={() => handleRoute("/heavy-equipment/completed")}
+              >
                 <ListItemAvatar>
                   <Avatar>
                     <PrecisionManufacturingIcon
                       sx={{ bgcolor: "primary.main" }}
-                      onClick={() => handleRoute("/heavy-equipment/completed")}
                       className="icons"
                     />
                   </Avatar>
                 </ListItemAvatar>
-                <ListItemText
-                  primary="Heavy Equipment Pre-Use Inspection"
-                  onClick={() => handleRoute("/heavy-equipment/completed")}
-                />
+                <ListItemText primary="Heavy Equipment Pre-Use Inspection" />
               </ListItem>
             </List>
           </div>
