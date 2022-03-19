@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export const useLocalStorage = (key) => {
   const get = () => {
     const getchecklists = localStorage.getItem(key);

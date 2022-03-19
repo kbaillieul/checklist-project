@@ -41,6 +41,7 @@ h1 {
 .form-container {
   font-size: 12px;
   font-family: "Poppins", sans-serif;
+  margin: 5px;
 }
 
 .date-picker {
@@ -48,17 +49,30 @@ h1 {
   flex-direction: row;
 }
 .date-picker-label {
-  width: 70%;
+  width: 95%;
+}
+label {
+  font-weight: bold;
+  font-size: 14px;
 }
 
 @media only screen and (min-width: 768px) {
   .date-picker-label {
-    width: 22%;
+    width: 29%;
+  }
+  label {
+    font-size: 15px;
+  }
+  .form-container {
+    padding-left: 20px;
   }
 }
 
 @media only screen and (min-width: 1000px) {
   .date-picker-label {
-    width: 15%;
+    width: 17%;
+  }
+  label {
+    font-size: 16px;
   }
 }
