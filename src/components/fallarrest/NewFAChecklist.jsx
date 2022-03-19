@@ -3,9 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import {
-  CompletedChecklistContext
-} from "./index";
+import { CompletedChecklistContext } from "./index";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 
@@ -46,8 +44,8 @@ const FAChecklist = () => {
       //sendFAToLocal function stores checklist data into local storage
       // addFallArrestChecklist(fallArrest);
       //call to refresh completedFA checklist array
-      fallArrestComplete.update(fallArrest, "fallArrest");
-      fallArrestComplete.value("fallArrest");
+      fallArrestComplete.update(fallArrest);
+      fallArrestComplete.value();
       //reset to default
       setFallArrest(defaultFA);
       navigate("/fall-arrest/completed");

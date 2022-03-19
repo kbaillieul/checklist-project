@@ -14,7 +14,7 @@ import Typography from "@mui/material/Typography";
 
 const CompletedLVChecklistsMap = () => {
   const { lightVehicleComplete } = useContext(CompletedChecklistContext);
-  let completed = lightVehicleComplete.value("lightVehicle");
+  let completed = lightVehicleComplete.value();
   if (completed.length === 0) {
     return (
       <div>
