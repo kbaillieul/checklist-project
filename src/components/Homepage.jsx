@@ -14,6 +14,7 @@ import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturi
 import Divider from "@mui/material/Divider";
 import ListItemButton from "@mui/material/ListItemButton";
 import Background from "./Background.png";
+import Box from "@mui/material/Box";
 <link
   rel="stylesheet"
   href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
@@ -31,11 +32,11 @@ export default function Homepage() {
   };
   return (
     <div>
-      <Grid container spacing={8} sx={{ height: "100vh" }}>
+      <Grid container component="main" spacing={8} sx={{ height: "100vh" }}>
         <CssBaseline />
         <Grid
           xs={false}
-          sm={5}
+          sm={4}
           md={7}
           sx={{
             backgroundImage: `url(${Background})`,
@@ -48,76 +49,86 @@ export default function Homepage() {
             backgroundPosition: "center",
           }}
         />
-        <Grid item xs={12} sm={7} md={5} elevation={6} square>
-          <Typography variant="h1" color="primary.main" sx={{ marginTop: 3 }}>
-            Welcome,
-          </Typography>
-          <Typography variant="h5" align="center">
-            Select a checklist type:
-          </Typography>
+        <Grid item xs={12} sm={8} md={5} elevation={6} square>
+          <Box
+            sx={{
+              my: 8,
+              mx: 4,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Typography variant="h1" color="primary.main" sx={{ marginTop: 3 }}>
+              Welcome,
+            </Typography>
+            <Typography variant="h5" align="center">
+              Select a checklist type:
+            </Typography>
 
-          <div className="divider">
-            <br />
-            <List
-              sx={{
-                margin: 9,
-                width: "100%",
-                maxWidth: 375,
-              }}
-            >
-              <ListItem
-                sx={style}
-                onClick={() => handleRoute("/fall-arrest/completed")}
+            <div className="divider">
+              <br />
+              <List
+                sx={{
+                  margin: 5,
+                  width: "100%",
+                  maxWidth: 450,
+                }}
               >
-                <ListItemButton>
-                  <ListItemAvatar>
-                    <Avatar>
-                      <LocalHospitalIcon
-                        sx={{ bgcolor: "primary.main" }}
-                        className="icons"
-                      />
-                    </Avatar>
-                  </ListItemAvatar>
-                  <ListItemText primary="Fall Arrest Checklist" />
-                </ListItemButton>
-              </ListItem>
-              <Divider variant="inset" component="li" />
+                <ListItem
+                  sx={style}
+                  onClick={() => handleRoute("/fall-arrest/completed")}
+                >
+                  <ListItemButton>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <LocalHospitalIcon
+                          sx={{ bgcolor: "primary.main" }}
+                          className="icons"
+                        />
+                      </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Fall Arrest Checklist" />
+                  </ListItemButton>
+                </ListItem>
+                <Divider variant="inset" component="li" />
 
-              <ListItem
-                sx={style}
-                onClick={() => handleRoute("/light-vehicle/completed")}
-              >
-                <ListItemButton>
-                  <ListItemAvatar>
-                    <Avatar>
-                      <DirectionsCarIcon
-                        sx={{ bgcolor: "primary.main" }}
-                        className="icons"
-                      />
-                    </Avatar>
-                  </ListItemAvatar>
-                  <ListItemText primary="Light Vehicle Pre-Use Inspection" />
-                </ListItemButton>
-              </ListItem>
-              <Divider variant="inset" component="li" />
-              <ListItem
-                sx={style}
-                onClick={() => handleRoute("/heavy-equipment/completed")}
-              >
-                <ListItemButton>
-                  <ListItemAvatar>
-                    <Avatar>
-                      <PrecisionManufacturingIcon
-                        sx={{ bgcolor: "primary.main" }}
-                        className="icons"
-                      />
-                    </Avatar>
-                  </ListItemAvatar>
-                  <ListItemText primary="Heavy Equipment Pre-Use Inspection" />
-                </ListItemButton>
-              </ListItem>
-            </List>
-          </div>
+                <ListItem
+                  sx={style}
+                  onClick={() => handleRoute("/light-vehicle/completed")}
+                >
+                  <ListItemButton>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <DirectionsCarIcon
+                          sx={{ bgcolor: "primary.main" }}
+                          className="icons"
+                        />
+                      </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Light Vehicle Pre-Use Inspection" />
+                  </ListItemButton>
+                </ListItem>
+                <Divider variant="inset" component="li" />
+                <ListItem
+                  sx={style}
+                  onClick={() => handleRoute("/heavy-equipment/completed")}
+                >
+                  <ListItemButton>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <PrecisionManufacturingIcon
+                          sx={{ bgcolor: "primary.main" }}
+                          className="icons"
+                        />
+                      </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Heavy Equipment Pre-Use Inspection" />
+                  </ListItemButton>
+                </ListItem>
+              </List>
+            </div>
+          </Box>
         </Grid>
       </Grid>
     </div>
