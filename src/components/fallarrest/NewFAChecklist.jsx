@@ -1,6 +1,4 @@
 import { useState, useContext } from "react";
-// import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { CompletedChecklistContext } from "./index";
@@ -17,6 +15,7 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
+import Grid from "@mui/material/Grid";
 
 const FAChecklist = () => {
   let { fallArrestComplete } = useContext(CompletedChecklistContext);
@@ -65,129 +64,151 @@ const FAChecklist = () => {
 
   return (
     <div className="form-container">
-      <LocalizationProvider dateAdapter={AdapterDateFns}>
-        <DatePicker
-          label="1. Date of Inspection"
-          value={fallArrest.date}
-          onChange={(date) => {
-            setFallArrest({ ...fallArrest, date: date });
-          }}
-          renderInput={(params) => <TextField {...params} />}
-        />
-      </LocalizationProvider>
-      <TextField
-        required
-        id="outlined-required"
-        label="2. Employee Name"
-        value={fallArrest.employeeName}
-        onChange={(e) =>
-          setFallArrest({ ...fallArrest, employeeName: e.target.value })
-        }
-      />
-      <br />
-      <TextField
-        required
-        id="outlined-required"
-        label="3. Location"
-        value={fallArrest.location}
-        onChange={(e) =>
-          setFallArrest({ ...fallArrest, location: e.target.value })
-        }
-      />
-      <br />
-      <TextField
-        required
-        id="outlined-required"
-        label="4. Task Description"
-        value={fallArrest.task}
-        onChange={(e) => setFallArrest({ ...fallArrest, task: e.target.value })}
-      />
-      <br />
-      <FormControl component="fieldset">
-        <FormGroup aria-label="position" row>
-          <FormControlLabel
-            value={fallArrest.plan}
-            checked={fallArrest.plan}
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6}>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <DatePicker
+              label="1. Date of Inspection"
+              value={fallArrest.date}
+              onChange={(date) => {
+                setFallArrest({ ...fallArrest, date: date });
+              }}
+              renderInput={(params) => <TextField {...params} fullWidth />}
+            />
+          </LocalizationProvider>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            fullWidth
+            required
+            id="outlined-required"
+            label="2. Employee Name"
+            value={fallArrest.employeeName}
             onChange={(e) =>
-              setFallArrest({ ...fallArrest, plan: e.target.checked })
+              setFallArrest({ ...fallArrest, employeeName: e.target.value })
             }
-            control={<Checkbox />}
-            label="5. There is an applicable and realistic rescue plan in place for this
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            fullWidth
+            required
+            id="outlined-required"
+            label="3. Location"
+            value={fallArrest.location}
+            onChange={(e) =>
+              setFallArrest({ ...fallArrest, location: e.target.value })
+            }
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            fullWidth
+            required
+            id="outlined-required"
+            label="4. Harness ID Number"
+            value={fallArrest.idNumber}
+            onChange={(e) =>
+              setFallArrest({ ...fallArrest, idNumber: e.target.value })
+            }
+          />
+        </Grid>
+        <Grid item xs={12} sm={12}>
+          <TextField
+            fullWidth
+            required
+            id="outlined-required"
+            label="5. Task Description"
+            value={fallArrest.task}
+            onChange={(e) =>
+              setFallArrest({ ...fallArrest, task: e.target.value })
+            }
+          />
+        </Grid>
+
+        <Grid item xs={12} sm={6}>
+          <FormControl>
+            <FormLabel id="demo-controlled-radio-buttons-group">
+              6. Webbing - Check for frayed edges, broken fibers, pulled
+              stitches, cuts, burns, and chemical damage.
+            </FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-controlled-radio-buttons-group"
+              name="controlled-radio-buttons-group"
+              value={fallArrest.webbing}
+              onChange={(e) =>
+                setFallArrest({ ...fallArrest, webbing: e.target.value })
+              }
+            >
+              <FormControlLabel value="OK" control={<Radio />} label="OK" />
+              <FormControlLabel
+                value="Issue"
+                control={<Radio />}
+                label="Issue"
+              />
+              <FormControlLabel value="NA" control={<Radio />} label="N/A" />
+            </RadioGroup>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <FormControl>
+            <FormLabel id="demo-controlled-radio-buttons-group">
+              7. "D" Ring/Back Pads - Check “D” rings for distortion, cracks,
+              breaks, and rough or sharp edges.
+            </FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-controlled-radio-buttons-group"
+              name="controlled-radio-buttons-group"
+              value={fallArrest.dRing}
+              onChange={(e) =>
+                setFallArrest({ ...fallArrest, dRing: e.target.value })
+              }
+            >
+              <FormControlLabel value="OK" control={<Radio />} label="OK" />
+              <FormControlLabel
+                value="Issue"
+                control={<Radio />}
+                label="Issue"
+              />
+              <FormControlLabel value="NA" control={<Radio />} label="N/A" />
+            </RadioGroup>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12} sm={12}>
+          <FormControl component="fieldset">
+            <FormGroup aria-label="position" row>
+              <FormControlLabel
+                value={fallArrest.plan}
+                checked={fallArrest.plan}
+                onChange={(e) =>
+                  setFallArrest({ ...fallArrest, plan: e.target.checked })
+                }
+                control={<Checkbox />}
+                label="8. There is an applicable and realistic rescue plan in place for this
           work"
-            labelPlacement="start"
-          />
-        </FormGroup>
-      </FormControl>
-      <br />
-      <FormControl component="fieldset">
-        <FormGroup aria-label="position" row>
-          <FormControlLabel
-            value={fallArrest.alone}
-            checked={fallArrest.alone}
-            onChange={(e) =>
-              setFallArrest({ ...fallArrest, alone: e.target.checked })
-            }
-            control={<Checkbox />}
-            label="6. I am not working alone. Working alone is never permitted in a
+                labelPlacement="start"
+              />
+            </FormGroup>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12} sm={12}>
+          <FormControl component="fieldset">
+            <FormGroup aria-label="position" row>
+              <FormControlLabel
+                value={fallArrest.alone}
+                checked={fallArrest.alone}
+                onChange={(e) =>
+                  setFallArrest({ ...fallArrest, alone: e.target.checked })
+                }
+                control={<Checkbox />}
+                label="9. I am not working alone. Working alone is never permitted in a
             scenario requiring fall arrest."
-            labelPlacement="start"
-          />
-        </FormGroup>
-      </FormControl>
-
-      <br />
-      <TextField
-        required
-        id="outlined-required"
-        label="7. Harness ID Number"
-        value={fallArrest.idNumber}
-        onChange={(e) =>
-          setFallArrest({ ...fallArrest, idNumber: e.target.value })
-        }
-      />
-
-      <br />
-      <FormControl>
-        <FormLabel id="demo-controlled-radio-buttons-group">
-          8. Webbing - Check for frayed edges, broken fibers, pulled stitches,
-          cuts, burns, and chemical damage.
-        </FormLabel>
-        <RadioGroup
-          aria-labelledby="demo-controlled-radio-buttons-group"
-          name="controlled-radio-buttons-group"
-          value={fallArrest.webbing}
-          onChange={(e) =>
-            setFallArrest({ ...fallArrest, webbing: e.target.value })
-          }
-        >
-          <FormControlLabel value="OK" control={<Radio />} label="OK" />
-          <FormControlLabel value="Issue" control={<Radio />} label="Issue" />
-          <FormControlLabel value="NA" control={<Radio />} label="N/A" />
-        </RadioGroup>
-      </FormControl>
-
-      <br />
-      <FormControl>
-        <FormLabel id="demo-controlled-radio-buttons-group">
-          9. "D" Ring/Back Pads - Check “D” rings for distortion, cracks,
-          breaks, and rough or sharp edges.
-        </FormLabel>
-        <RadioGroup
-          aria-labelledby="demo-controlled-radio-buttons-group"
-          name="controlled-radio-buttons-group"
-          value={fallArrest.dRing}
-          onChange={(e) =>
-            setFallArrest({ ...fallArrest, dRing: e.target.value })
-          }
-        >
-          <FormControlLabel value="OK" control={<Radio />} label="OK" />
-          <FormControlLabel value="Issue" control={<Radio />} label="Issue" />
-          <FormControlLabel value="NA" control={<Radio />} label="N/A" />
-        </RadioGroup>
-      </FormControl>
-
-      <div>
-        <Box textAlign="center">
+                labelPlacement="start"
+              />
+            </FormGroup>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12} sm={12}>
           <Button
             variant="contained"
             className="submit"
@@ -195,8 +216,8 @@ const FAChecklist = () => {
           >
             Submit
           </Button>
-        </Box>
-      </div>
+        </Grid>
+      </Grid>
     </div>
   );
 };
