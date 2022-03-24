@@ -1,11 +1,22 @@
 import { useState, useContext } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+// import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { CompletedChecklistContext } from "./index";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import DatePicker from "@mui/lab/DatePicker";
+import Checkbox from "@mui/material/Checkbox";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
 
 const FAChecklist = () => {
   let { fallArrestComplete } = useContext(CompletedChecklistContext);
@@ -54,146 +65,127 @@ const FAChecklist = () => {
 
   return (
     <div className="form-container">
-      <div className="date-picker">
-        <label className="date-picker-label">1. Date of Inspection:</label>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
         <DatePicker
-          className="text-Input"
-          selected={fallArrest.date}
-          showTimeSelect
-          onChange={(date) => setFallArrest({ ...fallArrest, date: date })}
-          maxDate={new Date()}
+          label="1. Date of Inspection"
+          value={fallArrest.date}
+          onChange={(date) => {
+            setFallArrest({ ...fallArrest, date: date });
+          }}
+          renderInput={(params) => <TextField {...params} />}
         />
-      </div>
-      <label>2. Employee Name: </label>
-      <input
-        className="text-Input"
-        type="text"
+      </LocalizationProvider>
+      <TextField
+        required
+        id="outlined-required"
+        label="2. Employee Name"
         value={fallArrest.employeeName}
         onChange={(e) =>
           setFallArrest({ ...fallArrest, employeeName: e.target.value })
         }
       />
       <br />
-      <label>3. Location: </label>
-      <input
-        className="text-Input"
-        type="text"
+      <TextField
+        required
+        id="outlined-required"
+        label="3. Location"
         value={fallArrest.location}
         onChange={(e) =>
           setFallArrest({ ...fallArrest, location: e.target.value })
         }
       />
       <br />
-      <label>4. Task Description: </label>
-      <input
-        className="text-Input"
-        type="text"
+      <TextField
+        required
+        id="outlined-required"
+        label="4. Task Description"
         value={fallArrest.task}
         onChange={(e) => setFallArrest({ ...fallArrest, task: e.target.value })}
       />
       <br />
-      <label>
-        5. There is an applicable and realistic rescue plan in place for this
-        work{" "}
-      </label>
-      <input
-        type="checkbox"
-        value={fallArrest.plan}
-        checked={fallArrest.plan}
-        onChange={(e) =>
-          setFallArrest({ ...fallArrest, plan: e.target.checked })
-        }
-      />
+      <FormControl component="fieldset">
+        <FormGroup aria-label="position" row>
+          <FormControlLabel
+            value={fallArrest.plan}
+            checked={fallArrest.plan}
+            onChange={(e) =>
+              setFallArrest({ ...fallArrest, plan: e.target.checked })
+            }
+            control={<Checkbox />}
+            label="5. There is an applicable and realistic rescue plan in place for this
+          work"
+            labelPlacement="start"
+          />
+        </FormGroup>
+      </FormControl>
       <br />
-      <label>
-        6. I am not working alone. Working alone is never permitted in a
-        scenario requiring fall arrest.{" "}
-      </label>
-      <input
-        type="checkbox"
-        value={fallArrest.alone}
-        checked={fallArrest.alone}
-        onChange={(e) =>
-          setFallArrest({ ...fallArrest, alone: e.target.checked })
-        }
-      />
+      <FormControl component="fieldset">
+        <FormGroup aria-label="position" row>
+          <FormControlLabel
+            value={fallArrest.alone}
+            checked={fallArrest.alone}
+            onChange={(e) =>
+              setFallArrest({ ...fallArrest, alone: e.target.checked })
+            }
+            control={<Checkbox />}
+            label="6. I am not working alone. Working alone is never permitted in a
+            scenario requiring fall arrest."
+            labelPlacement="start"
+          />
+        </FormGroup>
+      </FormControl>
+
       <br />
-      <label>7. Harness ID Number: </label>
-      <input
-        className="text-Input"
-        type="text"
+      <TextField
+        required
+        id="outlined-required"
+        label="7. Harness ID Number"
         value={fallArrest.idNumber}
         onChange={(e) =>
           setFallArrest({ ...fallArrest, idNumber: e.target.value })
         }
       />
+
       <br />
-      <label>
-        8. Webbing - Check for frayed edges, broken fibers, pulled stitches,
-        cuts, burns, and chemical damage.
-      </label>
+      <FormControl>
+        <FormLabel id="demo-controlled-radio-buttons-group">
+          8. Webbing - Check for frayed edges, broken fibers, pulled stitches,
+          cuts, burns, and chemical damage.
+        </FormLabel>
+        <RadioGroup
+          aria-labelledby="demo-controlled-radio-buttons-group"
+          name="controlled-radio-buttons-group"
+          value={fallArrest.webbing}
+          onChange={(e) =>
+            setFallArrest({ ...fallArrest, webbing: e.target.value })
+          }
+        >
+          <FormControlLabel value="OK" control={<Radio />} label="OK" />
+          <FormControlLabel value="Issue" control={<Radio />} label="Issue" />
+          <FormControlLabel value="NA" control={<Radio />} label="N/A" />
+        </RadioGroup>
+      </FormControl>
+
       <br />
-      <input
-        onChange={(e) =>
-          setFallArrest({ ...fallArrest, webbing: e.target.value })
-        }
-        type="radio"
-        value="OK"
-        //control to keep from multiple radio buttons in the same question being checked
-        checked={fallArrest.webbing === "OK"}
-      ></input>
-      OK <br />
-      <input
-        onChange={(e) =>
-          setFallArrest({ ...fallArrest, webbing: e.target.value })
-        }
-        type="radio"
-        value="Issue"
-        checked={fallArrest.webbing === "Issue"}
-      ></input>
-      Issue <br />
-      <input
-        onChange={(e) =>
-          setFallArrest({ ...fallArrest, webbing: e.target.value })
-        }
-        type="radio"
-        value="NA"
-        checked={fallArrest.webbing === "NA"}
-      ></input>
-      N/A
-      <br />
-      <label>
-        9. "D" Ring/Back Pads - Check “D” rings for distortion, cracks, breaks,
-        and rough or sharp edges.
-      </label>
-      <br />
-      <input
-        onChange={(e) =>
-          setFallArrest({ ...fallArrest, dRing: e.target.value })
-        }
-        type="radio"
-        value="OK"
-        checked={fallArrest.dRing === "OK"}
-      ></input>
-      OK <br />
-      <input
-        onChange={(e) =>
-          setFallArrest({ ...fallArrest, dRing: e.target.value })
-        }
-        type="radio"
-        value="Issue"
-        checked={fallArrest.dRing === "Issue"}
-      ></input>
-      Issue <br />
-      <input
-        onChange={(e) =>
-          setFallArrest({ ...fallArrest, dRing: e.target.value })
-        }
-        type="radio"
-        value="NA"
-        checked={fallArrest.dRing === "NA"}
-      ></input>
-      N/A
+      <FormControl>
+        <FormLabel id="demo-controlled-radio-buttons-group">
+          9. "D" Ring/Back Pads - Check “D” rings for distortion, cracks,
+          breaks, and rough or sharp edges.
+        </FormLabel>
+        <RadioGroup
+          aria-labelledby="demo-controlled-radio-buttons-group"
+          name="controlled-radio-buttons-group"
+          value={fallArrest.dRing}
+          onChange={(e) =>
+            setFallArrest({ ...fallArrest, dRing: e.target.value })
+          }
+        >
+          <FormControlLabel value="OK" control={<Radio />} label="OK" />
+          <FormControlLabel value="Issue" control={<Radio />} label="Issue" />
+          <FormControlLabel value="NA" control={<Radio />} label="N/A" />
+        </RadioGroup>
+      </FormControl>
+
       <div>
         <Box textAlign="center">
           <Button
