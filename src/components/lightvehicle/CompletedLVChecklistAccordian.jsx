@@ -10,7 +10,6 @@ import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 const CompletedLVChecklistAccordian = ({ LVChecklist }) => {
   const LVDate = new Date(LVChecklist.date);
   const LVDateString = LVDate.toString();
-  const [expanded, setExpanded] = React.useState(false);
   let counter = 0;
 
   if (LVChecklist.oil === "Issue") {
@@ -26,15 +25,9 @@ const CompletedLVChecklistAccordian = ({ LVChecklist }) => {
     counter += 1;
   }
 
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
-  };
   return (
     <div>
-      <Accordion
-        expanded={expanded === "panel1"}
-        onChange={handleChange("panel1")}
-      >
+      <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"

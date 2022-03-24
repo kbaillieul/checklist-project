@@ -10,7 +10,6 @@ import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 const CompletedFAChecklistAccordian = ({ FAChecklist }) => {
   const FADate = new Date(FAChecklist.date);
   const FADateString = FADate.toString();
-  const [expanded, setExpanded] = React.useState(false);
 
   //counter tracks number of issues identified in checklist
   let counter = 0;
@@ -27,15 +26,10 @@ const CompletedFAChecklistAccordian = ({ FAChecklist }) => {
   if (FAChecklist.webbing === "Issue") {
     counter += 1;
   }
-  const handleChange = (panel) => (isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
-  };
+
   return (
     <div>
-      <Accordion
-        expanded={expanded === "panel1"}
-        onChange={handleChange("panel1")}
-      >
+      <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
