@@ -1,13 +1,21 @@
 import { useState, useContext } from "react";
-import DatePicker from "react-datepicker";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import "react-datepicker/dist/react-datepicker.css";
-import {
-  CompletedChecklistContext
-} from "./index";
+import { CompletedChecklistContext } from "./index";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import DatePicker from "@mui/lab/DatePicker";
+import Checkbox from "@mui/material/Checkbox";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import Grid from "@mui/material/Grid";
 
 const HEChecklist = () => {
   const { heavyEquipmentComplete } = useContext(CompletedChecklistContext);
@@ -15,7 +23,7 @@ const HEChecklist = () => {
   const defaultHE = {
     key: "",
     type: "heavyEquipment",
-    date: "",
+    date: null,
     employeeName: "",
     location: "",
     idNum: "",
@@ -48,179 +56,154 @@ const HEChecklist = () => {
   };
   return (
     <div className="form-container">
-      <div className="date-picker">
-        <label className="date-picker-label">1. Date of Inspection</label>
-        <DatePicker
-          className="text-Input"
-          selected={heavyEquip.date}
-          showTimeSelect
-          onChange={(date) => setHeavyEquip({ ...heavyEquip, date: date })}
-          maxDate={new Date()}
-        />
-      </div>
-      <label>2. Employee Name</label>
-      <input
-        className="text-Input"
-        type="text"
-        value={heavyEquip.employeeName}
-        onChange={(e) =>
-          setHeavyEquip({ ...heavyEquip, employeeName: e.target.value })
-        }
-      />
-      <br />
-      <label>3. Location</label>
-      <input
-        className="text-Input"
-        type="text"
-        value={heavyEquip.location}
-        onChange={(e) =>
-          setHeavyEquip({ ...heavyEquip, location: e.target.value })
-        }
-      />
-      <div>
-        <label>4. Equipment ID Number</label>
-        <input
-          className="text-Input"
-          type="text"
-          value={heavyEquip.idNum}
-          onChange={(e) =>
-            setHeavyEquip({ ...heavyEquip, idNum: e.target.value })
-          }
-        />
-        <br />
-        <label>
-          5. Nearby Hazards - Check for safety and environmental hazards around
-          equipment and work site
-        </label>
-        <br />
-        <input
-          onChange={(e) =>
-            setHeavyEquip({ ...heavyEquip, hazard: e.target.value })
-          }
-          type="radio"
-          value="OK"
-          checked={heavyEquip.hazard === "OK"}
-        ></input>
-        OK <br />
-        <input
-          onChange={(e) =>
-            setHeavyEquip({ ...heavyEquip, hazard: e.target.value })
-          }
-          type="radio"
-          value="Issue"
-          checked={heavyEquip.hazard === "Issue"}
-        ></input>
-        Issue <br />
-        <input
-          onChange={(e) =>
-            setHeavyEquip({ ...heavyEquip, hazard: e.target.value })
-          }
-          type="radio"
-          value="NA"
-          checked={heavyEquip.hazard === "NA"}
-        ></input>
-        N/A
-        <br />
-        <label>
-          6. Fluid Levels and Leaks - Check levels and potential leaks of engine
-          oil, fuel, hydralic and radiator fluid.{" "}
-        </label>
-        <br />
-        <input
-          onChange={(e) =>
-            setHeavyEquip({ ...heavyEquip, fluid: e.target.value })
-          }
-          type="radio"
-          value="OK"
-          checked={heavyEquip.fluid === "OK"}
-        ></input>
-        OK <br />
-        <input
-          onChange={(e) =>
-            setHeavyEquip({ ...heavyEquip, fluid: e.target.value })
-          }
-          type="radio"
-          value="Issue"
-          checked={heavyEquip.fluid === "Issue"}
-        ></input>
-        Issue <br />
-        <input
-          onChange={(e) =>
-            setHeavyEquip({ ...heavyEquip, fluid: e.target.value })
-          }
-          type="radio"
-          value="NA"
-          checked={heavyEquip.fluid === "NA"}
-        ></input>
-        N/A
-        <br />
-        <label>
-          7. Backup Alarm - Check backup alarm is working and loud enough to be
-          heard in an operational environment.
-        </label>
-        <br />
-        <input
-          onChange={(e) =>
-            setHeavyEquip({ ...heavyEquip, alarm: e.target.value })
-          }
-          type="radio"
-          value="OK"
-          checked={heavyEquip.alarm === "OK"}
-        ></input>
-        OK <br />
-        <input
-          onChange={(e) =>
-            setHeavyEquip({ ...heavyEquip, alarm: e.target.value })
-          }
-          type="radio"
-          value="Issue"
-          checked={heavyEquip.alarm === "Issue"}
-        ></input>
-        Issue <br />
-        <input
-          onChange={(e) =>
-            setHeavyEquip({ ...heavyEquip, alarm: e.target.value })
-          }
-          type="radio"
-          value="NA"
-          checked={heavyEquip.alarm === "NA"}
-        ></input>
-        N/A
-        <br />
-        <label>
-          8. Hydraulics - Check for cylinders, hoses, and valves free from leaks
-          and damage.{" "}
-        </label>
-        <br />
-        <input
-          onChange={(e) =>
-            setHeavyEquip({ ...heavyEquip, hydraulics: e.target.value })
-          }
-          type="radio"
-          value="OK"
-          checked={heavyEquip.hydraulics === "OK"}
-        ></input>
-        OK <br />
-        <input
-          onChange={(e) =>
-            setHeavyEquip({ ...heavyEquip, hydraulics: e.target.value })
-          }
-          type="radio"
-          value="Issue"
-          checked={heavyEquip.hydraulics === "Issue"}
-        ></input>
-        Issue <br />
-        <input
-          onChange={(e) =>
-            setHeavyEquip({ ...heavyEquip, hydraulics: e.target.value })
-          }
-          type="radio"
-          value="NA"
-          checked={heavyEquip.hydraulics === "NA"}
-        ></input>
-        N/A
-        <br />
-        <Box textAlign="center">
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6}>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <DatePicker
+              maxDate={new Date()}
+              label="1. Date of Inspection"
+              value={heavyEquip.date}
+              onChange={(date) => {
+                setHeavyEquip({ ...heavyEquip, date: date });
+              }}
+              renderInput={(params) => <TextField {...params} fullWidth />}
+            />
+          </LocalizationProvider>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            fullWidth
+            required
+            id="outlined-required"
+            label="2. Employee Name"
+            value={heavyEquip.employeeName}
+            onChange={(e) =>
+              setHeavyEquip({ ...heavyEquip, employeeName: e.target.value })
+            }
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            fullWidth
+            required
+            id="outlined-required"
+            label="3. Location"
+            value={heavyEquip.location}
+            onChange={(e) =>
+              setHeavyEquip({ ...heavyEquip, location: e.target.value })
+            }
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            fullWidth
+            required
+            id="outlined-required"
+            label="4. Heavy Equipment ID Number"
+            value={heavyEquip.idNum}
+            onChange={(e) =>
+              setHeavyEquip({ ...heavyEquip, idNum: e.target.value })
+            }
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <FormControl>
+            <FormLabel id="demo-controlled-radio-buttons-group">
+              5. Nearby Hazards - Check for safety and environmental hazards
+              around equipment and work site
+            </FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-controlled-radio-buttons-group"
+              name="controlled-radio-buttons-group"
+              value={heavyEquip.hazard}
+              onChange={(e) =>
+                setHeavyEquip({ ...heavyEquip, hazard: e.target.value })
+              }
+            >
+              <FormControlLabel value="OK" control={<Radio />} label="OK" />
+              <FormControlLabel
+                value="Issue"
+                control={<Radio />}
+                label="Issue"
+              />
+              <FormControlLabel value="NA" control={<Radio />} label="N/A" />
+            </RadioGroup>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <FormControl>
+            <FormLabel id="demo-controlled-radio-buttons-group">
+              6. Fluid Levels and Leaks - Check levels and potential leaks of
+              engine oil, fuel, hydralic and radiator fluid.
+            </FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-controlled-radio-buttons-group"
+              name="controlled-radio-buttons-group"
+              value={heavyEquip.fluid}
+              onChange={(e) =>
+                setHeavyEquip({ ...heavyEquip, fluid: e.target.value })
+              }
+            >
+              <FormControlLabel value="OK" control={<Radio />} label="OK" />
+              <FormControlLabel
+                value="Issue"
+                control={<Radio />}
+                label="Issue"
+              />
+              <FormControlLabel value="NA" control={<Radio />} label="N/A" />
+            </RadioGroup>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <FormControl>
+            <FormLabel id="demo-controlled-radio-buttons-group">
+              7. Backup Alarm - Check backup alarm is working and loud enough to
+              be heard in an operational environment.
+            </FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-controlled-radio-buttons-group"
+              name="controlled-radio-buttons-group"
+              value={heavyEquip.alarm}
+              onChange={(e) =>
+                setHeavyEquip({ ...heavyEquip, alarm: e.target.value })
+              }
+            >
+              <FormControlLabel value="OK" control={<Radio />} label="OK" />
+              <FormControlLabel
+                value="Issue"
+                control={<Radio />}
+                label="Issue"
+              />
+              <FormControlLabel value="NA" control={<Radio />} label="N/A" />
+            </RadioGroup>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <FormControl>
+            <FormLabel id="demo-controlled-radio-buttons-group">
+              8. Hydraulics - Check for cylinders, hoses, and valves free from
+              leaks and damage.
+            </FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-controlled-radio-buttons-group"
+              name="controlled-radio-buttons-group"
+              value={heavyEquip.hydraulics}
+              onChange={(e) =>
+                setHeavyEquip({ ...heavyEquip, hydraulics: e.target.value })
+              }
+            >
+              <FormControlLabel value="OK" control={<Radio />} label="OK" />
+              <FormControlLabel
+                value="Issue"
+                control={<Radio />}
+                label="Issue"
+              />
+              <FormControlLabel value="NA" control={<Radio />} label="N/A" />
+            </RadioGroup>
+          </FormControl>
+        </Grid>
+
+        <Grid item xs={12} sm={12}>
           <Button
             variant="contained"
             className="submit"
@@ -228,8 +211,8 @@ const HEChecklist = () => {
           >
             Submit
           </Button>
-        </Box>
-      </div>
+        </Grid>
+      </Grid>
     </div>
   );
 };
