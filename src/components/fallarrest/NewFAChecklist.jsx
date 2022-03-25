@@ -24,7 +24,7 @@ const FAChecklist = () => {
   const defaultFA = {
     key: "",
     type: "fallArrest",
-    date: "",
+    date: null,
     employeeName: "",
     location: "",
     task: "",
@@ -68,6 +68,7 @@ const FAChecklist = () => {
         <Grid item xs={12} sm={6}>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DatePicker
+              maxDate={new Date()}
               label="1. Date of Inspection"
               value={fallArrest.date}
               onChange={(date) => {
