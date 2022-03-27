@@ -30,8 +30,8 @@ const CompletedLVChecklistAccordian = ({ LVChecklist }) => {
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
+          aria-controls="completed-light-vehicle-checklist"
+          id="completed-light-vehicle-checklist"
         >
           <Typography sx={{ width: "70%", flexShrink: 0 }}>
             {LVDateString}

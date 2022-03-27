@@ -30,8 +30,8 @@ const CompletedHEChecklistAccordian = ({ HEChecklist }) => {
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
+          aria-controls="completed-heavy-equipment-checklist"
+          id="completed-heavy-equipment-checklist"
         >
           <Typography sx={{ width: "70%", flexShrink: 0 }}>
             {HEDateString}

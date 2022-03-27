@@ -28,6 +28,7 @@ const HEMain = () => {
           onClick={newHE}
           variant="outlined"
           startIcon={<AddCircleOutlineIcon />}
+          aria-label="new-heavy-equipment-checklist"
         >
           New Heavy Equipment Checklist
         </Button>
@@ -36,6 +37,7 @@ const HEMain = () => {
           onClick={viewComplete}
           variant="outlined"
           startIcon={<CheckCircleOutlineIcon />}
+          aria-label="view-completed-heavy-equipment-checklists"
         >
           View Completed Checklists
         </Button>

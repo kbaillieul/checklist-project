@@ -3,13 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { CompletedChecklistContext } from "./index";
 import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DatePicker from "@mui/lab/DatePicker";
-import Checkbox from "@mui/material/Checkbox";
-import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
@@ -74,7 +71,7 @@ const HEChecklist = () => {
           <TextField
             fullWidth
             required
-            id="outlined-required"
+            id="employee-name"
             label="2. Employee Name"
             value={heavyEquip.employeeName}
             onChange={(e) =>
@@ -86,7 +83,7 @@ const HEChecklist = () => {
           <TextField
             fullWidth
             required
-            id="outlined-required"
+            id="location"
             label="3. Location"
             value={heavyEquip.location}
             onChange={(e) =>
@@ -98,7 +95,7 @@ const HEChecklist = () => {
           <TextField
             fullWidth
             required
-            id="outlined-required"
+            id="equipment-id-number"
             label="4. Heavy Equipment ID Number"
             value={heavyEquip.idNum}
             onChange={(e) =>
@@ -108,13 +105,13 @@ const HEChecklist = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <FormControl>
-            <FormLabel id="demo-controlled-radio-buttons-group">
+            <FormLabel id="nearby-hazards-radio-buttons-group">
               5. Nearby Hazards - Check for safety and environmental hazards
               around equipment and work site
             </FormLabel>
             <RadioGroup
-              aria-labelledby="demo-controlled-radio-buttons-group"
-              name="controlled-radio-buttons-group"
+              aria-labelledby="nearby-hazards-radio-buttons-group"
+              name="nearby-hazards-radio-buttons-group"
               value={heavyEquip.hazard}
               onChange={(e) =>
                 setHeavyEquip({ ...heavyEquip, hazard: e.target.value })
@@ -132,13 +129,13 @@ const HEChecklist = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <FormControl>
-            <FormLabel id="demo-controlled-radio-buttons-group">
+            <FormLabel id="fluid-levels-radio-buttons-group">
               6. Fluid Levels and Leaks - Check levels and potential leaks of
               engine oil, fuel, hydralic and radiator fluid.
             </FormLabel>
             <RadioGroup
-              aria-labelledby="demo-controlled-radio-buttons-group"
-              name="controlled-radio-buttons-group"
+              aria-labelledby="fluid-levels-radio-buttons-group"
+              name="fluid-levels-radio-buttons-group"
               value={heavyEquip.fluid}
               onChange={(e) =>
                 setHeavyEquip({ ...heavyEquip, fluid: e.target.value })
@@ -156,13 +153,13 @@ const HEChecklist = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <FormControl>
-            <FormLabel id="demo-controlled-radio-buttons-group">
+            <FormLabel id="backup-alarm-radio-buttons-group">
               7. Backup Alarm - Check backup alarm is working and loud enough to
               be heard in an operational environment.
             </FormLabel>
             <RadioGroup
-              aria-labelledby="demo-controlled-radio-buttons-group"
-              name="controlled-radio-buttons-group"
+              aria-labelledby="backup-alarm-radio-buttons-group"
+              name="backup-alarm-radio-buttons-group"
               value={heavyEquip.alarm}
               onChange={(e) =>
                 setHeavyEquip({ ...heavyEquip, alarm: e.target.value })
@@ -180,13 +177,13 @@ const HEChecklist = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <FormControl>
-            <FormLabel id="demo-controlled-radio-buttons-group">
+            <FormLabel id="hydraulics-radio-buttons-group">
               8. Hydraulics - Check for cylinders, hoses, and valves free from
               leaks and damage.
             </FormLabel>
             <RadioGroup
-              aria-labelledby="demo-controlled-radio-buttons-group"
-              name="controlled-radio-buttons-group"
+              aria-labelledby="hydraulics-radio-buttons-group"
+              name="hydraulics-radio-buttons-group"
               value={heavyEquip.hydraulics}
               onChange={(e) =>
                 setHeavyEquip({ ...heavyEquip, hydraulics: e.target.value })
@@ -208,6 +205,7 @@ const HEChecklist = () => {
             variant="contained"
             className="submit"
             onClick={submitChecklist}
+            aria-label="submit-button"
           >
             Submit
           </Button>

@@ -28,6 +28,7 @@ const LVMain = () => {
           onClick={newLV}
           variant="outlined"
           startIcon={<AddCircleOutlineIcon />}
+          aria-label="new-light-vehicle-checklist"
         >
           New Light Vehicle Checklist
         </Button>
@@ -36,6 +37,7 @@ const LVMain = () => {
           onClick={viewComplete}
           variant="outlined"
           startIcon={<CheckCircleOutlineIcon />}
+          aria-label="view-completed-light-vehicle-checklist"
         >
           View Completed Checklists
         </Button>

@@ -4,13 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { CompletedChecklistContext } from "./index";
 import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DatePicker from "@mui/lab/DatePicker";
-import Checkbox from "@mui/material/Checkbox";
-import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
@@ -74,7 +71,7 @@ const LVChecklist = () => {
           <TextField
             fullWidth
             required
-            id="outlined-required"
+            id="employee-name"
             label="2. Employee Name"
             value={lightVehicle.employeeName}
             onChange={(e) =>
@@ -86,7 +83,7 @@ const LVChecklist = () => {
           <TextField
             fullWidth
             required
-            id="outlined-required"
+            id="location"
             label="3. Location"
             value={lightVehicle.location}
             onChange={(e) =>
@@ -98,8 +95,8 @@ const LVChecklist = () => {
           <TextField
             fullWidth
             required
-            id="outlined-required"
-            label="4. Heavy Equipment ID Number"
+            id="light-vehicle-id-number"
+            label="4. Light Vehicle ID Number"
             value={lightVehicle.idNum}
             onChange={(e) =>
               setLightVehicle({ ...lightVehicle, idNum: e.target.value })
@@ -108,12 +105,12 @@ const LVChecklist = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <FormControl>
-            <FormLabel id="demo-controlled-radio-buttons-group">
+            <FormLabel id="fuel-level-radio-buttons-group">
               5. Fuel Level
             </FormLabel>
             <RadioGroup
-              aria-labelledby="demo-controlled-radio-buttons-group"
-              name="controlled-radio-buttons-group"
+              aria-labelledby="fuel-level-radio-buttons-group"
+              name="fuel-level-radio-buttons-group"
               value={lightVehicle.fuel}
               onChange={(e) =>
                 setLightVehicle({ ...lightVehicle, fuel: e.target.value })
@@ -131,12 +128,12 @@ const LVChecklist = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <FormControl>
-            <FormLabel id="demo-controlled-radio-buttons-group">
+            <FormLabel id="oil-level-radio-buttons-group">
               6. Oil Level
             </FormLabel>
             <RadioGroup
-              aria-labelledby="demo-controlled-radio-buttons-group"
-              name="controlled-radio-buttons-group"
+              aria-labelledby="oil-level-radio-buttons-group"
+              name="oil-level-radio-buttons-group"
               value={lightVehicle.oil}
               onChange={(e) =>
                 setLightVehicle({ ...lightVehicle, oil: e.target.value })
@@ -154,12 +151,12 @@ const LVChecklist = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <FormControl>
-            <FormLabel id="demo-controlled-radio-buttons-group">
+            <FormLabel id="coolant-level-radio-buttons-group">
               7. Coolant Level
             </FormLabel>
             <RadioGroup
-              aria-labelledby="demo-controlled-radio-buttons-group"
-              name="controlled-radio-buttons-group"
+              aria-labelledby="coolant-level-radio-buttons-group"
+              name="coolant-level-radio-buttons-group"
               value={lightVehicle.coolant}
               onChange={(e) =>
                 setLightVehicle({ ...lightVehicle, coolant: e.target.value })
@@ -177,12 +174,12 @@ const LVChecklist = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <FormControl>
-            <FormLabel id="demo-controlled-radio-buttons-group">
+            <FormLabel id="vehicle-condition-radio-buttons-group">
               8. Vehicle is in good working condition, clean, and ready for use.
             </FormLabel>
             <RadioGroup
-              aria-labelledby="demo-controlled-radio-buttons-group"
-              name="controlled-radio-buttons-group"
+              aria-labelledby="vehicle-condition-radio-buttons-group"
+              name="vehicle-condition-radio-buttons-group"
               value={lightVehicle.confirm}
               onChange={(e) =>
                 setLightVehicle({ ...lightVehicle, confirm: e.target.value })
@@ -199,15 +196,16 @@ const LVChecklist = () => {
           </FormControl>
         </Grid>
 
-        <Box textAlign="center">
+        <Grid item xs={12} sm={6}>
           <Button
             variant="contained"
             className="submit"
             onClick={submitChecklist}
+            aria-label="submit-button"
           >
             Submit
           </Button>
-        </Box>
+        </Grid>
       </Grid>
     </div>
   );

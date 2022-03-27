@@ -15,6 +15,7 @@ import Divider from "@mui/material/Divider";
 import ListItemButton from "@mui/material/ListItemButton";
 import Background from "./Background.png";
 import Box from "@mui/material/Box";
+
 <link
   rel="stylesheet"
   href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
@@ -59,7 +60,7 @@ export default function Homepage() {
               alignItems: "center",
             }}
           >
-            <Typography variant="h1" color="primary.main" sx={{ marginTop: 3 }}>
+            <Typography variant="h2" color="primary.main" sx={{ marginTop: 3 }}>
               Welcome,
             </Typography>
             <Typography variant="h5" align="center">
@@ -79,7 +80,7 @@ export default function Homepage() {
                   sx={style}
                   onClick={() => handleRoute("/fall-arrest/completed")}
                 >
-                  <ListItemButton>
+                  <ListItemButton aria-label="fall-arrest-checklists">
                     <ListItemAvatar>
                       <Avatar>
                         <LocalHospitalIcon
@@ -97,7 +98,7 @@ export default function Homepage() {
                   sx={style}
                   onClick={() => handleRoute("/light-vehicle/completed")}
                 >
-                  <ListItemButton>
+                  <ListItemButton aria-label="light-vehicle-checklist">
                     <ListItemAvatar>
                       <Avatar>
                         <DirectionsCarIcon
@@ -114,7 +115,7 @@ export default function Homepage() {
                   sx={style}
                   onClick={() => handleRoute("/heavy-equipment/completed")}
                 >
-                  <ListItemButton>
+                  <ListItemButton aria-label="heavy-equipment-checklist">
                     <ListItemAvatar>
                       <Avatar>
                         <PrecisionManufacturingIcon
