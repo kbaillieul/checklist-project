@@ -29,6 +29,7 @@ const FAMain = () => {
           onClick={newFA}
           variant="outlined"
           startIcon={<AddCircleOutlineIcon />}
+          aria-label="create-new-fall-arrest-checklist"
         >
           New Fall Arrest Checklist
         </Button>
@@ -37,6 +38,7 @@ const FAMain = () => {
           onClick={viewComplete}
           variant="outlined"
           startIcon={<CheckCircleOutlineIcon />}
+          aria-label="view-completed-fall-arrest-checklists"
         >
           View Completed Checklists
         </Button>

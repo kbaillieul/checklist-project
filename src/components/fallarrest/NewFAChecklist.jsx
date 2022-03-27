@@ -3,13 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { CompletedChecklistContext } from "./index";
 import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DatePicker from "@mui/lab/DatePicker";
-import Checkbox from "@mui/material/Checkbox";
-import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
@@ -80,7 +77,7 @@ const FAChecklist = () => {
           <TextField
             fullWidth
             required
-            id="outlined-required"
+            id="employee-name"
             label="2. Employee Name"
             value={fallArrest.employeeName}
             onChange={(e) =>
@@ -92,7 +89,7 @@ const FAChecklist = () => {
           <TextField
             fullWidth
             required
-            id="outlined-required"
+            id="location"
             label="3. Location"
             value={fallArrest.location}
             onChange={(e) =>
@@ -104,7 +101,7 @@ const FAChecklist = () => {
           <TextField
             fullWidth
             required
-            id="outlined-required"
+            id="harness-id-number"
             label="4. Harness ID Number"
             value={fallArrest.idNumber}
             onChange={(e) =>
@@ -116,7 +113,7 @@ const FAChecklist = () => {
           <TextField
             fullWidth
             required
-            id="outlined-required"
+            id="task-description"
             label="5. Task Description"
             value={fallArrest.task}
             onChange={(e) =>
@@ -127,13 +124,13 @@ const FAChecklist = () => {
 
         <Grid item xs={12} sm={6}>
           <FormControl>
-            <FormLabel id="demo-controlled-radio-buttons-group">
+            <FormLabel id="webbing-radio-buttons-group">
               6. Webbing - Check for frayed edges, broken fibers, pulled
               stitches, cuts, burns, and chemical damage.
             </FormLabel>
             <RadioGroup
-              aria-labelledby="demo-controlled-radio-buttons-group"
-              name="controlled-radio-buttons-group"
+              aria-labelledby="webbing-radio-buttons-group"
+              name="webbing-radio-buttons-group"
               value={fallArrest.webbing}
               onChange={(e) =>
                 setFallArrest({ ...fallArrest, webbing: e.target.value })
@@ -151,13 +148,13 @@ const FAChecklist = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <FormControl>
-            <FormLabel id="demo-controlled-radio-buttons-group">
+            <FormLabel id="d-ring-radio-buttons-group">
               7. "D" Ring/Back Pads - Check “D” rings for distortion, cracks,
               breaks, and rough or sharp edges.
             </FormLabel>
             <RadioGroup
-              aria-labelledby="demo-controlled-radio-buttons-group"
-              name="controlled-radio-buttons-group"
+              aria-labelledby="d-ring-radio-buttons-group"
+              name="d-ring-radio-buttons-group"
               value={fallArrest.dRing}
               onChange={(e) =>
                 setFallArrest({ ...fallArrest, dRing: e.target.value })
@@ -179,6 +176,7 @@ const FAChecklist = () => {
             variant="contained"
             className="submit"
             onClick={submitChecklist}
+            aria-label="submit-checklist-button"
           >
             Submit
           </Button>

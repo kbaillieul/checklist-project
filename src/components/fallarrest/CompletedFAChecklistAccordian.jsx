@@ -26,8 +26,8 @@ const CompletedFAChecklistAccordian = ({ FAChecklist }) => {
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
+          aria-controls="completed-fall-arrest-checklist"
+          id="completed-fall-arrest-checklist"
         >
           <Typography sx={{ width: "70%", flexShrink: 0 }}>
             {FADateString}
