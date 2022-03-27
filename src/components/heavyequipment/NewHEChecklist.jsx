@@ -202,8 +202,10 @@ const HEChecklist = () => {
 
         <Grid item xs={12} sm={12}>
           <Button
+            type="submit"
+            fullWidth
             variant="contained"
-            className="submit"
+            sx={{ mt: 5, mb: 3 }}
             onClick={submitChecklist}
             aria-label="submit-button"
           >
