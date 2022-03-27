@@ -14,12 +14,6 @@ const CompletedFAChecklistAccordian = ({ FAChecklist }) => {
   //counter tracks number of issues identified in checklist
   let counter = 0;
 
-  if (FAChecklist.alone === false) {
-    counter += 1;
-  }
-  if (FAChecklist.plan === false) {
-    counter += 1;
-  }
   if (FAChecklist.dRing === "Issue") {
     counter += 1;
   }
@@ -50,21 +44,11 @@ const CompletedFAChecklistAccordian = ({ FAChecklist }) => {
             <h4> 1. Date Completed: {FADateString}</h4>
             <h4> 2. Completed by: {FAChecklist.employeeName}</h4>
             <h4> 3. Location: {FAChecklist.location}</h4>
-            <h4> 4. Task: {FAChecklist.task}</h4>
-            <h4>
-              {" "}
-              5. There is an applicable and realistic rescue plan in place for
-              this work: {FAChecklist.plan === true ? "True" : "False"}
-            </h4>
-            <h4>
-              {" "}
-              6. I am not working alone. Working alone is never permitted in a
-              scenario requiring fall arrest:{" "}
-              {FAChecklist.alone === true ? "True" : "False"}
-            </h4>
-            <h4> 7. Harness ID Number: {FAChecklist.idNumber}</h4>
-            <h4> 8. Webbing: {FAChecklist.webbing}</h4>
-            <h4> 9. D Rings: {FAChecklist.dRing}</h4>
+            <h4> 4. Harness ID Number: {FAChecklist.idNumber}</h4>
+            <h4> 5. Task: {FAChecklist.task}</h4>
+
+            <h4> 6. Webbing: {FAChecklist.webbing}</h4>
+            <h4> 7. D Rings: {FAChecklist.dRing}</h4>
           </Typography>
         </AccordionDetails>
       </Accordion>

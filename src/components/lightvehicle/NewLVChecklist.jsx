@@ -1,13 +1,22 @@
 import { useState, useContext } from "react";
-import DatePicker from "react-datepicker";
+
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import "react-datepicker/dist/react-datepicker.css";
-import {
-  CompletedChecklistContext
-} from "./index";
+import { CompletedChecklistContext } from "./index";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import DatePicker from "@mui/lab/DatePicker";
+import Checkbox from "@mui/material/Checkbox";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import Grid from "@mui/material/Grid";
 
 const LVChecklist = () => {
   const { lightVehicleComplete } = useContext(CompletedChecklistContext);
@@ -15,14 +24,14 @@ const LVChecklist = () => {
   const defaultLV = {
     key: "",
     type: "lightVehicle",
-    date: "",
+    date: null,
     employeeName: "",
     location: "",
     idNum: "",
     fuel: "",
     oil: "",
     coolant: "",
-    confirm: false,
+    confirm: "",
   };
   const [lightVehicle, setLightVehicle] = useState(defaultLV);
 
@@ -47,157 +56,159 @@ const LVChecklist = () => {
   };
   return (
     <div className="form-container">
-      <div className="date-picker">
-        <label className="date-picker-label">1. Date of Inspection</label>
-        <DatePicker
-          className="text-Input"
-          selected={lightVehicle.date}
-          showTimeSelect
-          onChange={(date) => setLightVehicle({ ...lightVehicle, date: date })}
-          maxDate={new Date()}
-        />
-      </div>
-      <label>2. Employee Name</label>
-      <input
-        className="text-Input"
-        type="text"
-        value={lightVehicle.employeeName}
-        onChange={(e) =>
-          setLightVehicle({ ...lightVehicle, employeeName: e.target.value })
-        }
-      />
-      <br />
-      <label>3. Location</label>
-      <input
-        className="text-Input"
-        type="text"
-        value={lightVehicle.location}
-        onChange={(e) =>
-          setLightVehicle({ ...lightVehicle, location: e.target.value })
-        }
-      />
-      <br />
-      <label>4. Light Vehicle ID Number</label>
-      <input
-        className="text-Input"
-        type="text"
-        value={lightVehicle.idNum}
-        onChange={(e) =>
-          setLightVehicle({ ...lightVehicle, idNum: e.target.value })
-        }
-      />
-      <br />
-      <label>5. Fuel Level</label>
-      <br />
-      <input
-        onChange={(e) =>
-          setLightVehicle({ ...lightVehicle, fuel: e.target.value })
-        }
-        type="radio"
-        value="OK"
-        checked={lightVehicle.fuel === "OK"}
-      ></input>
-      OK <br />
-      <input
-        onChange={(e) =>
-          setLightVehicle({ ...lightVehicle, fuel: e.target.value })
-        }
-        type="radio"
-        value="Issue"
-        checked={lightVehicle.fuel === "Issue"}
-      ></input>
-      Issue <br />
-      <input
-        onChange={(e) =>
-          setLightVehicle({ ...lightVehicle, fuel: e.target.value })
-        }
-        type="radio"
-        value="NA"
-        checked={lightVehicle.fuel === "NA"}
-      ></input>
-      N/A
-      <br />
-      <label>6. Oil Level</label>
-      <br />
-      <input
-        onChange={(e) =>
-          setLightVehicle({ ...lightVehicle, oil: e.target.value })
-        }
-        type="radio"
-        value="OK"
-        checked={lightVehicle.oil === "OK"}
-      ></input>
-      OK <br />
-      <input
-        onChange={(e) =>
-          setLightVehicle({ ...lightVehicle, oil: e.target.value })
-        }
-        type="radio"
-        value="Issue"
-        checked={lightVehicle.oil === "Issue"}
-      ></input>
-      Issue <br />
-      <input
-        onChange={(e) =>
-          setLightVehicle({ ...lightVehicle, oil: e.target.value })
-        }
-        type="radio"
-        value="NA"
-        checked={lightVehicle.oil === "NA"}
-      ></input>
-      N/A
-      <br />
-      <label>7. Coolant Level</label>
-      <br />
-      <input
-        onChange={(e) =>
-          setLightVehicle({ ...lightVehicle, coolant: e.target.value })
-        }
-        type="radio"
-        value="OK"
-        checked={lightVehicle.coolant === "OK"}
-      ></input>
-      OK <br />
-      <input
-        onChange={(e) =>
-          setLightVehicle({ ...lightVehicle, coolant: e.target.value })
-        }
-        type="radio"
-        value="Issue"
-        checked={lightVehicle.coolant === "Issue"}
-      ></input>
-      Issue <br />
-      <input
-        onChange={(e) =>
-          setLightVehicle({ ...lightVehicle, coolant: e.target.value })
-        }
-        type="radio"
-        value="NA"
-        checked={lightVehicle.coolant === "NA"}
-      ></input>
-      N/A
-      <br />
-      <label>
-        8. Vehicle is in good working condition, clean, and ready for use.{" "}
-      </label>
-      <input
-        type="checkbox"
-        value={lightVehicle.confirm}
-        checked={lightVehicle.confirm}
-        onChange={(e) =>
-          setLightVehicle({ ...lightVehicle, confirm: e.target.checked })
-        }
-      />
-      <br />
-      <Box textAlign="center">
-        <Button
-          variant="contained"
-          className="submit"
-          onClick={submitChecklist}
-        >
-          Submit
-        </Button>
-      </Box>
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6}>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <DatePicker
+              maxDate={new Date()}
+              label="1. Date of Inspection"
+              value={lightVehicle.date}
+              onChange={(date) => {
+                setLightVehicle({ ...lightVehicle, date: date });
+              }}
+              renderInput={(params) => <TextField {...params} fullWidth />}
+            />
+          </LocalizationProvider>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            fullWidth
+            required
+            id="outlined-required"
+            label="2. Employee Name"
+            value={lightVehicle.employeeName}
+            onChange={(e) =>
+              setLightVehicle({ ...lightVehicle, employeeName: e.target.value })
+            }
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            fullWidth
+            required
+            id="outlined-required"
+            label="3. Location"
+            value={lightVehicle.location}
+            onChange={(e) =>
+              setLightVehicle({ ...lightVehicle, location: e.target.value })
+            }
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            fullWidth
+            required
+            id="outlined-required"
+            label="4. Heavy Equipment ID Number"
+            value={lightVehicle.idNum}
+            onChange={(e) =>
+              setLightVehicle({ ...lightVehicle, idNum: e.target.value })
+            }
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <FormControl>
+            <FormLabel id="demo-controlled-radio-buttons-group">
+              5. Fuel Level
+            </FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-controlled-radio-buttons-group"
+              name="controlled-radio-buttons-group"
+              value={lightVehicle.fuel}
+              onChange={(e) =>
+                setLightVehicle({ ...lightVehicle, fuel: e.target.value })
+              }
+            >
+              <FormControlLabel value="OK" control={<Radio />} label="OK" />
+              <FormControlLabel
+                value="Issue"
+                control={<Radio />}
+                label="Issue"
+              />
+              <FormControlLabel value="NA" control={<Radio />} label="N/A" />
+            </RadioGroup>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <FormControl>
+            <FormLabel id="demo-controlled-radio-buttons-group">
+              6. Oil Level
+            </FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-controlled-radio-buttons-group"
+              name="controlled-radio-buttons-group"
+              value={lightVehicle.oil}
+              onChange={(e) =>
+                setLightVehicle({ ...lightVehicle, oil: e.target.value })
+              }
+            >
+              <FormControlLabel value="OK" control={<Radio />} label="OK" />
+              <FormControlLabel
+                value="Issue"
+                control={<Radio />}
+                label="Issue"
+              />
+              <FormControlLabel value="NA" control={<Radio />} label="N/A" />
+            </RadioGroup>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <FormControl>
+            <FormLabel id="demo-controlled-radio-buttons-group">
+              7. Coolant Level
+            </FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-controlled-radio-buttons-group"
+              name="controlled-radio-buttons-group"
+              value={lightVehicle.coolant}
+              onChange={(e) =>
+                setLightVehicle({ ...lightVehicle, coolant: e.target.value })
+              }
+            >
+              <FormControlLabel value="OK" control={<Radio />} label="OK" />
+              <FormControlLabel
+                value="Issue"
+                control={<Radio />}
+                label="Issue"
+              />
+              <FormControlLabel value="NA" control={<Radio />} label="N/A" />
+            </RadioGroup>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <FormControl>
+            <FormLabel id="demo-controlled-radio-buttons-group">
+              8. Vehicle is in good working condition, clean, and ready for use.
+            </FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-controlled-radio-buttons-group"
+              name="controlled-radio-buttons-group"
+              value={lightVehicle.confirm}
+              onChange={(e) =>
+                setLightVehicle({ ...lightVehicle, confirm: e.target.value })
+              }
+            >
+              <FormControlLabel value="OK" control={<Radio />} label="OK" />
+              <FormControlLabel
+                value="Issue"
+                control={<Radio />}
+                label="Issue"
+              />
+              <FormControlLabel value="NA" control={<Radio />} label="N/A" />
+            </RadioGroup>
+          </FormControl>
+        </Grid>
+
+        <Box textAlign="center">
+          <Button
+            variant="contained"
+            className="submit"
+            onClick={submitChecklist}
+          >
+            Submit
+          </Button>
+        </Box>
+      </Grid>
     </div>
   );
 };

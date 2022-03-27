@@ -28,8 +28,6 @@ const FAChecklist = () => {
     employeeName: "",
     location: "",
     task: "",
-    plan: false,
-    alone: false,
     idNumber: "",
     webbing: "",
     dRing: "",
@@ -175,40 +173,7 @@ const FAChecklist = () => {
             </RadioGroup>
           </FormControl>
         </Grid>
-        <Grid item xs={12} sm={12}>
-          <FormControl component="fieldset">
-            <FormGroup aria-label="position" row>
-              <FormControlLabel
-                value={fallArrest.plan}
-                checked={fallArrest.plan}
-                onChange={(e) =>
-                  setFallArrest({ ...fallArrest, plan: e.target.checked })
-                }
-                control={<Checkbox />}
-                label="8. There is an applicable and realistic rescue plan in place for this
-          work"
-                labelPlacement="start"
-              />
-            </FormGroup>
-          </FormControl>
-        </Grid>
-        <Grid item xs={12} sm={12}>
-          <FormControl component="fieldset">
-            <FormGroup aria-label="position" row>
-              <FormControlLabel
-                value={fallArrest.alone}
-                checked={fallArrest.alone}
-                onChange={(e) =>
-                  setFallArrest({ ...fallArrest, alone: e.target.checked })
-                }
-                control={<Checkbox />}
-                label="9. I am not working alone. Working alone is never permitted in a
-            scenario requiring fall arrest."
-                labelPlacement="start"
-              />
-            </FormGroup>
-          </FormControl>
-        </Grid>
+
         <Grid item xs={12} sm={12}>
           <Button
             variant="contained"

@@ -21,7 +21,7 @@ const CompletedLVChecklistAccordian = ({ LVChecklist }) => {
   if (LVChecklist.fuel === "Issue") {
     counter += 1;
   }
-  if (LVChecklist.confirm === false) {
+  if (LVChecklist.confirm === "Issue") {
     counter += 1;
   }
 
@@ -55,7 +55,7 @@ const CompletedLVChecklistAccordian = ({ LVChecklist }) => {
             <h4>
               {" "}
               8. Vehicle is in good working condition, clean, and ready for use:{" "}
-              {LVChecklist.confirm === true ? "True" : "False"}
+              {LVChecklist.confirm}
             </h4>
           </Typography>
         </AccordionDetails>
