@@ -16,6 +16,9 @@ import ListItemText from "@mui/material/ListItemText";
 import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import ListItemButton from "@mui/material/ListItemButton";
+import Switch from "@mui/material/Switch";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
 
 const drawerWidth = 220;
 
@@ -64,7 +67,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
-export default function PersistentDrawerLeft() {
+export default function PersistentDrawerLeft({ check, change }) {
   const navigate = useNavigate();
   const handleRoute = (route) => {
     navigate(route);
@@ -151,6 +154,12 @@ export default function PersistentDrawerLeft() {
           </ListItem>
         </List>
         <Divider />
+        <FormGroup>
+          <FormControlLabel
+            control={<Switch onChange={change} checked={check} />}
+            label="Dark Mode"
+          />
+        </FormGroup>
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
