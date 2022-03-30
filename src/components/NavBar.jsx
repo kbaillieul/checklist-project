@@ -154,12 +154,14 @@ export default function PersistentDrawerLeft({ check, change }) {
           </ListItem>
         </List>
         <Divider />
-        <FormGroup>
-          <FormControlLabel
-            control={<Switch onChange={change} checked={check} />}
-            label="Dark Mode"
-          />
-        </FormGroup>
+        <Box sx={{ m: 2 }}>
+          <FormGroup>
+            <FormControlLabel
+              control={<Switch onChange={change} checked={check} />}
+              label="Dark Mode"
+            />
+          </FormGroup>
+        </Box>
       </Drawer>
       <Main open={open}>
         <DrawerHeader />

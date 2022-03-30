@@ -36,8 +36,6 @@ export default function Homepage() {
       <Grid
         container
         component="main"
-        rowSpacing={0}
-        columnSpacing={8}
         sx={{
           height: "100vh",
         }}
