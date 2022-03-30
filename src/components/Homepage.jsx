@@ -33,7 +33,15 @@ export default function Homepage() {
   };
   return (
     <div>
-      <Grid container component="main" spacing={8} sx={{ height: "100vh" }}>
+      <Grid
+        container
+        component="main"
+        rowSpacing={0}
+        columnSpacing={8}
+        sx={{
+          height: "100vh",
+        }}
+      >
         <CssBaseline />
         <Grid
           xs={false}
@@ -50,7 +58,7 @@ export default function Homepage() {
             backgroundPosition: "center",
           }}
         />
-        <Grid item xs={12} sm={8} md={5} elevation={6} square>
+        <Grid item xs={12} sm={8} md={5}>
           <Box
             sx={{
               my: 8,

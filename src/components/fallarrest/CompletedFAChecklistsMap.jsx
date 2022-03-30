@@ -15,7 +15,6 @@ import Typography from "@mui/material/Typography";
 const CompletedFAChecklistsMap = () => {
   const { fallArrestComplete } = useContext(CompletedChecklistContext);
   let completed = fallArrestComplete.value();
-  // let FAEmpty = fallArrestComplete.value;
   if (completed.length === 0) {
     return (
       <div>
