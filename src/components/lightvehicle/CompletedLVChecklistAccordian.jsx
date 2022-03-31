@@ -26,7 +26,7 @@ const CompletedLVChecklistAccordian = ({ LVChecklist }) => {
   }
 
   return (
-    <div>
+    <>
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -60,7 +60,7 @@ const CompletedLVChecklistAccordian = ({ LVChecklist }) => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-    </div>
+    </>
   );
 };
 

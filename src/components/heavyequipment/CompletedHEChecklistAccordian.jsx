@@ -26,7 +26,7 @@ const CompletedHEChecklistAccordian = ({ HEChecklist }) => {
   }
 
   return (
-    <div>
+    <>
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -56,7 +56,7 @@ const CompletedHEChecklistAccordian = ({ HEChecklist }) => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-    </div>
+    </>
   );
 };
 

@@ -17,7 +17,7 @@ const CompletedFAChecklistsMap = () => {
   let completed = fallArrestComplete.value();
   if (completed.length === 0) {
     return (
-      <div>
+      <>
         <Typography variant="h4" align="center">
           Completed Fall Arrest Checklists
         </Typography>
@@ -26,11 +26,11 @@ const CompletedFAChecklistsMap = () => {
             No Fall Arrest Checklists have been completed yet.
           </Alert>
         </Stack>
-      </div>
+      </>
     );
   } else {
     return (
-      <div>
+      <>
         <Typography variant="h5" align="center">
           Completed Fall Arrest Checklists
         </Typography>
@@ -40,7 +40,7 @@ const CompletedFAChecklistsMap = () => {
             <CompletedFAChecklistAccordian FAChecklist={FAChecklist} />
           ))}
         <hr />
-      </div>
+      </>
     );
   }
 };

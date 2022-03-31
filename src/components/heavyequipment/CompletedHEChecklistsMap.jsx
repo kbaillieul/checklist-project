@@ -17,7 +17,7 @@ const CompletedHEChecklistsMap = () => {
   let completed = heavyEquipmentComplete.value();
   if (completed.length === 0) {
     return (
-      <div>
+      <>
         <Typography variant="h5" align="center">
           Completed Heavy Equipment Checklists
         </Typography>
@@ -26,11 +26,11 @@ const CompletedHEChecklistsMap = () => {
             No Heavy Equipment Checklists have been completed yet.
           </Alert>
         </Stack>
-      </div>
+      </>
     );
   } else {
     return (
-      <div>
+      <>
         <Typography variant="h5" align="center">
           Completed Heavy Equipment Checklists
         </Typography>
@@ -40,7 +40,7 @@ const CompletedHEChecklistsMap = () => {
             <CompletedHEChecklistAccordian HEChecklist={HEChecklist} />
           ))}
         <hr />
-      </div>
+      </>
     );
   }
 };

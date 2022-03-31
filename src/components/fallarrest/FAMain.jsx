@@ -19,7 +19,7 @@ const FAMain = () => {
     navigate("/fall-arrest/completed");
   };
   return (
-    <div>
+    <>
       <Typography variant="h2" align="center">
         Fall Arrest Checklists
       </Typography>
@@ -47,7 +47,7 @@ const FAMain = () => {
       <br />
       <hr />
       <Outlet />
-    </div>
+    </>
   );
 };
 

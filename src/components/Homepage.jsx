@@ -32,7 +32,7 @@ export default function Homepage() {
     navigate(route);
   };
   return (
-    <div>
+    <>
       <Grid
         container
         component="main"
@@ -138,6 +138,6 @@ export default function Homepage() {
           </Box>
         </Grid>
       </Grid>
-    </div>
+    </>
   );
 }

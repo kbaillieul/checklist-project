@@ -19,7 +19,7 @@ const HEMain = () => {
     navigate("/heavy-equipment/completed");
   };
   return (
-    <div>
+    <>
       <Typography variant="h2" align="center">
         Heavy Equipment Checklists
       </Typography>
@@ -45,7 +45,7 @@ const HEMain = () => {
       <br />
       <hr />
       <Outlet />
-    </div>
+    </>
   );
 };
 

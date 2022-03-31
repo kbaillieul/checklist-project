@@ -17,7 +17,7 @@ const CompletedLVChecklistsMap = () => {
   let completed = lightVehicleComplete.value();
   if (completed.length === 0) {
     return (
-      <div>
+      <>
         <Typography variant="h5" align="center">
           Completed Light Vehicle Checklists
         </Typography>
@@ -26,11 +26,11 @@ const CompletedLVChecklistsMap = () => {
             No Light Vehicle Checklists have been completed yet.
           </Alert>
         </Stack>
-      </div>
+      </>
     );
   } else {
     return (
-      <div>
+      <>
         <Typography variant="h5" align="center">
           Completed Light Vehicle Checklists
         </Typography>
@@ -40,7 +40,7 @@ const CompletedLVChecklistsMap = () => {
             <CompletedLVChecklistAccordian LVChecklist={LVChecklist} />
           ))}
         <hr />
-      </div>
+      </>
     );
   }
 };

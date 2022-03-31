@@ -58,7 +58,7 @@ const FAChecklist = () => {
   };
 
   return (
-    <div className="form-container">
+    <>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -184,7 +184,7 @@ const FAChecklist = () => {
           </Button>
         </Grid>
       </Grid>
-    </div>
+    </>
   );
 };
 

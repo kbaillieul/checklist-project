@@ -19,7 +19,7 @@ const LVMain = () => {
     navigate("/light-vehicle/completed");
   };
   return (
-    <div>
+    <>
       <Typography variant="h2" align="center">
         Light Vehicle Checklists
       </Typography>
@@ -45,7 +45,7 @@ const LVMain = () => {
       <br />
       <hr />
       <Outlet />
-    </div>
+    </>
   );
 };
 
