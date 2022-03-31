@@ -34,9 +34,11 @@ const CompletedLVChecklistsMap = () => {
         <Typography variant="h5" align="center">
           Completed Light Vehicle Checklists
         </Typography>
-        {completed.map((LVChecklist) => (
-          <CompletedLVChecklistAccordian LVChecklist={LVChecklist} />
-        ))}
+        {completed
+          .sort((a, b) => new Date(b.date) - new Date(a.date))
+          .map((LVChecklist) => (
+            <CompletedLVChecklistAccordian LVChecklist={LVChecklist} />
+          ))}
         <hr />
       </div>
     );

@@ -34,9 +34,11 @@ const CompletedFAChecklistsMap = () => {
         <Typography variant="h5" align="center">
           Completed Fall Arrest Checklists
         </Typography>
-        {completed.map((FAChecklist) => (
-          <CompletedFAChecklistAccordian FAChecklist={FAChecklist} />
-        ))}
+        {completed
+          .sort((a, b) => new Date(b.date) - new Date(a.date))
+          .map((FAChecklist) => (
+            <CompletedFAChecklistAccordian FAChecklist={FAChecklist} />
+          ))}
         <hr />
       </div>
     );
