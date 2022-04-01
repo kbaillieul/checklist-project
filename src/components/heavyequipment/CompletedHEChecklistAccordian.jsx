@@ -9,7 +9,7 @@ import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 
 const CompletedHEChecklistAccordian = ({ HEChecklist }) => {
   const HEDate = new Date(HEChecklist.date);
-  const HEDateString = HEDate.toString();
+  const HEDateString = HEDate.toString().substr(0, 15);
   let counter = 0;
 
   if (HEChecklist.alarm === "Issue") {

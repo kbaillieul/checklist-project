@@ -9,7 +9,7 @@ import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 
 const CompletedLVChecklistAccordian = ({ LVChecklist }) => {
   const LVDate = new Date(LVChecklist.date);
-  const LVDateString = LVDate.toString();
+  const LVDateString = LVDate.toString().substr(0, 15);
   let counter = 0;
 
   if (LVChecklist.oil === "Issue") {

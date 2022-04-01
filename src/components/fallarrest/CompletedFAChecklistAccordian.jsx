@@ -9,7 +9,8 @@ import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 
 const CompletedFAChecklistAccordian = ({ FAChecklist }) => {
   const FADate = new Date(FAChecklist.date);
-  const FADateString = FADate.toString();
+
+  const FADateString = FADate.toString().substr(0, 15);
 
   //counter tracks number of issues identified in checklist
   let counter = 0;
