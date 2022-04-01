@@ -15,34 +15,25 @@ import Typography from "@mui/material/Typography";
 const CompletedHEChecklistsMap = () => {
   const { heavyEquipmentComplete } = useContext(CompletedChecklistContext);
   let completed = heavyEquipmentComplete.value();
-  if (completed.length === 0) {
-    return (
-      <>
-        <Typography variant="h5" align="center">
-          Completed Heavy Equipment Checklists
-        </Typography>
+  return (
+    <>
+      <Typography variant="h4" align="center">
+        Completed Heavy Equipment Checklists
+      </Typography>
+      {completed.length === 0 ? (
         <Stack sx={{ width: "100%" }} spacing={2}>
           <Alert severity="info">
             No Heavy Equipment Checklists have been completed yet.
           </Alert>
         </Stack>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <Typography variant="h5" align="center">
-          Completed Heavy Equipment Checklists
-        </Typography>
-        {completed
+      ) : (
+        completed
           .sort((a, b) => new Date(b.date) - new Date(a.date))
           .map((HEChecklist) => (
             <CompletedHEChecklistAccordian HEChecklist={HEChecklist} />
-          ))}
-        <hr />
-      </>
-    );
-  }
+          ))
+      )}
+    </>
+  );
 };
-
 export default CompletedHEChecklistsMap;

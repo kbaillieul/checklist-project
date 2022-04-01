@@ -15,34 +15,26 @@ import Typography from "@mui/material/Typography";
 const CompletedFAChecklistsMap = () => {
   const { fallArrestComplete } = useContext(CompletedChecklistContext);
   let completed = fallArrestComplete.value();
-  if (completed.length === 0) {
-    return (
-      <>
-        <Typography variant="h4" align="center">
-          Completed Fall Arrest Checklists
-        </Typography>
+  return (
+    <>
+      <Typography variant="h4" align="center">
+        Completed Fall Arrest Checklists
+      </Typography>
+      {completed.length === 0 ? (
         <Stack sx={{ width: "100%" }} spacing={2}>
           <Alert severity="info">
             No Fall Arrest Checklists have been completed yet.
           </Alert>
         </Stack>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <Typography variant="h5" align="center">
-          Completed Fall Arrest Checklists
-        </Typography>
-        {completed
+      ) : (
+        completed
           .sort((a, b) => new Date(b.date) - new Date(a.date))
           .map((FAChecklist) => (
             <CompletedFAChecklistAccordian FAChecklist={FAChecklist} />
-          ))}
-        <hr />
-      </>
-    );
-  }
+          ))
+      )}
+    </>
+  );
 };
 
 export default CompletedFAChecklistsMap;
