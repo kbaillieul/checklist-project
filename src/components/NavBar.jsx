@@ -19,6 +19,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import Switch from "@mui/material/Switch";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import HomeIcon from "@mui/icons-material/Home";
 
 const drawerWidth = 220;
 
@@ -88,15 +89,26 @@ export default function PersistentDrawerLeft({ check, change }) {
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{ mr: 2, ...(open && { display: "none" }) }}
-          >
-            <MenuIcon />
-          </IconButton>
+          <Box component="div" sx={{ flex: 1 }}>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{ mr: 2, ...(open && { display: "none" }) }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <IconButton aria-label="home" onClick={() => handleRoute("/")}>
+              <HomeIcon />
+            </IconButton>
+          </Box>
+          <FormGroup>
+            <FormControlLabel
+              control={<Switch onChange={change} checked={check} />}
+              label="Dark Mode"
+            />
+          </FormGroup>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -154,14 +166,6 @@ export default function PersistentDrawerLeft({ check, change }) {
           </ListItem>
         </List>
         <Divider />
-        <Box sx={{ m: 2 }}>
-          <FormGroup>
-            <FormControlLabel
-              control={<Switch onChange={change} checked={check} />}
-              label="Dark Mode"
-            />
-          </FormGroup>
-        </Box>
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
