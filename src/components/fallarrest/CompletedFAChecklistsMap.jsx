@@ -2,10 +2,7 @@ import React from "react";
 import Typography from "@mui/material/Typography";
 import AccordionList from "../AccordionList";
 import { useContext } from "react";
-import {
-  CompletedChecklistContext,
-  CompletedFAChecklistAccordian,
-} from "./index";
+import { CompletedChecklistContext } from "./index";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 

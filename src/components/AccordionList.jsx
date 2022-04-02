@@ -50,8 +50,8 @@ const AccordionList = (props) => {
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="completed-fall-arrest-checklist"
-          id="completed-fall-arrest-checklist"
+          aria-controls="completed-checklist"
+          id="completed-checklist"
         >
           <Typography sx={{ width: "70%", flexShrink: 0 }}>
             {dateString}
