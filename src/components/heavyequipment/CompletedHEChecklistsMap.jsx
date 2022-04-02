@@ -1,5 +1,6 @@
 import React from "react";
 import { useContext } from "react";
+import AccordionList from "../AccordionList";
 import {
   CompletedChecklistContext,
   CompletedHEChecklistAccordian,
@@ -29,8 +30,18 @@ const CompletedHEChecklistsMap = () => {
       ) : (
         completed
           .sort((a, b) => new Date(b.date) - new Date(a.date))
-          .map((HEChecklist) => (
-            <CompletedHEChecklistAccordian HEChecklist={HEChecklist} />
+          .map((checklist) => (
+            <AccordionList checklist={checklist}>
+              <Typography>
+                <h4> 2. Employee Name: {checklist.employeeName}</h4>
+                <h4> 3. Location: {checklist.location}</h4>
+                <h4> 4. Equipment ID Number: {checklist.idNum}</h4>
+                <h4> 5. Nearby Hazards: {checklist.hazard}</h4>
+                <h4> 6. Fluid Levels and Leaks: {checklist.fluid}</h4>
+                <h4> 7. Backup Alarm: {checklist.alarm}</h4>
+                <h4> 8. Hydraulics: {checklist.hydraulics}</h4>
+              </Typography>
+            </AccordionList>
           ))
       )}
     </>

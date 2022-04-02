@@ -1,5 +1,4 @@
 import React from "react";
-
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -8,34 +7,54 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 
-const CompletedLVChecklistAccordian = ({ LVChecklist }) => {
-  const LVDate = new Date(LVChecklist.date);
-  const LVDateString = LVDate.toString().substr(0, 15);
+const AccordionList = (props) => {
+  const date = new Date(props.checklist.date);
+
+  const dateString = date.toString().substr(0, 15);
+
+  //counter tracks number of issues identified in checklist
   let counter = 0;
 
-  if (LVChecklist.oil === "Issue") {
+  if (props.checklist.dRing === "Issue") {
     counter += 1;
   }
-  if (LVChecklist.coolant === "Issue") {
+  if (props.checklist.webbing === "Issue") {
     counter += 1;
   }
-  if (LVChecklist.fuel === "Issue") {
+  if (props.checklist.alarm === "Issue") {
     counter += 1;
   }
-  if (LVChecklist.confirm === "Issue") {
+  if (props.checklist.hydraulics === "Issue") {
     counter += 1;
   }
-
+  if (props.checklist.fluid === "Issue") {
+    counter += 1;
+  }
+  if (props.checklist.hazard === "Issue") {
+    counter += 1;
+  }
+  if (props.checklist.oil === "Issue") {
+    counter += 1;
+  }
+  if (props.checklist.coolant === "Issue") {
+    counter += 1;
+  }
+  if (props.checklist.fuel === "Issue") {
+    counter += 1;
+  }
+  if (props.checklist.confirm === "Issue") {
+    counter += 1;
+  }
   return (
     <>
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="completed-light-vehicle-checklist"
-          id="completed-light-vehicle-checklist"
+          aria-controls="completed-fall-arrest-checklist"
+          id="completed-fall-arrest-checklist"
         >
           <Typography sx={{ width: "70%", flexShrink: 0 }}>
-            {LVDateString}
+            {dateString}
           </Typography>
           {counter === 0 ? <CheckCircleOutlineIcon /> : <ErrorOutlineIcon />}
           <Typography sx={{ color: "text.secondary" }}>
@@ -46,18 +65,8 @@ const CompletedLVChecklistAccordian = ({ LVChecklist }) => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            <h4> 1. Date Completed: {LVDateString}</h4>
-            <h4> 2. Employee Name: {LVChecklist.employeeName}</h4>
-            <h4> 3. Location: {LVChecklist.location}</h4>
-            <h4> 4. Vehicle ID Number: {LVChecklist.idNum}</h4>
-            <h4> 5. Fuel Level: {LVChecklist.fuel}</h4>
-            <h4> 6. Oil Level: {LVChecklist.oil}</h4>
-            <h4> 7. Coolant Level: {LVChecklist.coolant}</h4>
-            <h4>
-              {" "}
-              8. Vehicle is in good working condition, clean, and ready for use:{" "}
-              {LVChecklist.confirm}
-            </h4>
+            <h4>1. Date Completed: {dateString}</h4>
+            {props.children}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -65,4 +74,4 @@ const CompletedLVChecklistAccordian = ({ LVChecklist }) => {
   );
 };
 
-export default CompletedLVChecklistAccordian;
+export default AccordionList;
