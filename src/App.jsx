@@ -15,15 +15,27 @@ import {
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CompletedChecklistProvider } from "./Contexts/CompletedChecklistContext";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
+
   const theme = createTheme({
     palette: {
       mode: darkMode ? "dark" : "light",
     },
   });
+  useEffect(() => {
+    const themeType = localStorage.getItem("dark") || "dark";
+    if (themeType !== "dark") {
+      setDarkMode(false);
+    }
+  }, []);
+
+  const changeTheme = () => {
+    localStorage.setItem("dark", darkMode ? "light" : "dark");
+    setDarkMode(!darkMode);
+  };
   return (
     <div className="container">
       <ThemeProvider theme={theme}>
@@ -32,12 +44,7 @@ function App() {
             <Routes>
               <Route
                 path="/"
-                element={
-                  <NavBar
-                    check={darkMode}
-                    change={() => setDarkMode(!darkMode)}
-                  />
-                }
+                element={<NavBar check={darkMode} change={changeTheme} />}
               >
                 <Route index element={<Homepage />} />
                 <Route path="fall-arrest" element={<FAMain />}>
