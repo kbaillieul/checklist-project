@@ -73,68 +73,65 @@ export default function Homepage() {
               Select a checklist type:
             </Typography>
 
-            <div className="divider">
-              <br />
-              <List
-                sx={{
-                  margin: 5,
-                  width: "100%",
-                  maxWidth: 450,
-                }}
+            <List
+              sx={{
+                margin: 5,
+                width: "100%",
+                maxWidth: 450,
+              }}
+            >
+              <ListItem
+                sx={style}
+                onClick={() => handleRoute("/fall-arrest/completed")}
               >
-                <ListItem
-                  sx={style}
-                  onClick={() => handleRoute("/fall-arrest/completed")}
-                >
-                  <ListItemButton aria-label="fall-arrest-checklists">
-                    <ListItemAvatar>
-                      <Avatar>
-                        <LocalHospitalIcon
-                          sx={{ bgcolor: "primary.main" }}
-                          className="icons"
-                        />
-                      </Avatar>
-                    </ListItemAvatar>
-                    <ListItemText primary="Fall Arrest Checklist" />
-                  </ListItemButton>
-                </ListItem>
-                <Divider variant="inset" component="li" />
+                <ListItemButton aria-label="fall-arrest-checklists">
+                  <ListItemAvatar>
+                    <Avatar>
+                      <LocalHospitalIcon
+                        sx={{ bgcolor: "primary.main" }}
+                        className="icons"
+                      />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText primary="Fall Arrest Checklist" />
+                </ListItemButton>
+              </ListItem>
+              <Divider variant="inset" component="li" />
 
-                <ListItem
-                  sx={style}
-                  onClick={() => handleRoute("/light-vehicle/completed")}
-                >
-                  <ListItemButton aria-label="light-vehicle-checklist">
-                    <ListItemAvatar>
-                      <Avatar>
-                        <DirectionsCarIcon
-                          sx={{ bgcolor: "primary.main" }}
-                          className="icons"
-                        />
-                      </Avatar>
-                    </ListItemAvatar>
-                    <ListItemText primary="Light Vehicle Pre-Use Inspection" />
-                  </ListItemButton>
-                </ListItem>
-                <Divider variant="inset" component="li" />
-                <ListItem
-                  sx={style}
-                  onClick={() => handleRoute("/heavy-equipment/completed")}
-                >
-                  <ListItemButton aria-label="heavy-equipment-checklist">
-                    <ListItemAvatar>
-                      <Avatar>
-                        <PrecisionManufacturingIcon
-                          sx={{ bgcolor: "primary.main" }}
-                          className="icons"
-                        />
-                      </Avatar>
-                    </ListItemAvatar>
-                    <ListItemText primary="Heavy Equipment Pre-Use Inspection" />
-                  </ListItemButton>
-                </ListItem>
-              </List>
-            </div>
+              <ListItem
+                sx={style}
+                onClick={() => handleRoute("/light-vehicle/completed")}
+              >
+                <ListItemButton aria-label="light-vehicle-checklist">
+                  <ListItemAvatar>
+                    <Avatar>
+                      <DirectionsCarIcon
+                        sx={{ bgcolor: "primary.main" }}
+                        className="icons"
+                      />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText primary="Light Vehicle Pre-Use Inspection" />
+                </ListItemButton>
+              </ListItem>
+              <Divider variant="inset" component="li" />
+              <ListItem
+                sx={style}
+                onClick={() => handleRoute("/heavy-equipment/completed")}
+              >
+                <ListItemButton aria-label="heavy-equipment-checklist">
+                  <ListItemAvatar>
+                    <Avatar>
+                      <PrecisionManufacturingIcon
+                        sx={{ bgcolor: "primary.main" }}
+                        className="icons"
+                      />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText primary="Heavy Equipment Pre-Use Inspection" />
+                </ListItemButton>
+              </ListItem>
+            </List>
           </Box>
         </Grid>
       </Grid>

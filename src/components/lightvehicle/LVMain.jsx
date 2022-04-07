@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
 <link
   rel="stylesheet"
   href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
@@ -32,7 +33,7 @@ const LVMain = () => {
         >
           New Light Vehicle Checklist
         </Button>
-        <br />
+
         <Button
           onClick={viewComplete}
           variant="outlined"
@@ -42,8 +43,8 @@ const LVMain = () => {
           View Completed Checklists
         </Button>
       </Stack>
-      <br />
-      <hr />
+
+      <Divider sx={{ m: 1 }} />
       <Outlet />
     </>
   );
