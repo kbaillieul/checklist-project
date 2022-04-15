@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import { CompletedChecklistContext } from "./index";
+import { CompletedChecklistContext } from "../../Contexts/CompletedChecklistContext";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
