@@ -13,6 +13,7 @@ import FormLabel from "@mui/material/FormLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 
 const FAChecklist = () => {
   let { fallArrestComplete } = useContext(CompletedChecklistContext);
@@ -69,13 +70,15 @@ const FAChecklist = () => {
               onChange={(date) => {
                 setFallArrest({ ...fallArrest, date: date });
               }}
-              renderInput={(params) => <TextField {...params} fullWidth />}
+              renderInput={(params) => (
+                <TextField {...params} sx={{ width: "95%", m: 2 }} />
+              )}
             />
           </LocalizationProvider>
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            fullWidth
+            sx={{ width: "95%", m: 2 }}
             required
             id="employee-name"
             label="2. Employee Name"
@@ -87,7 +90,7 @@ const FAChecklist = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            fullWidth
+            sx={{ width: "95%", m: 2 }}
             required
             id="location"
             label="3. Location"
@@ -99,7 +102,7 @@ const FAChecklist = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            fullWidth
+            sx={{ width: "95%", m: 2 }}
             required
             id="harness-id-number"
             label="4. Harness ID Number"
@@ -111,7 +114,7 @@ const FAChecklist = () => {
         </Grid>
         <Grid item xs={12} sm={12}>
           <TextField
-            fullWidth
+            sx={{ width: "97.5%", m: 2 }}
             required
             id="task-description"
             label="5. Task Description"
@@ -123,7 +126,7 @@ const FAChecklist = () => {
         </Grid>
 
         <Grid item xs={12} sm={6}>
-          <FormControl>
+          <FormControl sx={{ m: 2 }}>
             <FormLabel id="webbing-radio-buttons-group">
               6. Webbing - Check for frayed edges, broken fibers, pulled
               stitches, cuts, burns, and chemical damage.
@@ -147,7 +150,7 @@ const FAChecklist = () => {
           </FormControl>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FormControl>
+          <FormControl sx={{ m: 2 }}>
             <FormLabel id="d-ring-radio-buttons-group">
               7. "D" Ring/Back Pads - Check “D” rings for distortion, cracks,
               breaks, and rough or sharp edges.
@@ -172,16 +175,17 @@ const FAChecklist = () => {
         </Grid>
 
         <Grid item xs={12} sm={12}>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 5, mb: 3 }}
-            onClick={submitChecklist}
-            aria-label="submit-checklist-button"
-          >
-            Submit
-          </Button>
+          <Box display="flex" alignItems="center" justifyContent="center">
+            <Button
+              type="submit"
+              variant="contained"
+              sx={{ width: "25%" }}
+              onClick={submitChecklist}
+              aria-label="submit-checklist-button"
+            >
+              Submit
+            </Button>
+          </Box>
         </Grid>
       </Grid>
     </>

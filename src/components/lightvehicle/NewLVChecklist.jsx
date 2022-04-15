@@ -14,6 +14,7 @@ import FormLabel from "@mui/material/FormLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 
 const LVChecklist = () => {
   const { lightVehicleComplete } = useContext(CompletedChecklistContext);
@@ -63,13 +64,15 @@ const LVChecklist = () => {
               onChange={(date) => {
                 setLightVehicle({ ...lightVehicle, date: date });
               }}
-              renderInput={(params) => <TextField {...params} fullWidth />}
+              renderInput={(params) => (
+                <TextField {...params} sx={{ width: "95%", m: 2 }} />
+              )}
             />
           </LocalizationProvider>
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            fullWidth
+            sx={{ width: "95%", m: 2 }}
             required
             id="employee-name"
             label="2. Employee Name"
@@ -81,7 +84,7 @@ const LVChecklist = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            fullWidth
+            sx={{ width: "95%", m: 2 }}
             required
             id="location"
             label="3. Location"
@@ -93,7 +96,7 @@ const LVChecklist = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            fullWidth
+            sx={{ width: "95%", m: 2 }}
             required
             id="light-vehicle-id-number"
             label="4. Light Vehicle ID Number"
@@ -104,7 +107,7 @@ const LVChecklist = () => {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FormControl>
+          <FormControl sx={{ m: 2 }}>
             <FormLabel id="fuel-level-radio-buttons-group">
               5. Fuel Level
             </FormLabel>
@@ -127,7 +130,7 @@ const LVChecklist = () => {
           </FormControl>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FormControl>
+          <FormControl sx={{ m: 2 }}>
             <FormLabel id="oil-level-radio-buttons-group">
               6. Oil Level
             </FormLabel>
@@ -150,7 +153,7 @@ const LVChecklist = () => {
           </FormControl>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FormControl>
+          <FormControl sx={{ m: 2 }}>
             <FormLabel id="coolant-level-radio-buttons-group">
               7. Coolant Level
             </FormLabel>
@@ -173,7 +176,7 @@ const LVChecklist = () => {
           </FormControl>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FormControl>
+          <FormControl sx={{ m: 2 }}>
             <FormLabel id="vehicle-condition-radio-buttons-group">
               8. Vehicle is in good working condition, clean, and ready for use.
             </FormLabel>
@@ -197,16 +200,17 @@ const LVChecklist = () => {
         </Grid>
 
         <Grid item xs={12} sm={12}>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 5, mb: 3 }}
-            onClick={submitChecklist}
-            aria-label="submit-button"
-          >
-            Submit
-          </Button>
+          <Box display="flex" alignItems="center" justifyContent="center">
+            <Button
+              type="submit"
+              variant="contained"
+              sx={{ width: "25%" }}
+              onClick={submitChecklist}
+              aria-label="submit-button"
+            >
+              Submit
+            </Button>
+          </Box>
         </Grid>
       </Grid>
     </>

@@ -13,6 +13,7 @@ import FormLabel from "@mui/material/FormLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 
 const HEChecklist = () => {
   const { heavyEquipmentComplete } = useContext(CompletedChecklistContext);
@@ -63,13 +64,15 @@ const HEChecklist = () => {
               onChange={(date) => {
                 setHeavyEquip({ ...heavyEquip, date: date });
               }}
-              renderInput={(params) => <TextField {...params} fullWidth />}
+              renderInput={(params) => (
+                <TextField {...params} sx={{ width: "95%", m: 2 }} />
+              )}
             />
           </LocalizationProvider>
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            fullWidth
+            sx={{ width: "95%", m: 2 }}
             required
             id="employee-name"
             label="2. Employee Name"
@@ -81,7 +84,7 @@ const HEChecklist = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            fullWidth
+            sx={{ width: "95%", m: 2 }}
             required
             id="location"
             label="3. Location"
@@ -93,7 +96,7 @@ const HEChecklist = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            fullWidth
+            sx={{ width: "95%", m: 2 }}
             required
             id="equipment-id-number"
             label="4. Heavy Equipment ID Number"
@@ -104,7 +107,7 @@ const HEChecklist = () => {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FormControl>
+          <FormControl sx={{ m: 2 }}>
             <FormLabel id="nearby-hazards-radio-buttons-group">
               5. Nearby Hazards - Check for safety and environmental hazards
               around equipment and work site
@@ -128,7 +131,7 @@ const HEChecklist = () => {
           </FormControl>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FormControl>
+          <FormControl sx={{ m: 2 }}>
             <FormLabel id="fluid-levels-radio-buttons-group">
               6. Fluid Levels and Leaks - Check levels and potential leaks of
               engine oil, fuel, hydralic and radiator fluid.
@@ -152,7 +155,7 @@ const HEChecklist = () => {
           </FormControl>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FormControl>
+          <FormControl sx={{ m: 2 }}>
             <FormLabel id="backup-alarm-radio-buttons-group">
               7. Backup Alarm - Check backup alarm is working and loud enough to
               be heard in an operational environment.
@@ -176,7 +179,7 @@ const HEChecklist = () => {
           </FormControl>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FormControl>
+          <FormControl sx={{ m: 2 }}>
             <FormLabel id="hydraulics-radio-buttons-group">
               8. Hydraulics - Check for cylinders, hoses, and valves free from
               leaks and damage.
@@ -201,16 +204,17 @@ const HEChecklist = () => {
         </Grid>
 
         <Grid item xs={12} sm={12}>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 5, mb: 3 }}
-            onClick={submitChecklist}
-            aria-label="submit-button"
-          >
-            Submit
-          </Button>
+          <Box display="flex" alignItems="center" justifyContent="center">
+            <Button
+              type="submit"
+              sx={{ width: "25%" }}
+              variant="contained"
+              onClick={submitChecklist}
+              aria-label="submit-button"
+            >
+              Submit
+            </Button>
+          </Box>
         </Grid>
       </Grid>
     </>
