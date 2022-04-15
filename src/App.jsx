@@ -26,18 +26,18 @@ function App() {
     },
   });
   useEffect(() => {
-    const themeType = localStorage.getItem("dark") || "dark";
+    const themeType = localStorage.getItem("darkMode") || "dark";
     if (themeType !== "dark") {
       setDarkMode(false);
     }
   }, []);
 
   const changeTheme = () => {
-    localStorage.setItem("dark", darkMode ? "light" : "dark");
+    localStorage.setItem("darkMode", darkMode ? "light" : "dark");
     setDarkMode(!darkMode);
   };
   return (
-    <div className="container">
+    <>
       <ThemeProvider theme={theme}>
         <CompletedChecklistProvider>
           <Router basename={process.env.PUBLIC_URL}>
@@ -73,7 +73,7 @@ function App() {
           </Router>
         </CompletedChecklistProvider>
       </ThemeProvider>
-    </div>
+    </>
   );
 }
 
